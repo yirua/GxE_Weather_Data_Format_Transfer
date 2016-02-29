@@ -12,7 +12,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -35,6 +37,10 @@ public class Read_SD_SWD_Files {
 	ArrayList<File> sd_swd_files;//local ArrayList for the sd_swd_files;
 	ArrayList<String> weather_data_abbre;
 	ArrayList<Weather_Info> weather_info_list;
+	
+	//No duplicate one in the set
+	Set<Weather_Info> weather_info_set;
+	
 	int line_width;
 	private String station_id; //default station_id is empty string
 	File file;
@@ -74,6 +80,7 @@ public class Read_SD_SWD_Files {
 		this.sd_swd_files= sd_swd_files;
 		weather_data_abbre= new ArrayList<String>();
 		weather_info_list = new ArrayList<Weather_Info>();
+		weather_info_set= new HashSet<Weather_Info>();
 		Set_Positions_To_Zero();
 		station_id="";
 		
@@ -83,6 +90,7 @@ public class Read_SD_SWD_Files {
 		this.file=file;
 		weather_data_abbre= new ArrayList<String>();
 		weather_info_list = new ArrayList<Weather_Info>();
+		weather_info_set= new HashSet<Weather_Info>();
 		//default the positions are all zero.. 
 		Set_Positions_To_Zero();
 		station_id="";
@@ -94,6 +102,15 @@ public class Read_SD_SWD_Files {
 	public ArrayList<Weather_Info> get_Weather_Info_List(){
 		return weather_info_list;
 	}
+	/*
+	 * This will return the Set<Weather_Info>...
+	 */
+	public Set<Weather_Info> get_Weather_Info_Set(){
+		return weather_info_set;
+	}
+	/*
+	 * This method will get the position for each items with certain names + abbreviations
+	 */
 	public void Read_SD_Date_SWD_File_For_Abbr_Position(File file){
 		// read the index file into a map<String, String>, to get the certain positions,decide which columns are there..
 	       // String fileName = file.getName();
@@ -458,7 +475,7 @@ public class Read_SD_SWD_Files {
 		                			System.out.println(i+"\t"+new_words[i]+"\t");
 		                		}
 */
-		                		put_weather_data_into_List(new_words);
+		                		put_Weather_Data_Into_List(new_words);
 		                		//given the certain words pos by Read_SD_Date_SWD_File_For_Abbr_Position() if they are not zero, otherwise send the string to "0"
 		                		
 		                		//create an object of Weather_Info and put that into an ArrayList of it..
@@ -494,7 +511,7 @@ public class Read_SD_SWD_Files {
 	/*
 	 * This will put the one line non empty String[] into an ArrayList
 	 */
-	private void put_weather_data_into_List(String[] words) {
+	private void put_Weather_Data_Into_List(String[] words) {
 		// TODO Auto-generated method stub
 	 try{	
 		 
@@ -588,9 +605,7 @@ public class Read_SD_SWD_Files {
 			else {
 				int temp=get_temp_f_pos();
 				weather_info_one.setTMP(words[temp]);
-				System.out.println("The weather_info_one is getting the TMP position as: "+ temp);
-				System.out.println("The weather_info_one is setting TMP in F as: "+ words[temp]);
-				System.out.println("The weather_info_one is getting TMP in F as: "+ weather_info_one.getTMP());
+
 			}
 			//TMPA IN F
 			if(get_tempa_f_pos()==0){
@@ -670,11 +685,11 @@ public class Read_SD_SWD_Files {
 				weather_info_one.setWind_Dir(words[get_wind_direction_pos()]);
 			}
 			//WIND GUST
-			if(get_wind_direction_pos()==0){
-				weather_info_one.setWind_Dir("0");
+			if(get_wind_gust_pos()==0){
+				weather_info_one.setWind_Gust("0");
 			}
 			else {
-				weather_info_one.setWind_Dir(words[get_wind_direction_pos()]);
+				weather_info_one.setWind_Gust(words[get_wind_gust_pos()]);
 			}
 			//WIND SPEED
 			if(get_wind_speed_pos()==0){
@@ -711,7 +726,7 @@ public class Read_SD_SWD_Files {
 			else {
 						weather_info_one.setVWCC(words[get_vwcc_pos()]);
 			}
-					//VWCDd
+					//VWCD
 			if(get_vwcd_pos()==0){
 						weather_info_one.setVWCD("0");
 			}
@@ -721,8 +736,12 @@ public class Read_SD_SWD_Files {
 			if(!weather_info_list.contains(weather_info_one)){
 				weather_info_list.add(weather_info_one);
 			}
+			//to avoid the redundancy
+			if(!weather_info_set.contains(weather_info_one)){
+				weather_info_set.add(weather_info_one);
+			}
 			//output the weather_info_one contents
-/*			System.out.println("The weather_info_one contents after reading: ");
+			System.out.println("The weather_info_one contents after reading: ");
 			System.out.print("Station_id:"+ weather_info_one.getStationId()+"\tMonth:"+weather_info_one.getMonth()+"\tDay:"+weather_info_one.getDay()+"\tYear:"+weather_info_one.getYear()+"\tTime:"+weather_info_one.getTime());
 			System.out.print("Dew Point:"+weather_info_one.getDew_Point()+"\tSolar Rad:"+weather_info_one.getSolar_Rad()+"\tRainfall:"+weather_info_one.getRainfall());
 			System.out.print("TMP_in_C:"+ weather_info_one.getTMP_C()+"\tTMPA_in_C:"+weather_info_one.getTMPA_C()+"\tTMPB_in_C:"+weather_info_one.getTMPB_C()+"\tTMPC_in_C:"+weather_info_one.getTMPC_C()+"\tTMPD_in_C:"+weather_info_one.getTMPD_C()+"\tTMPE_in_C:"+weather_info_one.getTMPE_C()+"\tTMPF_in_C:"+weather_info_one.getTMPF_C());
@@ -737,7 +756,7 @@ public class Read_SD_SWD_Files {
 			//humidity
 			System.out.print("Humidity:"+ weather_info_one.getRH());
 			System.out.println();
-*/			//////////////////////////////
+			//////////////////////////////
 		}	
 		 
 	 }

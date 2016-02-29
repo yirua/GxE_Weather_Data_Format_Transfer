@@ -15,6 +15,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Scanner;
+import java.util.Set;
 
 import Weather_Data_Transfer.Weather_Data_Into_DB;
 /**
@@ -177,5 +178,90 @@ public int insert_one_object_into_db(Connection connected, ArrayList<Weather_Inf
 		e.printStackTrace();
 	}
 	return infos.size();
+}
+
+public int Insert_Into_DB_By_Set(Connection connected, Set<Weather_Info> infos){
+
+	
+	for (Weather_Info info: infos){
+			try {
+				String insert_into_table="INSERT INTO gxe_weather(station_id,day,month,year,julian_date,time,temp_f,tempa_f,tempb_f,tempc_f,tempd_f,tempe_f,tempf_f,temp_c,tempa_c,tempb_c,tempc_c,tempd_c,tempe_c,tempf_c,ec_smec300,soil_moist_vwc_a,soil_moist_vwc_b,soil_moist_vwc_c,soil_moist_vwc_d,rh,dew_point,solar_radiation,rain_fall,wind_direction,wind_speed,wind_gust)"+
+										"VALUES"+"(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				
+				PreparedStatement pstmt = null;
+				
+			//	stmt = connected.createStatement();
+					
+					
+			//		String sql = "INSERT INTO raw_file(rs_id,rs_value, chromosome, _index) " +
+			//                   "VALUES" +"(?, ?, ?, ?)";
+		
+					pstmt=connected.prepareStatement(insert_into_table);
+					pstmt.setString(1, info.getStationId());
+					
+					pstmt.setString(2, info.getDay());
+					pstmt.setString(3, info.getMonth());
+					pstmt.setString(4, info.getYear());
+					pstmt.setString(5, info.getJulian_Date());
+					
+					pstmt.setString(6, info.getTime());
+					//tmp in F
+					pstmt.setString(7, info.getTMP());
+					pstmt.setString(8, info.getTMPA());
+					pstmt.setString(9, info.getTMPB());
+					
+					pstmt.setString(10, info.getTMPC());
+					pstmt.setString(11, info.getTMPD());
+					pstmt.setString(12, info.getTMPE());
+					pstmt.setString(13, info.getTMPF());
+					//tmp in c
+					pstmt.setString(14, info.getTMP_C());
+					pstmt.setString(15, info.getTMPA_C());
+					pstmt.setString(16, info.getTMPB_C());
+					pstmt.setString(17, info.getTMPC_C());
+					
+					pstmt.setString(18, info.getTMPD_C());
+					pstmt.setString(19, info.getTMPE_C());
+					pstmt.setString(20, info.getTMPF_C());
+					//ecbc
+					pstmt.setString(21, info.getECBC());
+					
+					pstmt.setString(22, info.getVWCA());
+					pstmt.setString(23, info.getVWCB());
+					pstmt.setString(24, info.getVWCC());
+					pstmt.setString(25, info.getVWCD());
+					
+					pstmt.setString(26, info.getRH());
+					pstmt.setString(27, info.getDew_Point());
+					pstmt.setString(28, info.getSolar_Rad());
+					
+					pstmt.setString(29, info.getRainfall());
+					pstmt.setString(30, info.getWind_Dir());
+					pstmt.setString(31, info.getWind_Speed());
+					pstmt.setString(32, info.getWind_Gust());
+					
+					ResultSet results=pstmt.executeQuery();
+					//pstmt.executeUpdate();
+					
+					
+				
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				//e1.printStackTrace();
+				System.out.println(e1.getMessage());
+			}
+			//only test one object
+			
+	}//for loop for the ArrayList of Weather_Info
+	//close the connection to DB
+	System.out.println("");
+	try {
+		connected.close();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return infos.size();
+
 }
 }

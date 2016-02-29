@@ -31,7 +31,9 @@ public class Weather_Info_Into_DB_Test {
 				checker.Get_SD_DATES_Files();
 				//checker.get_Files_SD_DATE();
 				files =checker.get_Files_SD_DATE();
-				reader = new Read_SD_SWD_Files(files);
+				assertEquals(7,files.size());
+			
+				
 				//truncate the table to delete all records
 				db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection());
 				
@@ -39,17 +41,23 @@ public class Weather_Info_Into_DB_Test {
 				db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection());
 				int file_ctr=0;
 				for(File file: files){
+					reader =new Read_SD_SWD_Files(file);
 					reader.Read_SD_Date_SWD_File_For_Abbr_Position(file);
 					reader.Read_SD_SWD_Files_Run(file);
 					int file_records_length=0;
 					file_records_length=db_tester.insert_one_object_into_db(Weather_Data_Into_DB.getConnection(), reader.get_Weather_Info_List());
+					//file_records_length=db_tester.Insert_Into_DB_By_Set(Weather_Data_Into_DB.getConnection(), reader.get_Weather_Info_Set());
+
 					System.out.println("One file has records with the number: "+file_records_length);
 					file_ctr++;
+					
+					reader.Set_Positions_To_Zero();
+					
 					//only test one file
-					if(file_ctr==2){
+/*					if(file_ctr==2){
 						break;
 					}
-				}
+*/				}
 				System.out.println("We have put into the gxe_weather db in the total of : "+file_ctr+" files.");
 				
 			}
