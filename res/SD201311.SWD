@@ -1,0 +1,10 @@
+IL MF500	Temperature (*F)	Temperature (*F)	Temperature (*F)	Temperature (*F)	Temperature (*F)	Temperature (*F)	RH (%)	Temperature (*F)	Rainfall (In)	Wind Dir (Deg)	Wind Gust (mph)	Wind Speed (mph)	Dew Point (*F)
+	*F	*F	*F	*F	*F	*F	%	*F	In	Deg	mph	mph	*F
+	TMPA	TMPB	TMPC	TMPD	TMPE	TMPF	HMD	TMP	RNF	WND	WNG	WNS	DEW
+2013-11-12 10:00												0	
+2013-11-12 10:15												0	
+2013-11-12 10:30												0	
+2013-11-12 10:45							6.6		0.00	358	0	0	
+2013-11-12 11:00							25.6	68.7	0.00	49	0	0	31.9
+2013-11-12 11:15							25.6	68.9	0.00	49	0	0	32.1
+2013-11-12 11:30							25.6	68.9	0.00	49	0	0	32.1

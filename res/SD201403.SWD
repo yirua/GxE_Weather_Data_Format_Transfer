@@ -1,0 +1,8 @@
+m2700s09078	Temperature (*F)	Solar Rad (wat/m2)	RH (%)	Temperature (*F)	Rainfall (In)	Wind Dir (Deg)	Wind Gust (mph)	Wind Speed (mph)	Dew Point (*F)
+	*F	wat/m2	%	*F	In	Deg	mph	mph	*F
+	TMPA	SRD	HMD	TMP	RNF	WND	WNG	WNS	DEW
+2014-03-12 09:45								0	
+2014-03-12 10:00								0	
+2014-03-12 10:30			27.8	66.8	0.00	199	0	0	32.3
+2014-03-12 10:45			27.7	67.0	0.05	180	8	0	32.4
+2014-03-12 11:00			27.7	66.9	0.00	180	0	0	32.3
