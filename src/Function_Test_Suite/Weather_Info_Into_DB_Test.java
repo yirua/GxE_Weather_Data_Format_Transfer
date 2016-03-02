@@ -28,6 +28,7 @@ public class Weather_Info_Into_DB_Test {
 			ArrayList<File> files;
 			//checker.check_SWD_Files should return true, else user should check the file folder
 			if(checker.check_SWD_Files()){
+				
 				checker.Get_SD_DATES_Files();
 				//checker.get_Files_SD_DATE();
 				files =checker.get_Files_SD_DATE();
@@ -48,16 +49,17 @@ public class Weather_Info_Into_DB_Test {
 					file_records_length=db_tester.insert_one_object_into_db(Weather_Data_Into_DB.getConnection(), reader.get_Weather_Info_List());
 					//file_records_length=db_tester.Insert_Into_DB_By_Set(Weather_Data_Into_DB.getConnection(), reader.get_Weather_Info_Set());
 
-					System.out.println("One file has records with the number: "+file_records_length);
+					System.out.println(file.getName()+" File has records with the number: "+file_records_length);
+					
 					file_ctr++;
 					
 					reader.Set_Positions_To_Zero();
 					
 					//only test one file
-/*					if(file_ctr==2){
-						break;
-					}
-*/				}
+//					if(file_ctr==1){
+//						break;
+//					}
+				}
 				System.out.println("We have put into the gxe_weather db in the total of : "+file_ctr+" files.");
 				
 			}

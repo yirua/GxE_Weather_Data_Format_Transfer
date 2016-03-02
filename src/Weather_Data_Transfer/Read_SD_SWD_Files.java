@@ -512,6 +512,7 @@ public class Read_SD_SWD_Files {
 	/*
 	 * This will put the one line non empty String[] into an ArrayList
 	 */
+	@SuppressWarnings("null")
 	private void put_Weather_Data_Into_List(String[] words) {
 		// TODO Auto-generated method stub
 	 try{	
@@ -547,15 +548,26 @@ public class Read_SD_SWD_Files {
 			weather_info_one.setYear(year_mm_dd[0]);
 			weather_info_one.setMonth(year_mm_dd[1]);
 			weather_info_one.setDay(year_mm_dd[2]);
-			Calendar calendar=new Calendar();
-			calendar.set(Integer.parseInt(year_mm_dd[0]),Integer.parseInt(year_mm_dd[1]),Integer.parseInt(year_mm_dd[2]));
+			
+			//day of year
+			Calendar calendar = Calendar.getInstance();
+			calendar.clear();
+			calendar.set(Integer.parseInt(year_mm_dd[0]),Integer.parseInt(year_mm_dd[1])-1,Integer.parseInt(year_mm_dd[2]));
+			int dayOfYear = calendar.get(Calendar.DAY_OF_YEAR); 
+			//System.out.println("int value of year, mm, dd: "+ Integer.parseInt(year_mm_dd[0])+", "+(Integer.parseInt(year_mm_dd[1])-1)+", "+Integer.parseInt(year_mm_dd[2]));
+			weather_info_one.setJulian_Date(Integer.toString(dayOfYear));
+			
+			
+			//System.out.println("The weather_info_one is setting dayOfYear as:"+ weather_info_one.getJulian_Date());
+			
+			
 			weather_info_one.setTime(time);
 			
 			
 			
 			//TMP IN C
 			if(get_temp_c_pos()==0){
-				weather_info_one.setTMP_C("0");
+				weather_info_one.setTMP_C("");
 			}
 			else {
 				weather_info_one.setTMP_C(words[get_temp_c_pos()]);
@@ -563,39 +575,39 @@ public class Read_SD_SWD_Files {
 			}
 			//TMPA IN C
 			if(get_tempa_c_pos()==0){
-				weather_info_one.setTMPA_C("0");
+				weather_info_one.setTMPA_C("");
 			}
 			else {
 				weather_info_one.setTMPA_C(words[get_tempa_c_pos()]);
 			}
 			//////////////////////////////
 			if(get_tempb_c_pos()==0){
-				weather_info_one.setTMPB_C("0");
+				weather_info_one.setTMPB_C("");
 			}
 			else {
 				weather_info_one.setTMPB_C(words[get_tempb_c_pos()]);
 			}
 			//////////////////////////////
 			if(get_tempc_c_pos()==0){
-				weather_info_one.setTMPC_C("0");
+				weather_info_one.setTMPC_C("");
 			}
 			else {
 				weather_info_one.setTMPC_C(words[get_tempc_c_pos()]);
 			}
 			if(get_tempd_c_pos()==0){
-				weather_info_one.setTMPD_C("0");
+				weather_info_one.setTMPD_C("");
 			}
 			else {
 				weather_info_one.setTMPD_C(words[get_tempd_c_pos()]);
 			}
 			if(get_tempe_c_pos()==0){
-				weather_info_one.setTMPE_C("0");
+				weather_info_one.setTMPE_C("");
 			}
 			else {
 				weather_info_one.setTMPE_C(words[get_tempe_c_pos()]);
 			}
 			if(get_tempf_c_pos()==0){
-				weather_info_one.setTMPF_C("0");
+				weather_info_one.setTMPF_C("");
 			}
 			else {
 				weather_info_one.setTMPF_C(words[get_tempf_c_pos()]);
@@ -603,7 +615,7 @@ public class Read_SD_SWD_Files {
 			//TMP IN F
 			
 			if(get_temp_f_pos()==0){
-				weather_info_one.setTMP("0");
+				weather_info_one.setTMP("");
 			}
 			else {
 				int temp=get_temp_f_pos();
@@ -612,126 +624,126 @@ public class Read_SD_SWD_Files {
 			}
 			//TMPA IN F
 			if(get_tempa_f_pos()==0){
-				weather_info_one.setTMPA("0");
+				weather_info_one.setTMPA("");
 			}
 			else {
 				weather_info_one.setTMPA(words[get_tempa_f_pos()]);
 			}
 			//TMPB IN F
 			if(get_tempb_f_pos()==0){
-				weather_info_one.setTMPB("0");
+				weather_info_one.setTMPB("");
 			}
 			else {
 				weather_info_one.setTMPB(words[get_tempb_f_pos()]);
 			}
 			//TMPC IN F
 			if(get_tempc_f_pos()==0){
-				weather_info_one.setTMPC("0");
+				weather_info_one.setTMPC("");
 			}
 			else {
 				weather_info_one.setTMPC(words[get_tempc_f_pos()]);
 			}
 			//TMPD IN F
 			if(get_tempd_f_pos()==0){
-				weather_info_one.setTMPD("0");
+				weather_info_one.setTMPD("");
 			}
 			else {
 				weather_info_one.setTMPD(words[get_tempd_f_pos()]);
 			}
 			//TMPE IN F
 			if(get_tempe_f_pos()==0){
-				weather_info_one.setTMPE("0");
+				weather_info_one.setTMPE("");
 			}
 			else {
 				weather_info_one.setTMPE(words[get_tempe_f_pos()]);
 			}
 			//TMPF IN F
 			if(get_tempf_f_pos()==0){
-				weather_info_one.setTMPF("0");
+				weather_info_one.setTMPF("");
 			}
 			else {
 				weather_info_one.setTMPF(words[get_tempf_f_pos()]);
 			}
 			//RH
 			if(get_rh_pos()==0){
-				weather_info_one.setRH("0");
+				weather_info_one.setRH("");
 			}
 			else {
 				weather_info_one.setRH(words[get_rh_pos()]);
 			}
 			//DEW
 			if(get_dew_point_pos()==0){
-				weather_info_one.setDew_Point("0");
+				weather_info_one.setDew_Point("");
 			}
 			else {
 				weather_info_one.setDew_Point(words[get_dew_point_pos()]);
 			}
 			//SOLAR RADIATION
 			if(get_solar_radiation_pos()==0){
-				weather_info_one.setSolar_Rad("0");
+				weather_info_one.setSolar_Rad("");
 			}
 			else {
 				weather_info_one.setSolar_Rad(words[get_solar_radiation_pos()]);
 			}
 			//RAIN FALL
 			if(get_rain_fall_pos()==0){
-				weather_info_one.setRainfall("0");
+				weather_info_one.setRainfall("");
 			}
 			else {
 				weather_info_one.setRainfall(words[get_rain_fall_pos()]);
 			}
 			//WIND DIR
 			if(get_wind_direction_pos()==0){
-				weather_info_one.setWind_Dir("0");
+				weather_info_one.setWind_Dir("");
 			}
 			else {
 				weather_info_one.setWind_Dir(words[get_wind_direction_pos()]);
 			}
 			//WIND GUST
 			if(get_wind_gust_pos()==0){
-				weather_info_one.setWind_Gust("0");
+				weather_info_one.setWind_Gust("");
 			}
 			else {
 				weather_info_one.setWind_Gust(words[get_wind_gust_pos()]);
 			}
 			//WIND SPEED
 			if(get_wind_speed_pos()==0){
-				weather_info_one.setWind_Speed("0");
+				weather_info_one.setWind_Speed("");
 			}
 			else {
 				weather_info_one.setWind_Speed(words[get_wind_speed_pos()]);
 			}
 			//ECBC
 			if(get_ecbc_pos()==0){
-				weather_info_one.setECBC("0");
+				weather_info_one.setECBC("");
 			}
 			else {
 				weather_info_one.setECBC(words[get_ecbc_pos()]);
 			}
 			//VWCA
 			if(get_vwca_pos()==0){
-				weather_info_one.setVWCA("0");
+				weather_info_one.setVWCA("");
 			}
 			else {
 				weather_info_one.setVWCA(words[get_vwca_pos()]);
 			}
 			//VWCB
 			if(get_vwcb_pos()==0){
-						weather_info_one.setVWCB("0");
+						weather_info_one.setVWCB("");
 			}
 			else {
 						weather_info_one.setVWCB(words[get_vwcb_pos()]);
 			}
 					//VWCC
 			if(get_vwcc_pos()==0){
-						weather_info_one.setVWCC("0");
+						weather_info_one.setVWCC("");
 			}
 			else {
 						weather_info_one.setVWCC(words[get_vwcc_pos()]);
 			}
 					//VWCD
 			if(get_vwcd_pos()==0){
-						weather_info_one.setVWCD("0");
+						weather_info_one.setVWCD("");
 			}
 			else {
 						weather_info_one.setVWCD(words[get_vwcd_pos()]);
@@ -746,6 +758,7 @@ public class Read_SD_SWD_Files {
 			//output the weather_info_one contents
 			System.out.println("The weather_info_one contents after reading: ");
 			System.out.print("Station_id:"+ weather_info_one.getStationId()+"\tMonth:"+weather_info_one.getMonth()+"\tDay:"+weather_info_one.getDay()+"\tYear:"+weather_info_one.getYear()+"\tTime:"+weather_info_one.getTime());
+			System.out.println("Day Of Year: "+weather_info_one.getJulian_Date());
 			System.out.print("Dew Point:"+weather_info_one.getDew_Point()+"\tSolar Rad:"+weather_info_one.getSolar_Rad()+"\tRainfall:"+weather_info_one.getRainfall());
 			System.out.print("TMP_in_C:"+ weather_info_one.getTMP_C()+"\tTMPA_in_C:"+weather_info_one.getTMPA_C()+"\tTMPB_in_C:"+weather_info_one.getTMPB_C()+"\tTMPC_in_C:"+weather_info_one.getTMPC_C()+"\tTMPD_in_C:"+weather_info_one.getTMPD_C()+"\tTMPE_in_C:"+weather_info_one.getTMPE_C()+"\tTMPF_in_C:"+weather_info_one.getTMPF_C());
 			System.out.println();
