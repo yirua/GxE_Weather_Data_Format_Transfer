@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -546,6 +547,8 @@ public class Read_SD_SWD_Files {
 			weather_info_one.setYear(year_mm_dd[0]);
 			weather_info_one.setMonth(year_mm_dd[1]);
 			weather_info_one.setDay(year_mm_dd[2]);
+			Calendar calendar=new Calendar();
+			calendar.set(Integer.parseInt(year_mm_dd[0]),Integer.parseInt(year_mm_dd[1]),Integer.parseInt(year_mm_dd[2]));
 			weather_info_one.setTime(time);
 			
 			
