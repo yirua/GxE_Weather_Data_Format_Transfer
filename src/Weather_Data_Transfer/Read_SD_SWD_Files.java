@@ -73,6 +73,9 @@ public class Read_SD_SWD_Files {
 	private int vwcb_pos;
 	private int vwcc_pos;
 	private int vwcd_pos; 
+	
+
+	private int uv_light_pos;
 	/*
 	 * 
 	 * ctor for list of Files
@@ -296,6 +299,10 @@ public class Read_SD_SWD_Files {
 				if(two_dimention_table.get(0).get(index).contains("Dew Point")&two_dimention_table.get(2).get(index).equalsIgnoreCase("DEW")){
 					set_dew_point_pos(index);
 				}
+			//UVL
+				if(two_dimention_table.get(0).get(index).contains("UV Light")&two_dimention_table.get(2).get(index).equalsIgnoreCase("UVL")){
+					set_uv_light_pos(index);
+				}
 			}
 			
 			//out put the postion we got 
@@ -343,7 +350,8 @@ public class Read_SD_SWD_Files {
 				System.out.println("Wind Speed " + get_wind_speed_pos());	
 				//Dew Point
 				System.out.println("Dew Point " + get_dew_point_pos());	
-			
+				//UV Light
+				System.out.println("UV Light " + get_uv_light_pos());	
 
 			
 				
@@ -386,6 +394,7 @@ public class Read_SD_SWD_Files {
 		 wind_direction_pos=0;  
 		 wind_speed_pos=0;      
 		 wind_gust_pos=0; 
+		 uv_light_pos=0;
 	}
 	
 	
@@ -748,6 +757,13 @@ public class Read_SD_SWD_Files {
 			else {
 						weather_info_one.setVWCD(words[get_vwcd_pos()]);
 			}
+			//UV LIGHT
+			if(get_uv_light_pos()==0){
+				weather_info_one.setUVL("");
+			}
+			else {
+						weather_info_one.setUVL(words[get_uv_light_pos()]);
+			}
 			if(!weather_info_list.contains(weather_info_one)){
 				weather_info_list.add(weather_info_one);
 			}
@@ -770,7 +786,9 @@ public class Read_SD_SWD_Files {
 		    //WIND 
 			System.out.print("Wind Dir:"+weather_info_one.getWind_Dir()+"\tWind Gust:"+weather_info_one.getWind_Gust()+"\tWind Speed:"+weather_info_one.getWind_Speed());
 			//humidity
-			System.out.print("Humidity:"+ weather_info_one.getRH());
+			System.out.print("\tHumidity:"+ weather_info_one.getRH());
+			//uv light
+			System.out.print("\tUV Light: "+ weather_info_one.getUVL());
 			System.out.println();
 			//////////////////////////////
 		}	
@@ -1010,9 +1028,17 @@ public class Read_SD_SWD_Files {
 	public void set_vwcd_pos(int pos){
 		vwcd_pos=pos;
 	}
+	
 	public int get_vwcd_pos(){
 		return vwcd_pos;
 	} 
+	
+	public int get_uv_light_pos() {
+		return uv_light_pos;
+	}
+	public void set_uv_light_pos(int pos) {
+		this.uv_light_pos = pos;
+	}
 	//line width
 	public void set_line_width(int pos){
 		line_width=pos;

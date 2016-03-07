@@ -1,7 +1,10 @@
 package Weather_Data_Transfer;
 
 import java.awt.Container;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.NoSuchFileException;
@@ -21,12 +24,16 @@ public class Weather_Data_Structure_Checker {
 	public JFileChooser chooser;
 	private ArrayList<File> files_SD_DATE;
 	public File[] filesInDirectory;
-	private File weather_Report;
+	private File File_Path_Report;
 	public ArrayList<String> sd_Dates;
 	ArrayList<Integer>  sd_Dates_Int;
 	public Path write_Path;
 	public boolean INDEX_SWD_FLAG;
-	public boolean SDDATE_SWD; 
+	public boolean SDDATE_SWD;
+	private ArrayList<File> filesInList;
+	private int INDEX_SWD_CTR;
+	private int INDEX_SDDATE_SWD;
+	
 
 	/**
 	 * ctor
@@ -54,7 +61,7 @@ public class Weather_Data_Structure_Checker {
 
     if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 	      System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory().getName());
-	      weather_Report = chooser.getSelectedFile();
+	      File_Path_Report = chooser.getSelectedFile();
 	      System.out.println("getSelectedFile() : " + chooser.getSelectedFile().getName());
 	      filesInDirectory = chooser.getCurrentDirectory().listFiles();
 	      System.out.println("filesInDirectory size "+filesInDirectory.length+"\nfileNames in the directory: \n");
@@ -66,7 +73,7 @@ public class Weather_Data_Structure_Checker {
 	    	  if(file.getName().equalsIgnoreCase("INDEX.SWD")){
 	    		  INDEX_SWD_FLAG=true;
 	    	  }
-		      if(file.getName().contains("SD")&file.getName().contains("SWD")){
+		      if((file.getName().contains("SD")|file.getName().contains("Watchdog"))&file.getName().contains(".SWD")){
 		    	  System.out.println(file.getName());
 		    	  files_SD_DATE.add(file);
 		    	  SDDATE_SWD=true;
@@ -96,6 +103,101 @@ public class Weather_Data_Structure_Checker {
 	}
 }   //check_SWD_files
 	
+	
+public boolean check_SWD_Files_In_Given_Path_List() throws NoSuchFileException{
+	try{
+		chooser.setCurrentDirectory(new java.io.File("/Users/yiweisun/Documents/2014 G X E data/"));
+	//	chooser.setCurrentDirectory(new java.io.File("."));
+	//	System.setProperty("user.dir", "/tmp");
+		chooser.setDialogTitle("Please choose the File which contains the file paths");
+		chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		
+	//	chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
+		chooser.setAcceptAllFileFilterUsed(true);
+
+		if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+	      System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory().getName());
+	      File_Path_Report = chooser.getSelectedFile();
+	      System.out.println("getSelectedFile() : " + chooser.getSelectedFile().getName());
+	     
+	      
+	      //read the file line by line, if last element of file_names[] contains "
+	      
+	   // The name of the file to open.
+	        String fileName = File_Path_Report.getCanonicalPath();
+
+	        // This will reference one line at a time
+	        String line = null;
+	        String file_names[];
+	        try {
+	            // FileReader reads text files in the default encoding.
+	            FileReader fileReader = 
+	                new FileReader(fileName);
+
+	            // Always wrap FileReader in BufferedReader.
+	            BufferedReader bufferedReader = 
+	                new BufferedReader(fileReader);
+
+	            while((line = bufferedReader.readLine()) != null) {
+	                //System.out.println(line);
+	            	file_names=line.split("/");
+	                if(file_names[file_names.length-1].contains(".SWD")){
+	                	filesInList.add(new File(line));
+	                	//SDDATE_SWD=true;
+	                }
+	            }   
+
+	            // Always close files.
+	            bufferedReader.close();         
+	        }
+	        catch(FileNotFoundException ex) {
+	            System.out.println(
+	                "Unable to open file '" + 
+	                fileName + "'");                
+	        }
+	        catch(IOException ex) {
+	            System.out.println(
+	                "Error reading file '" 
+	                + fileName + "'");                  
+	            // Or we could just do this: 
+	            // ex.printStackTrace();
+	        }
+	      
+	        for ( File file : filesInList ) {
+		    	  if(file.getName().equalsIgnoreCase("INDEX.SWD")){
+		    		  INDEX_SWD_FLAG=true;
+		    		 
+		    	  }
+			      if((file.getName().contains("SD")|file.getName().contains("Watchdog"))&file.getName().contains(".SWD")){
+			    	  System.out.println(file.getName());
+			    	  files_SD_DATE.add(file);
+			    	  SDDATE_SWD=true;
+			    	
+			      } 
+	      
+	      ///////////////////
+	     // filesInDirectory = chooser.getCurrentDirectory().listFiles();
+	        System.out.println("the output of SDDATE_SWD");
+		      for ( File file_in_SD: files_SD_DATE){
+		    	  System.out.println(file_in_SD.getName());
+		      }
+      
+	     
+	        }
+      
+      
+		}
+	    else{
+	    	System.out.println("No Selection ");
+	    }
+	}catch (NullPointerException e){
+			e.printStackTrace();
+	}
+		finally{
+			return INDEX_SWD_FLAG&SDDATE_SWD;
+	}
+} 
 	/**
 	 * THIS Method will get more information(total of SDYEARMN.SWD and writing path for next step.)
 	 */

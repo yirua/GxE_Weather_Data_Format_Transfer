@@ -75,6 +75,7 @@ public class Weather_Info {
     private String month;
     private String day;
     private String julian_date; //
+	private String uv_light;
     
     
     public String getStationId() {
@@ -347,5 +348,12 @@ public class Weather_Info {
 	 */
 	public void setMonth(String month) {
 		this.month = month;
+	}
+	public void setUVL(String uv_light) {
+		// TODO Auto-generated method stub
+		this.uv_light=uv_light;
 	}  
+	public String getUVL(){
+		return uv_light;
+	}
 }

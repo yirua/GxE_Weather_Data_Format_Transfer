@@ -1,7 +1,9 @@
+package Function_Test_Suite;
+
 /**
  * 
  */
-package Function_Test_Suite;
+
 
 import static org.junit.Assert.*;
 
@@ -18,7 +20,7 @@ import Weather_Data_Transfer.Weather_Data_Into_DB;
  * @author yiweisun
  *
  */
-public class Weather_Info_Into_DB_Test {
+public class Weather_Info_Into_Remote_DB_Test {
 	Weather_Data_Structure_Checker checker= new Weather_Data_Structure_Checker();
 	Read_SD_SWD_Files reader;
 	Weather_Data_Into_DB db_tester = new Weather_Data_Into_DB();
@@ -34,19 +36,19 @@ public class Weather_Info_Into_DB_Test {
 				files =checker.get_Files_SD_DATE();
 				assertEquals(7,files.size());
 			
-				
+				db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote());
 				//truncate the table to delete all records
-				db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Local());
+//				db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Remote());
 				
 				//drop then create to make the serial number starting with 1
-				db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Local());
+//				db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote());
 				int file_ctr=0;
-				for(File file: files){
+			for(File file: files){
 					reader =new Read_SD_SWD_Files(file);
 					reader.Read_SD_Date_SWD_File_For_Abbr_Position(file);
 					reader.Read_SD_SWD_Files_Run(file);
 					int file_records_length=0;
-					file_records_length=db_tester.insert_one_object_into_db(Weather_Data_Into_DB.getConnection_Local(), reader.get_Weather_Info_List());
+					file_records_length=db_tester.insert_one_object_into_db(Weather_Data_Into_DB.getConnection_Remote(), reader.get_Weather_Info_List());
 					//file_records_length=db_tester.Insert_Into_DB_By_Set(Weather_Data_Into_DB.getConnection(), reader.get_Weather_Info_Set());
 
 					System.out.println(file.getName()+" File has records with the number: "+file_records_length);
