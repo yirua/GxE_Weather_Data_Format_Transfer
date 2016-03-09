@@ -76,6 +76,61 @@ public class Read_SD_SWD_Files {
 	
 
 	private int uv_light_pos;
+	
+	
+	//Newly POS added according to Darwin's list 
+	
+	 	private int temperatureInt_in_F_pos; //TEMP interval IN F
+	    private int temperatureIR_in_F_pos; //TEMP IR IN F
+	    
+	    private int temperatureInt_in_C_pos;  //TEMP INTERNAL in C
+	    private int temperatureIR__in_C_pos; //TEMP IR IN C
+	    
+	    
+	    private int wsolar_rad_pos;//WSolar_rad
+	    private int barometer_pos; //BAR
+	    private int barometerXR_pos; //BARXR
+	    private int milliAmp_pos; //MAM
+	    private int wmilliAmp_pos; //WMAM
+	    private int lmilliAmp_pos; //LMAM
+	    
+	    
+	    private int rainfallIn_pos;
+	    private int rainfallMM_pos; //
+	    
+	    private int wetness_pos; //WET
+		private int par_pos; //PAR
+		private int wpar_pos; //WPAR
+		
+		private int watermark_pos; //SMS
+		private int watermarkA_pos; //SMSA
+		private int watermarkB_pos; //SMSB
+		private int watermarkC_pos; //SMSC
+		private int watermarkD_pos; //SMSD
+		private int lowTension_pos; //SMSLT
+		private int co2_pos;//CO2
+		
+		
+		//STATE
+		private int state_pos;//STA
+	    private int ec_pos; //ECB (Triple Sensor)
+	    
+	    private int echo25_pos;//soil_moist_vwc25
+	    private int echo5_pos; //soil_moist_vwc5
+	    private int echo10_pos; //soil_moist_vwc10
+	    private int sm100_pos; //soil_moist_vwc100 VWC
+	    
+	    private int none_pos;
+	    private int raw_pos; //RAW
+	    private int voltage_pos; //VLT
+	    private int battery_pos; //VLT_BAT
+	    
+	    private int batteryPct_pos;//BTL
+	    private int wvoltage_pos; //WVLT
+	    
+	 //////////////////////////new strings  POS
+	
+	
 	/*
 	 * 
 	 * ctor for list of Files
@@ -226,7 +281,14 @@ public class Read_SD_SWD_Files {
 					set_tempf_f_pos(index);
 				}
 				
-				
+				//TempInt
+				if(two_dimention_table.get(0).get(index).contains("TemperatureInt (*F)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("TMP")){
+					setTemperatureInt_in_F_pos(index);
+				}
+				//IRTemp
+				if(two_dimention_table.get(0).get(index).contains("IRTemp (*F)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("TMP")){
+					setTemperatureIR_in_F_pos(index);
+				}
 			////////TMP IN C
 				
 				if(two_dimention_table.get(1).get(index).contains("*C")&two_dimention_table.get(2).get(index).equalsIgnoreCase("TMP")){
@@ -303,6 +365,174 @@ public class Read_SD_SWD_Files {
 				if(two_dimention_table.get(0).get(index).contains("UV Light")&two_dimention_table.get(2).get(index).equalsIgnoreCase("UVL")){
 					set_uv_light_pos(index);
 				}
+			/////////////////////////////////////////////////new items
+				//TempInt in F
+				if(two_dimention_table.get(0).get(index).contains("TemperatureInt (*F)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("TMP")){
+					setTemperatureInt_in_F_pos(index);
+				}
+				//IRTemp in F
+				if(two_dimention_table.get(0).get(index).contains("IRTemp (*F)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("TMP")){
+					setTemperatureIR_in_F_pos(index);
+				}	
+				
+				//TempInt in C
+				if(two_dimention_table.get(0).get(index).contains("TemperatureInt (*C)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("TMP")){
+					setTemperatureInt_in_C_pos(index);
+				}
+				//IRTemp in C
+				if(two_dimention_table.get(0).get(index).contains("IRTemp (*C)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("TMP")){
+					setTemperatureIR_in_C_pos(index);
+				}	
+				////////////wsolar_rad_pos
+				if(two_dimention_table.get(0).get(index).contains("WSolarRad")&two_dimention_table.get(2).get(index).equalsIgnoreCase("SRD")){
+					setWsolar_rad_pos(index);
+				}	
+				
+				// private int barometer_pos; //BAR
+				if(two_dimention_table.get(0).get(index).contains("Barometer")&two_dimention_table.get(2).get(index).equalsIgnoreCase("BAR")){
+					setBarometer_pos(index);
+				}	
+				// private int barometerXR_pos; //BARXR
+				if(two_dimention_table.get(0).get(index).contains("BarometerXR")&two_dimention_table.get(2).get(index).equalsIgnoreCase("BAR")){
+					setBarometerXR_pos(index);
+				}	
+				//private int milliAmp_pos; //MAM
+				if(two_dimention_table.get(0).get(index).contains("MilliAmp")&two_dimention_table.get(2).get(index).equalsIgnoreCase("MAM")){
+					setMilliAmp_pos(index);
+				}	
+				// private int wmilliAmp_pos; //WMAM
+				if(two_dimention_table.get(0).get(index).contains("WMilliAmp")&two_dimention_table.get(2).get(index).equalsIgnoreCase("WMAM")){
+					setWmilliAmp_pos(index);
+				}	
+				//private int lmilliAmp_pos; //LMAM
+				   
+				if(two_dimention_table.get(0).get(index).contains("LMilliAmp")&two_dimention_table.get(2).get(index).equalsIgnoreCase("LMAM")){
+					setLmilliAmp_pos(index);
+				}	
+				 // private int rainfallIn_pos;  
+				if(two_dimention_table.get(0).get(index).contains("RainfallIn")&two_dimention_table.get(2).get(index).equalsIgnoreCase("RNF")){
+					setRainfallIn_pos(index);
+				}	
+				// private int rainfallMM_pos; //
+				if(two_dimention_table.get(0).get(index).contains("RainfallMM")&two_dimention_table.get(2).get(index).equalsIgnoreCase("RNF")){
+					setRainfallMM_pos(index);
+				}	
+				// private int wetness_pos; //WET
+				if(two_dimention_table.get(0).get(index).contains("Wetness")&two_dimention_table.get(2).get(index).equalsIgnoreCase("WET")){
+					setWetness_pos(index);
+				}	
+				//private int par_pos; //PAR
+				if(two_dimention_table.get(0).get(index).contains("PAR")&two_dimention_table.get(2).get(index).equalsIgnoreCase("PAR")){
+					setPar_pos(index);
+				}	
+				//private int wpar_pos; //WPAR
+				   
+				if(two_dimention_table.get(0).get(index).contains("WPAR")&two_dimention_table.get(2).get(index).equalsIgnoreCase("PAR")){
+					setWpar_pos(index);
+				}	
+				    
+				//    private int watermark_pos; //SMS
+				if(two_dimention_table.get(0).get(index).contains("Watermark")&two_dimention_table.get(2).get(index).equalsIgnoreCase("SMS")){
+					setWatermark_pos(index);
+				}	
+				       
+				//private int watermarkA_pos; //SMSA   
+				if(two_dimention_table.get(0).get(index).contains("WatermarkA")&two_dimention_table.get(2).get(index).equalsIgnoreCase("SMS")){
+					setWatermarkA_pos(index);
+				}   
+				    
+				//private int watermarkB_pos; //SMSB   
+				if(two_dimention_table.get(0).get(index).contains("WatermarkB")&two_dimention_table.get(2).get(index).equalsIgnoreCase("SMS")){
+					setWatermarkB_pos(index);
+				} 
+					
+				//private int watermarkC_pos; //SMSC	
+				if(two_dimention_table.get(0).get(index).contains("WatermarkC")&two_dimention_table.get(2).get(index).equalsIgnoreCase("SMS")){
+					setWatermarkC_pos(index);
+				} 	
+				//private int watermarkD_pos; //SMSD	
+				if(two_dimention_table.get(0).get(index).contains("WatermarkD")&two_dimention_table.get(2).get(index).equalsIgnoreCase("SMS")){
+					setWatermarkD_pos(index);
+				} 
+				
+				//private int lowTension_pos; //SMS Low Tension
+				if(two_dimention_table.get(0).get(index).contains("LowTension")&two_dimention_table.get(2).get(index).equalsIgnoreCase("SMS")){
+					setLowTension_pos(index);
+				} 
+				//	private int co2_pos;//CO2
+				if(two_dimention_table.get(0).get(index).contains("CO2")&two_dimention_table.get(2).get(index).equalsIgnoreCase("CO2")){
+					setCo2_pos(index);
+				} 
+				////STATE
+				//private int state_pos;//STA
+				if(two_dimention_table.get(0).get(index).contains("State")&two_dimention_table.get(2).get(index).equalsIgnoreCase("STA")){
+					setState_pos(index);
+				} 
+					
+				//EC	private int ec_pos; //ECB (Triple Sensor)
+				
+				if(two_dimention_table.get(0).get(index).contains("EC")&two_dimention_table.get(2).get(index).equalsIgnoreCase("ECB")){
+					setEc_pos(index);
+				} 	
+				
+				//private int echo5_pos; //soil_moist_vwc5
+				
+				if(two_dimention_table.get(0).get(index).contains("ECHO5")&two_dimention_table.get(2).get(index).equalsIgnoreCase("VWC")){
+					setEcho5_pos(index);
+				} 
+				
+				//private int echo10_pos; //soil_moist_vwc10
+				if(two_dimention_table.get(0).get(index).contains("ECHO10")&two_dimention_table.get(2).get(index).equalsIgnoreCase("VWC")){
+					setEcho10_pos(index);
+				}
+				
+				// private int echo25_pos;//soil_moist_vwc25
+				if(two_dimention_table.get(0).get(index).contains("ECHO25")&two_dimention_table.get(2).get(index).equalsIgnoreCase("VWC")){
+					setEcho25_pos(index);
+				} 	
+					
+				//    private int sm100_pos; //soil_moist_vwc100 VWC
+				    
+				if(two_dimention_table.get(0).get(index).contains("SM100")&two_dimention_table.get(2).get(index).equalsIgnoreCase("VWC")){
+					setSm100_pos(index);
+				} 
+				
+				//private int none_pos;
+				if(two_dimention_table.get(0).get(index).contains("NONE")&two_dimention_table.get(2).get(index).equalsIgnoreCase("")){
+					setNone_pos(index);
+				} 
+				
+				// private int raw_pos; //RAW
+				if(two_dimention_table.get(0).get(index).contains("RAW")&two_dimention_table.get(2).get(index).equalsIgnoreCase("RAW")){
+					setRaw_pos(index);
+				} 
+				    
+				//    private int voltage_pos; //VLT
+				if(two_dimention_table.get(0).get(index).contains("Voltage")&two_dimention_table.get(2).get(index).equalsIgnoreCase("VLT")){
+					setVoltage_pos(index);
+				}    
+				    
+				//    private int battery_pos; //VLT_BAT
+				   
+				if(two_dimention_table.get(0).get(index).contains("Battery")&two_dimention_table.get(2).get(index).equalsIgnoreCase("VLT")){
+					setBattery_pos(index);
+				}    
+				//   private int batteryPct_pos;//BTL 
+				if(two_dimention_table.get(0).get(index).contains("BatteryPct")&two_dimention_table.get(2).get(index).equalsIgnoreCase("BTL")){
+					setBatteryPct_pos(index);
+				}  
+				
+				// private int wvoltage_pos; //WVLT
+				if(two_dimention_table.get(0).get(index).contains("WVoltage")&two_dimention_table.get(2).get(index).equalsIgnoreCase("VLT")){
+					setBattery_pos(index);
+				}  
+				    
+				   
+				
+				
+				
+				
+			/////////////////////////////////////////////////new items	
 			}
 			
 			//out put the postion we got 
@@ -395,6 +625,12 @@ public class Read_SD_SWD_Files {
 		 wind_speed_pos=0;      
 		 wind_gust_pos=0; 
 		 uv_light_pos=0;
+		 
+		 
+		 //new items
+		 
+		 
+		 //new items
 	}
 	
 	
@@ -764,6 +1000,16 @@ public class Read_SD_SWD_Files {
 			else {
 						weather_info_one.setUVL(words[get_uv_light_pos()]);
 			}
+			///////////////////////////////////// new items from the list
+			
+			
+			
+			
+			
+			
+			
+			
+			///////////////////////////////////////new items from the list
 			if(!weather_info_list.contains(weather_info_one)){
 				weather_info_list.add(weather_info_one);
 			}
@@ -948,6 +1194,7 @@ public class Read_SD_SWD_Files {
 	public int get_tempf_f_pos(){
 		return tempf_f_pos;
 	} 
+	
 	
 	public void set_rh_pos(int pos){
 		rh_pos=pos;
@@ -1162,5 +1409,619 @@ public class Read_SD_SWD_Files {
 			System.out.print("Dew Point:"+info.getDew_Point()+"\tSolar Rad:"+info.getSolar_Rad()+"\tRainfull:"+info.getSolar_Rad());
 		}
 	}
+	public ArrayList<File> getSd_swd_files() {
+		return sd_swd_files;
+	}
+	public void setSd_swd_files(ArrayList<File> sd_swd_files) {
+		this.sd_swd_files = sd_swd_files;
+	}
+	public ArrayList<String> getWeather_data_abbre() {
+		return weather_data_abbre;
+	}
+	public void setWeather_data_abbre(ArrayList<String> weather_data_abbre) {
+		this.weather_data_abbre = weather_data_abbre;
+	}
+	public ArrayList<Weather_Info> getWeather_info_list() {
+		return weather_info_list;
+	}
+	public void setWeather_info_list(ArrayList<Weather_Info> weather_info_list) {
+		this.weather_info_list = weather_info_list;
+	}
+	public Set<Weather_Info> getWeather_info_set() {
+		return weather_info_set;
+	}
+	public void setWeather_info_set(Set<Weather_Info> weather_info_set) {
+		this.weather_info_set = weather_info_set;
+	}
+	public int getLine_width() {
+		return line_width;
+	}
+	public void setLine_width(int line_width) {
+		this.line_width = line_width;
+	}
+	public String getStation_id() {
+		return station_id;
+	}
+	public void setStation_id(String station_id) {
+		this.station_id = station_id;
+	}
+	public File getFile() {
+		return file;
+	}
+	public void setFile(File file) {
+		this.file = file;
+	}
+	public int getTemp_c_pos() {
+		return temp_c_pos;
+	}
+	public void setTemp_c_pos(int temp_c_pos) {
+		this.temp_c_pos = temp_c_pos;
+	}
+	public int getTempa_c_pos() {
+		return tempa_c_pos;
+	}
+	public void setTempa_c_pos(int tempa_c_pos) {
+		this.tempa_c_pos = tempa_c_pos;
+	}
+	public int getTempb_c_pos() {
+		return tempb_c_pos;
+	}
+	public void setTempb_c_pos(int tempb_c_pos) {
+		this.tempb_c_pos = tempb_c_pos;
+	}
+	public int getTempc_c_pos() {
+		return tempc_c_pos;
+	}
+	public void setTempc_c_pos(int tempc_c_pos) {
+		this.tempc_c_pos = tempc_c_pos;
+	}
+	public int getTempd_c_pos() {
+		return tempd_c_pos;
+	}
+	public void setTempd_c_pos(int tempd_c_pos) {
+		this.tempd_c_pos = tempd_c_pos;
+	}
+	public int getTempe_c_pos() {
+		return tempe_c_pos;
+	}
+	public void setTempe_c_pos(int tempe_c_pos) {
+		this.tempe_c_pos = tempe_c_pos;
+	}
+	public int getTempf_c_pos() {
+		return tempf_c_pos;
+	}
+	public void setTempf_c_pos(int tempf_c_pos) {
+		this.tempf_c_pos = tempf_c_pos;
+	}
+	public int getTemp_f_pos() {
+		return temp_f_pos;
+	}
+	public void setTemp_f_pos(int temp_f_pos) {
+		this.temp_f_pos = temp_f_pos;
+	}
+	public int getTempa_f_pos() {
+		return tempa_f_pos;
+	}
+	public void setTempa_f_pos(int tempa_f_pos) {
+		this.tempa_f_pos = tempa_f_pos;
+	}
+	public int getTempb_f_pos() {
+		return tempb_f_pos;
+	}
+	public void setTempb_f_pos(int tempb_f_pos) {
+		this.tempb_f_pos = tempb_f_pos;
+	}
+	public int getTempc_f_pos() {
+		return tempc_f_pos;
+	}
+	public void setTempc_f_pos(int tempc_f_pos) {
+		this.tempc_f_pos = tempc_f_pos;
+	}
+	public int getTempd_f_pos() {
+		return tempd_f_pos;
+	}
+	public void setTempd_f_pos(int tempd_f_pos) {
+		this.tempd_f_pos = tempd_f_pos;
+	}
+	public int getTempe_f_pos() {
+		return tempe_f_pos;
+	}
+	public void setTempe_f_pos(int tempe_f_pos) {
+		this.tempe_f_pos = tempe_f_pos;
+	}
+	public int getTempf_f_pos() {
+		return tempf_f_pos;
+	}
+	public void setTempf_f_pos(int tempf_f_pos) {
+		this.tempf_f_pos = tempf_f_pos;
+	}
+	public int getRh_pos() {
+		return rh_pos;
+	}
+	public void setRh_pos(int rh_pos) {
+		this.rh_pos = rh_pos;
+	}
+	public int getDew_point_pos() {
+		return dew_point_pos;
+	}
+	public void setDew_point_pos(int dew_point_pos) {
+		this.dew_point_pos = dew_point_pos;
+	}
+	public int getSolar_radiation_pos() {
+		return solar_radiation_pos;
+	}
+	public void setSolar_radiation_pos(int solar_radiation_pos) {
+		this.solar_radiation_pos = solar_radiation_pos;
+	}
+	public int getRain_fall_pos() {
+		return rain_fall_pos;
+	}
+	public void setRain_fall_pos(int rain_fall_pos) {
+		this.rain_fall_pos = rain_fall_pos;
+	}
+	public int getWind_direction_pos() {
+		return wind_direction_pos;
+	}
+	public void setWind_direction_pos(int wind_direction_pos) {
+		this.wind_direction_pos = wind_direction_pos;
+	}
+	public int getWind_speed_pos() {
+		return wind_speed_pos;
+	}
+	public void setWind_speed_pos(int wind_speed_pos) {
+		this.wind_speed_pos = wind_speed_pos;
+	}
+	public int getWind_gust_pos() {
+		return wind_gust_pos;
+	}
+	public void setWind_gust_pos(int wind_gust_pos) {
+		this.wind_gust_pos = wind_gust_pos;
+	}
+	public int getEcbc_pos() {
+		return ecbc_pos;
+	}
+	public void setEcbc_pos(int ecbc_pos) {
+		this.ecbc_pos = ecbc_pos;
+	}
+	public int getVwca_pos() {
+		return vwca_pos;
+	}
+	public void setVwca_pos(int vwca_pos) {
+		this.vwca_pos = vwca_pos;
+	}
+	public int getVwcb_pos() {
+		return vwcb_pos;
+	}
+	public void setVwcb_pos(int vwcb_pos) {
+		this.vwcb_pos = vwcb_pos;
+	}
+	public int getVwcc_pos() {
+		return vwcc_pos;
+	}
+	public void setVwcc_pos(int vwcc_pos) {
+		this.vwcc_pos = vwcc_pos;
+	}
+	public int getVwcd_pos() {
+		return vwcd_pos;
+	}
+	public void setVwcd_pos(int vwcd_pos) {
+		this.vwcd_pos = vwcd_pos;
+	}
+	public int getUv_light_pos() {
+		return uv_light_pos;
+	}
+	public void setUv_light_pos(int uv_light_pos) {
+		this.uv_light_pos = uv_light_pos;
+	}
+	
+	/**
+	 * @return the temperatureInt_in_F_pos
+	 */
+	public int getTemperatureInt_in_F_pos() {
+		return temperatureInt_in_F_pos;
+	}
+	/**
+	 * @param index the temperatureInt_in_F_pos to set
+	 */
+	public void setTemperatureInt_in_F_pos(int index) {
+		this.temperatureInt_in_F_pos = index;
+	}
+	/**
+	 * @return the temperatureIR__in_F_pos
+	 */
+	public int getTemperatureIR_in_F_pos() {
+		return temperatureIR_in_F_pos;
+	}
+	/**
+	 * @param temperatureIR__in_F_pos the temperatureIR__in_F_pos to set
+	 */
+	public void setTemperatureIR_in_F_pos(int temperatureIR_in_F_pos) {
+		this.temperatureIR_in_F_pos = temperatureIR_in_F_pos;
+	}
+	/**
+	 * @return the temperatureInt_in_C_pos
+	 */
+	public int getTemperatureInt_in_C_pos() {
+		return temperatureInt_in_C_pos;
+	}
+	/**
+	 * @param temperatureInt_in_C_pos the temperatureInt_in_C_pos to set
+	 */
+	public void setTemperatureInt_in_C_pos(int temperatureInt_in_C_pos) {
+		this.temperatureInt_in_C_pos = temperatureInt_in_C_pos;
+	}
+	/**
+	 * @return the temperatureIR__in_C_pos
+	 */
+	public int getTemperatureIR__in_C_pos() {
+		return temperatureIR__in_C_pos;
+	}
+	/**
+	 * @param temperatureIR__in_C_pos the temperatureIR__in_C_pos to set
+	 */
+	public void setTemperatureIR_in_C_pos(int temperatureIR__in_C_pos) {
+		this.temperatureIR__in_C_pos = temperatureIR__in_C_pos;
+	}
+	/**
+	 * @return the wsolar_rad_pos
+	 */
+	public int getWsolar_rad_pos() {
+		return wsolar_rad_pos;
+	}
+	/**
+	 * @param wsolar_rad_pos the wsolar_rad_pos to set
+	 */
+	public void setWsolar_rad_pos(int wsolar_rad_pos) {
+		this.wsolar_rad_pos = wsolar_rad_pos;
+	}
+	/**
+	 * @return the barometer_pos
+	 */
+	public int getBarometer_pos() {
+		return barometer_pos;
+	}
+	/**
+	 * @param barometer_pos the barometer_pos to set
+	 */
+	public void setBarometer_pos(int barometer_pos) {
+		this.barometer_pos = barometer_pos;
+	}
+	/**
+	 * @return the barometerXR_pos
+	 */
+	public int getBarometerXR_pos() {
+		return barometerXR_pos;
+	}
+	/**
+	 * @param barometerXR_pos the barometerXR_pos to set
+	 */
+	public void setBarometerXR_pos(int barometerXR_pos) {
+		this.barometerXR_pos = barometerXR_pos;
+	}
+	/**
+	 * @return the milliAmp_pos
+	 */
+	public int getMilliAmp_pos() {
+		return milliAmp_pos;
+	}
+	/**
+	 * @param milliAmp_pos the milliAmp_pos to set
+	 */
+	public void setMilliAmp_pos(int milliAmp_pos) {
+		this.milliAmp_pos = milliAmp_pos;
+	}
+	/**
+	 * @return the wmilliAmp_pos
+	 */
+	public int getWmilliAmp_pos() {
+		return wmilliAmp_pos;
+	}
+	/**
+	 * @param wmilliAmp_pos the wmilliAmp_pos to set
+	 */
+	public void setWmilliAmp_pos(int wmilliAmp_pos) {
+		this.wmilliAmp_pos = wmilliAmp_pos;
+	}
+	/**
+	 * @return the lmilliAmp_pos
+	 */
+	public int getLmilliAmp_pos() {
+		return lmilliAmp_pos;
+	}
+	/**
+	 * @param lmilliAmp_pos the lmilliAmp_pos to set
+	 */
+	public void setLmilliAmp_pos(int lmilliAmp_pos) {
+		this.lmilliAmp_pos = lmilliAmp_pos;
+	}
+	/**
+	 * @return the rainfallIn_pos
+	 */
+	public int getRainfallIn_pos() {
+		return rainfallIn_pos;
+	}
+	/**
+	 * @param rainfallIn_pos the rainfallIn_pos to set
+	 */
+	public void setRainfallIn_pos(int rainfallIn_pos) {
+		this.rainfallIn_pos = rainfallIn_pos;
+	}
+	/**
+	 * @return the rainfallMM_pos
+	 */
+	public int getRainfallMM_pos() {
+		return rainfallMM_pos;
+	}
+	/**
+	 * @param rainfallMM_pos the rainfallMM_pos to set
+	 */
+	public void setRainfallMM_pos(int rainfallMM_pos) {
+		this.rainfallMM_pos = rainfallMM_pos;
+	}
+	/**
+	 * @return the wetness_pos
+	 */
+	public int getWetness_pos() {
+		return wetness_pos;
+	}
+	/**
+	 * @param wetness_pos the wetness_pos to set
+	 */
+	public void setWetness_pos(int wetness_pos) {
+		this.wetness_pos = wetness_pos;
+	}
+	/**
+	 * @return the par_pos
+	 */
+	public int getPar_pos() {
+		return par_pos;
+	}
+	/**
+	 * @param par_pos the par_pos to set
+	 */
+	public void setPar_pos(int par_pos) {
+		this.par_pos = par_pos;
+	}
+	/**
+	 * @return the wpar_pos
+	 */
+	public int getWpar_pos() {
+		return wpar_pos;
+	}
+	/**
+	 * @param wpar_pos the wpar_pos to set
+	 */
+	public void setWpar_pos(int wpar_pos) {
+		this.wpar_pos = wpar_pos;
+	}
+	/**
+	 * @return the watermark_pos
+	 */
+	public int getWatermark_pos() {
+		return watermark_pos;
+	}
+	/**
+	 * @param watermark_pos the watermark_pos to set
+	 */
+	public void setWatermark_pos(int watermark_pos) {
+		this.watermark_pos = watermark_pos;
+	}
+	/**
+	 * @return the watermarkA_pos
+	 */
+	public int getWatermarkA_pos() {
+		return watermarkA_pos;
+	}
+	/**
+	 * @param watermarkA_pos the watermarkA_pos to set
+	 */
+	public void setWatermarkA_pos(int watermarkA_pos) {
+		this.watermarkA_pos = watermarkA_pos;
+	}
+	/**
+	 * @return the watermarkB_pos
+	 */
+	public int getWatermarkB_pos() {
+		return watermarkB_pos;
+	}
+	/**
+	 * @param watermarkB_pos the watermarkB_pos to set
+	 */
+	public void setWatermarkB_pos(int watermarkB_pos) {
+		this.watermarkB_pos = watermarkB_pos;
+	}
+	/**
+	 * @return the watermarkC_pos
+	 */
+	public int getWatermarkC_pos() {
+		return watermarkC_pos;
+	}
+	/**
+	 * @param watermarkC_pos the watermarkC_pos to set
+	 */
+	public void setWatermarkC_pos(int watermarkC_pos) {
+		this.watermarkC_pos = watermarkC_pos;
+	}
+	/**
+	 * @return the watermarkD_pos
+	 */
+	public int getWatermarkD_pos() {
+		return watermarkD_pos;
+	}
+	/**
+	 * @param watermarkD_pos the watermarkD_pos to set
+	 */
+	public void setWatermarkD_pos(int watermarkD_pos) {
+		this.watermarkD_pos = watermarkD_pos;
+	}
+	/**
+	 * @return the lowTension_pos
+	 */
+	public int getLowTension_pos() {
+		return lowTension_pos;
+	}
+	/**
+	 * @param lowTension_pos the lowTension_pos to set
+	 */
+	public void setLowTension_pos(int lowTension_pos) {
+		this.lowTension_pos = lowTension_pos;
+	}
+	/**
+	 * @return the co2_pos
+	 */
+	public int getCo2_pos() {
+		return co2_pos;
+	}
+	/**
+	 * @param co2_pos the co2_pos to set
+	 */
+	public void setCo2_pos(int co2_pos) {
+		this.co2_pos = co2_pos;
+	}
+	/**
+	 * @return the state_pos
+	 */
+	public int getState_pos() {
+		return state_pos;
+	}
+	/**
+	 * @param state_pos the state_pos to set
+	 */
+	public void setState_pos(int state_pos) {
+		this.state_pos = state_pos;
+	}
+	/**
+	 * @return the ec_pos
+	 */
+	public int getEc_pos() {
+		return ec_pos;
+	}
+	/**
+	 * @param ec_pos the ec_pos to set
+	 */
+	public void setEc_pos(int ec_pos) {
+		this.ec_pos = ec_pos;
+	}
+	/**
+	 * @return the echo25_pos
+	 */
+	public int getEcho25_pos() {
+		return echo25_pos;
+	}
+	/**
+	 * @param echo25_pos the echo25_pos to set
+	 */
+	public void setEcho25_pos(int echo25_pos) {
+		this.echo25_pos = echo25_pos;
+	}
+	/**
+	 * @return the echo5_pos
+	 */
+	public int getEcho5_pos() {
+		return echo5_pos;
+	}
+	/**
+	 * @param echo5_pos the echo5_pos to set
+	 */
+	public void setEcho5_pos(int echo5_pos) {
+		this.echo5_pos = echo5_pos;
+	}
+	/**
+	 * @return the echo10_pos
+	 */
+	public int getEcho10_pos() {
+		return echo10_pos;
+	}
+	/**
+	 * @param echo10_pos the echo10_pos to set
+	 */
+	public void setEcho10_pos(int echo10_pos) {
+		this.echo10_pos = echo10_pos;
+	}
+	/**
+	 * @return the sm100_pos
+	 */
+	public int getSm100_pos() {
+		return sm100_pos;
+	}
+	/**
+	 * @param sm100_pos the sm100_pos to set
+	 */
+	public void setSm100_pos(int sm100_pos) {
+		this.sm100_pos = sm100_pos;
+	}
+	/**
+	 * @return the none_pos
+	 */
+	public int getNone_pos() {
+		return none_pos;
+	}
+	/**
+	 * @param none_pos the none_pos to set
+	 */
+	public void setNone_pos(int none_pos) {
+		this.none_pos = none_pos;
+	}
+	/**
+	 * @return the raw_pos
+	 */
+	public int getRaw_pos() {
+		return raw_pos;
+	}
+	/**
+	 * @param raw_pos the raw_pos to set
+	 */
+	public void setRaw_pos(int raw_pos) {
+		this.raw_pos = raw_pos;
+	}
+	/**
+	 * @return the voltage_pos
+	 */
+	public int getVoltage_pos() {
+		return voltage_pos;
+	}
+	/**
+	 * @param voltage_pos the voltage_pos to set
+	 */
+	public void setVoltage_pos(int voltage_pos) {
+		this.voltage_pos = voltage_pos;
+	}
+	/**
+	 * @return the battery_pos
+	 */
+	public int getBattery_pos() {
+		return battery_pos;
+	}
+	/**
+	 * @param battery_pos the battery_pos to set
+	 */
+	public void setBattery_pos(int battery_pos) {
+		this.battery_pos = battery_pos;
+	}
+	/**
+	 * @return the batteryPct_pos
+	 */
+	public int getBatteryPct_pos() {
+		return batteryPct_pos;
+	}
+	/**
+	 * @param batteryPct_pos the batteryPct_pos to set
+	 */
+	public void setBatteryPct_pos(int batteryPct_pos) {
+		this.batteryPct_pos = batteryPct_pos;
+	}
+	/**
+	 * @return the wvoltage_pos
+	 */
+	public int getWvoltage_pos() {
+		return wvoltage_pos;
+	}
+	/**
+	 * @param wvoltage_pos the wvoltage_pos to set
+	 */
+	public void setWvoltage_pos(int wvoltage_pos) {
+		this.wvoltage_pos = wvoltage_pos;
+	}
+	
 }
 
