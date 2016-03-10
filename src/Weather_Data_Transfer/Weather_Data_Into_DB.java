@@ -147,12 +147,16 @@ public static Connection getConnection_Local() {
 public static Connection getConnection_Remote() {
     return instance.createConnection_Remote();
 }
+
+/*
+ * This one will input the ArrayList of Weather_Info into a connected DB.
+ */
 public int insert_one_object_into_db(Connection connected, ArrayList<Weather_Info> infos){
 	
 	for (Weather_Info info: infos){
 			try {
-				String insert_into_table="INSERT INTO gxe_weather(station_id,day,month,year,julian_date,time,temp_f,tempa_f,tempb_f,tempc_f,tempd_f,tempe_f,tempf_f,temp_c,tempa_c,tempb_c,tempc_c,tempd_c,tempe_c,tempf_c,ec_smec300,soil_moist_vwc_a,soil_moist_vwc_b,soil_moist_vwc_c,soil_moist_vwc_d,rh,dew_point,solar_radiation,rain_fall,wind_direction,wind_speed,wind_gust)"+
-										"VALUES"+"(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				String insert_into_table="INSERT INTO gxe_weather(station_id,day,month,year,julian_date,time,temp_f,tempa_f,tempb_f,tempc_f,tempd_f,tempe_f,tempf_f,temp_c,tempa_c,tempb_c,tempc_c,tempd_c,tempe_c,tempf_c,ec_smec300,soil_moist_vwc_a,soil_moist_vwc_b,soil_moist_vwc_c,soil_moist_vwc_d,rh,dew_point_f,solar_radiation,rain_fall,wind_direction,wind_speed_mph,wind_gust_mph,uv_light,dew_point_c,wind_speed_kmh,wind_gust_kmh,co2)"+
+										"VALUES"+"(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 				
 				PreparedStatement pstmt = null;
 				
@@ -205,6 +209,13 @@ public int insert_one_object_into_db(Connection connected, ArrayList<Weather_Inf
 					pstmt.setString(30, info.getWind_Dir());
 					pstmt.setString(31, info.getWind_Speed_mph());
 					pstmt.setString(32, info.getWind_Gust_mph());
+					pstmt.setString(33, info.getUv_light());
+					pstmt.setString(34, info.getDew_point_C());
+					pstmt.setString(35, info.getWind_speed_kmh());
+					pstmt.setString(36, info.getWind_gust_kmh());
+					pstmt.setString(37, info.getCo2());
+					
+					
 					
 					ResultSet results=pstmt.executeQuery();
 					//pstmt.executeUpdate();

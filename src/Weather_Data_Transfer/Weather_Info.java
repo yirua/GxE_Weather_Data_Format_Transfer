@@ -97,10 +97,10 @@ public class Weather_Info {
    //////////////////////new strings 
     
     private String temperatureInt_in_F; //TEMP interval IN F
-    private String temperatureIR__in_F; //TEMP IR IN F
+    private String temperatureIR_in_F; //TEMP IR IN F
     
     private String temperatureInt_in_C;  //TEMP INTERNAL in C
-    private String temperatureIR__in_C; //TEMP IR IN C
+    private String temperatureIR_in_C; //TEMP IR IN C
     
     
     private String wsolar_rad;//WSolar_rad
@@ -469,17 +469,17 @@ public class Weather_Info {
 	public void setTemperatureInt_in_C(String temperatureInt_in_C) {
 			this.temperatureInt_in_C = temperatureInt_in_C;
 	}
-	public String getTemperatureIR__in_F() {
-		return temperatureIR__in_F;
+	public String getTemperatureIR_in_F() {
+		return temperatureIR_in_F;
 	}
-	public void setTemperatureIR__in_F(String temperatureIR__in_F) {
-		this.temperatureIR__in_F = temperatureIR__in_F;
+	public void setTemperatureIR_in_F(String temperatureIR_in_F) {
+		this.temperatureIR_in_F = temperatureIR_in_F;
 	}
-	public String getTemperatureIR__in_C() {
-		return temperatureIR__in_C;
+	public String getTemperatureIR_in_C() {
+		return temperatureIR_in_C;
 	}
-	public void setTemperatureIR__in_C(String temperatureIR__in_C) {
-		this.temperatureIR__in_C = temperatureIR__in_C;
+	public void setTemperatureIR_in_C(String temperatureIR__in_C) {
+		this.temperatureIR_in_C = temperatureIR__in_C;
 	}
 	public String getUv_light() {
 		return uv_light;

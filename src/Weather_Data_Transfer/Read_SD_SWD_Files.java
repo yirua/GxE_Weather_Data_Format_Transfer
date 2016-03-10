@@ -13,6 +13,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -173,6 +174,109 @@ public class Read_SD_SWD_Files {
 	 */
 	public Set<Weather_Info> get_Weather_Info_Set(){
 		return weather_info_set;
+	}
+	
+/*
+ * This method will read all the files in the list and return the Set<Pair> that appear in the files	
+ */
+	
+	public Set<Pair> Check_Weather_Data_Para_And_Abbr(ArrayList<File> files){
+
+		// read the index file into a map<String, String>, to get the certain positions,decide which columns are there..
+	       // String fileName = file.getName();
+			String fileName;
+			// positions for the SWD columns default 
+			//int station_id;     
+			ArrayList<String> one_line= new ArrayList<String>();
+			ArrayList<ArrayList<String>> two_dimention_table = new ArrayList<ArrayList<String>>();
+			Set<Pair> weather_data_pairs = new HashSet<Pair>();
+			try {
+					
+				
+					for (File file: files){
+					fileName = file.getCanonicalPath();
+					
+			        // This will reference one line at a time
+			        String line = null;
+
+			        try {
+			            // FileReader reads text files in the default encoding.
+			            FileReader fileReader = 
+			                new FileReader(fileName);
+
+			            // Always wrap FileReader in BufferedReader.
+			            BufferedReader bufferedReader = 
+			                new BufferedReader(fileReader);
+			            int line_ctr=0;
+			            while((line = bufferedReader.readLine()) != null&line_ctr<=2) {
+			              //  System.out.println(line); // show up the line input
+			                
+			                String[] words= line.split("\t");
+			                //read the first line
+			               for(String word: words){			            	   		
+			            		   one_line.add(word);	           	  
+			            	   
+			              }
+			               //test the results into the ArrayList
+	/*		               System.out.println("one_line output in Read_SD_Date_SWD_File_For_Abbr_Position");
+			               for(int i=0;i<one_line.size();i++){
+			            	   System.out.println(one_line.get(i)); 
+			               } 
+	*/
+			               //read into the abbreviations to get certain positions of them
+			                two_dimention_table.add(one_line);
+			                line_width=one_line.size();
+			                //make sure that the ArrayList is not empty..
+			                if(!one_line.isEmpty()){
+			                	one_line=new ArrayList<String>();
+			                } //clean the ArrayList for next line...
+			                else{
+			                	System.out.println("The line is empty!");
+			                }
+			                line_ctr++;
+			            }   
+
+			            // Always close files.
+			            bufferedReader.close();         
+			        }
+			        catch(FileNotFoundException ex) {
+			            System.out.println(
+			                "Unable to open file '" + 
+			                fileName + "'");                
+			        }
+			        catch(IOException ex) {
+			            System.out.println(
+			                "Error reading file '" 
+			                + fileName + "'");                  
+			            // Or we could just do this: 
+			            // ex.printStackTrace();
+			        }
+					//station_id, 
+					}
+			} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+			}
+		
+		//after reading the file, decide the position of each item...traverse the 2d ArrayList
+			System.out.println("Output the two_dimention_table");
+			
+				for(int index=0;index<two_dimention_table.get(0).size();index++){
+					//System.out.println("Output the two_dimention_table");
+					System.out.println(two_dimention_table.get(0).get(index));
+					weather_data_pairs.add(new Pair(two_dimention_table.get(0).get(index), two_dimention_table.get(2).get(index)));
+					
+				}
+		
+		     System.out.println("Output the set contents: ");
+		     for(Pair pair: weather_data_pairs){
+		    	 System.out.print(pair.get_prv()+"\t");
+		     }
+		     System.out.println();
+		     for(Pair pair: weather_data_pairs){
+		    	 System.out.print(pair.get_next()+"\t");
+		     }
+			return 	weather_data_pairs;
 	}
 	/*
 	 * This method will get the position for each items with certain names + abbreviations
