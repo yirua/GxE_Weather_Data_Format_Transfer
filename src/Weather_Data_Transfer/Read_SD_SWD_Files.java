@@ -261,7 +261,7 @@ public class Read_SD_SWD_Files {
 		//after reading the file, decide the position of each item...traverse the 2d ArrayList
 			System.out.println("Output the two_dimention_table");
 			
-				for(int index=0;index<two_dimention_table.get(0).size();index++){
+				for(int index=1;index<two_dimention_table.get(0).size();index++){
 					//System.out.println("Output the two_dimention_table");
 					System.out.println(two_dimention_table.get(0).get(index));
 					weather_data_pairs.add(new Pair(two_dimention_table.get(0).get(index), two_dimention_table.get(2).get(index)));
