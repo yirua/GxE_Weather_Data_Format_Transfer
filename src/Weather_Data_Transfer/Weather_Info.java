@@ -70,11 +70,14 @@ public class Weather_Info {
 	
     // Wind 
     private String wind_dir;
-    private String wind_gust;
-    private String wind_speed;
-    
+    private String wind_gust_mph;
+    private String wind_gust_kmh;
+    private String wind_speed_mph;
+    private String wind_speed_kmh;
     // Dew Point
-    private String dew_point; //TMP ? 
+    private String dew_point_C; //TMP IN C 
+    private String dew_point_F; //TMP IN F
+    
     
     private String ecbc;//EC-SMEC300
    
@@ -140,6 +143,7 @@ public class Weather_Info {
     
     private String batteryPct;//BTL
     private String wvoltage; //WVLT
+	
     
  //////////////////////////new strings  
 	
@@ -288,26 +292,21 @@ public class Weather_Info {
         return wind_dir;
     }
     //WIND GUST
-    public void setWind_Gust(String wind_gust) {
-        this.wind_gust = wind_gust;
+    public void setWind_Gust_mph(String wind_gust) {
+        this.wind_gust_mph = wind_gust;
     }
-    public String getWind_Gust() {
-        return wind_gust;
+    public String getWind_Gust_mph() {
+        return wind_gust_mph;
     }
     //WIND SPEED
-    public void setWind_Speed(String wind_speed) {
-        this.wind_speed = wind_speed;
+    public void setWind_Speed_mph(String wind_speed) {
+        this.wind_speed_mph = wind_speed;
     }
-    public String getWind_Speed() {
-        return wind_speed;
+    public String getWind_Speed_mph() {
+        return wind_speed_mph;
     }
-    //DEW POINT
-    public void setDew_Point(String dew_point) {
-        this.dew_point = dew_point;
-    }
-    public String getDew_Point() {
-        return dew_point;
-    }
+    //DEW POINT F
+   
     
     //ECBC
     public void setECBC(String ecbc) {
@@ -776,23 +775,39 @@ public class Weather_Info {
 	public void setWind_dir(String wind_dir) {
 		this.wind_dir = wind_dir;
 	}
-	public String getWind_gust() {
-		return wind_gust;
+	//Wind_gust_kmh
+	public String getWind_gust_kmh() {
+		return wind_gust_kmh;
 	}
-	public void setWind_gust(String wind_gust) {
-		this.wind_gust = wind_gust;
+	public void setWind_gust_kmh(String wind_gust) {
+		this.wind_gust_kmh = wind_gust;
 	}
-	public String getWind_speed() {
-		return wind_speed;
+	//Wind_speed
+	public String getWind_speed_mph() {
+		return wind_speed_mph;
 	}
-	public void setWind_speed(String wind_speed) {
-		this.wind_speed = wind_speed;
+	public void setWind_speed_mph(String wind_speed) {
+		this.wind_speed_mph = wind_speed;
 	}
-	public String getDew_point() {
-		return dew_point;
+	
+	
+	/**
+	 * @return the wind_speed_kmh
+	 */
+	public String getWind_speed_kmh() {
+		return wind_speed_kmh;
 	}
-	public void setDew_point(String dew_point) {
-		this.dew_point = dew_point;
+	/**
+	 * @param wind_speed_kmh the wind_speed_kmh to set
+	 */
+	public void setWind_speed_kmh(String wind_speed_kmh) {
+		this.wind_speed_kmh = wind_speed_kmh;
+	}
+	public String getDew_point_C() {
+		return dew_point_C;
+	}
+	public void setDew_point_C(String dew_point) {
+		this.dew_point_C = dew_point;
 	}
 	public String getVwca() {
 		return vwca;
@@ -817,5 +832,29 @@ public class Weather_Info {
 	}
 	public void setVwcd(String vwcd) {
 		this.vwcd = vwcd;
+	}
+	/**
+	 * @return the wind_gust_mph
+	 */
+	public String getWind_gust_mph() {
+		return wind_gust_mph;
+	}
+	/**
+	 * @param wind_gust_mph the wind_gust_mph to set
+	 */
+	public void setWind_gust_mph(String wind_gust_mph) {
+		this.wind_gust_mph = wind_gust_mph;
+	}
+	/**
+	 * @return the dew_point_F
+	 */
+	public String getDew_point_F() {
+		return dew_point_F;
+	}
+	/**
+	 * @param dew_point_F the dew_point_F to set
+	 */
+	public void setDew_point_F(String dew_point_F) {
+		this.dew_point_F = dew_point_F;
 	}
 }

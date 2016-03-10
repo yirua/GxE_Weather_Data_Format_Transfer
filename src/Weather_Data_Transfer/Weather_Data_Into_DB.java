@@ -198,13 +198,13 @@ public int insert_one_object_into_db(Connection connected, ArrayList<Weather_Inf
 					pstmt.setString(25, info.getVWCD());
 					
 					pstmt.setString(26, info.getRH());
-					pstmt.setString(27, info.getDew_Point());
+					pstmt.setString(27, info.getDew_point_F());
 					pstmt.setString(28, info.getSolar_Rad());
 					
 					pstmt.setString(29, info.getRainfall());
 					pstmt.setString(30, info.getWind_Dir());
-					pstmt.setString(31, info.getWind_Speed());
-					pstmt.setString(32, info.getWind_Gust());
+					pstmt.setString(31, info.getWind_Speed_mph());
+					pstmt.setString(32, info.getWind_Gust_mph());
 					
 					ResultSet results=pstmt.executeQuery();
 					//pstmt.executeUpdate();
@@ -282,13 +282,13 @@ public int Insert_Into_DB_By_Set(Connection connected, Set<Weather_Info> infos){
 					pstmt.setString(25, info.getVWCD());
 					
 					pstmt.setString(26, info.getRH());
-					pstmt.setString(27, info.getDew_Point());
+					pstmt.setString(27, info.getDew_point_F());
 					pstmt.setString(28, info.getSolar_Rad());
 					
 					pstmt.setString(29, info.getRainfall());
 					pstmt.setString(30, info.getWind_Dir());
-					pstmt.setString(31, info.getWind_Speed());
-					pstmt.setString(32, info.getWind_Gust());
+					pstmt.setString(31, info.getWind_Speed_mph());
+					pstmt.setString(32, info.getWind_Gust_mph());
 					
 					ResultSet results=pstmt.executeQuery();
 					//pstmt.executeUpdate();

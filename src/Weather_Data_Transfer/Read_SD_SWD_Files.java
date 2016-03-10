@@ -62,12 +62,19 @@ public class Read_SD_SWD_Files {
 	int tempe_f_pos;          
 	int tempf_f_pos;  
 	int rh_pos;              
-	int dew_point_pos;       
+	int dew_point_in_F_pos; 
+	
+	int dew_point_in_C_pos;
+	int wind_speed_kmh_pos;
+	int wind_gust_kmh_pos;
+	
 	int solar_radiation_pos;  
 	int rain_fall_pos;       
 	int wind_direction_pos;  
-	int wind_speed_pos;      
-	int wind_gust_pos;
+	
+	int wind_speed_mph_pos;      
+	int wind_gust_mph_pos;
+	
 	private int ecbc_pos;
 	private int vwca_pos;
 	private int vwcb_pos;
@@ -342,24 +349,46 @@ public class Read_SD_SWD_Files {
 					set_rh_pos(index);
 				}
 			//	Rainfall
-				if(two_dimention_table.get(0).get(index).contains("Rainfall")&two_dimention_table.get(2).get(index).equalsIgnoreCase("RNF")){
+				if(two_dimention_table.get(0).get(index).contains("Rainfall (In)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("RNF")){
 					set_rain_fall_pos(index);
 				}
 			//Wind dir
 				if(two_dimention_table.get(0).get(index).contains("Wind Dir")&two_dimention_table.get(2).get(index).equalsIgnoreCase("WND")){
 					set_wind_direction_pos(index);
 				}
-			//Wind Gust
-				if(two_dimention_table.get(0).get(index).contains("Wind Gust")&two_dimention_table.get(2).get(index).equalsIgnoreCase("WNG")){
-					set_wind_gust_pos(index);
+			//Wind Gust in mph
+				if(two_dimention_table.get(0).get(index).contains("Wind Gust (mph)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("WNG")){
+					setWind_gust_mph_pos(index);
 				}
-			//Wind Speed	
-				if(two_dimention_table.get(0).get(index).contains("Wind Speed")&two_dimention_table.get(2).get(index).equalsIgnoreCase("WNS")){
-					set_wind_speed_pos(index);
+			//Wind Gust in kmh	
+				if(two_dimention_table.get(0).get(index).contains("Wind Gust (km/h)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("WNG")){
+					setWind_gust_kmh_pos(index);
+				}
+				
+			//Wind Speed in mph	
+				if(two_dimention_table.get(0).get(index).contains("Wind Speed (mph)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("WNS")){
+					setWind_speed_mph_pos(index);
+				}
+				//Wind Speed kmh
+				if(two_dimention_table.get(0).get(index).contains("Wind Speed (km/h)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("WNS")){
+					setWind_speed_kmh_pos(index);
 				}
 			//Dew Point
-				if(two_dimention_table.get(0).get(index).contains("Dew Point")&two_dimention_table.get(2).get(index).equalsIgnoreCase("DEW")){
-					set_dew_point_pos(index);
+				if(two_dimention_table.get(0).get(index).contains("Dew Point (*F)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("DEW")){
+					setDew_point_in_F_pos(index);
+				}
+				//According to new list from darwin, Dew Point also has TMP as abbr..
+				if(two_dimention_table.get(0).get(index).contains("Dew Point (*F)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("TMP")){
+					setDew_point_in_F_pos(index);
+				}
+				
+			//Dew Point in C	
+				if(two_dimention_table.get(0).get(index).contains("Dew Point (*C)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("DEW")){
+					setDew_point_in_C_pos(index);
+				}
+				//According to new list from darwin, Dew Point also has TMP as abbr..
+				if(two_dimention_table.get(0).get(index).contains("Dew Point (*C)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("TMP")){
+					setDew_point_in_C_pos(index);
 				}
 			//UVL
 				if(two_dimention_table.get(0).get(index).contains("UV Light")&two_dimention_table.get(2).get(index).equalsIgnoreCase("UVL")){
@@ -575,15 +604,18 @@ public class Read_SD_SWD_Files {
 				//Wind dir
 				System.out.println("Wind Dir " + get_wind_direction_pos());	
 				//Wind Gust
-				System.out.println("Wind Gust " + get_wind_gust_pos());	
+				System.out.println("Wind Gust " + get_wind_gust_mph_pos());	
 				//Wind Speed	
-				System.out.println("Wind Speed " + get_wind_speed_pos());	
+				System.out.println("Wind Speed " + get_wind_speed_mph_pos());	
 				//Dew Point
-				System.out.println("Dew Point " + get_dew_point_pos());	
+				System.out.println("Dew Point " + getDew_point_in_F_pos());	
 				//UV Light
 				System.out.println("UV Light " + get_uv_light_pos());	
 
-			
+			//////new items
+				
+				
+			/////new items
 				
 			
 			
@@ -617,18 +649,64 @@ public class Read_SD_SWD_Files {
 		vwcd_pos=0;
 		
 		rh_pos=0;              
-		dew_point_pos=0;       
+		dew_point_in_F_pos=0;       
 		solar_radiation_pos=0;  
 		 rain_fall_pos=0;   
 		 //wind 3 items
 		 wind_direction_pos=0;  
-		 wind_speed_pos=0;      
-		 wind_gust_pos=0; 
+		 wind_speed_mph_pos=0;      
+		 wind_gust_mph_pos=0; 
 		 uv_light_pos=0;
 		 
 		 
 		 //new items
-		 
+		   temperatureInt_in_F_pos=0; //TEMP interval IN F
+		      temperatureIR_in_F_pos=0; //TEMP IR IN F
+		    
+		      temperatureInt_in_C_pos=0;  //TEMP INTERNAL in C
+		      temperatureIR__in_C_pos=0; //TEMP IR IN C
+		    
+		    
+		      wsolar_rad_pos=0;//WSolar_rad
+		      barometer_pos=0; //BAR
+		      barometerXR_pos=0; //BARXR
+		      milliAmp_pos=0; //MAM
+		      wmilliAmp_pos=0; //WMAM
+		      lmilliAmp_pos=0; //LMAM
+		    
+		    
+		      rainfallIn_pos=0;
+		      rainfallMM_pos=0; //
+		    
+		      wetness_pos=0; //WET
+			  par_pos=0; //PAR
+			  wpar_pos=0; //WPAR
+			
+			  watermark_pos=0; //SMS
+			  watermarkA_pos=0; //SMSA
+			  watermarkB_pos=0; //SMSB
+			  watermarkC_pos=0; //SMSC
+			  watermarkD_pos=0; //SMSD
+			  lowTension_pos=0; //SMSLT
+			  co2_pos=0;//CO2
+			
+			
+			//STATE
+			  state_pos=0;//STA
+		      ec_pos=0; //ECB (Triple Sensor)
+		    
+		      echo25_pos=0;//soil_moist_vwc25
+		      echo5_pos=0; //soil_moist_vwc5
+		      echo10_pos=0; //soil_moist_vwc10
+		      sm100_pos=0; //soil_moist_vwc100 VWC
+		    
+		      none_pos=0;
+		      raw_pos=0; //RAW
+		      voltage_pos=0; //VLT
+		      battery_pos=0; //VLT_BAT
+		    
+		      batteryPct_pos=0;//BTL
+		      wvoltage_pos=0; //WVLT
 		 
 		 //new items
 	}
@@ -916,12 +994,12 @@ public class Read_SD_SWD_Files {
 			else {
 				weather_info_one.setRH(words[get_rh_pos()]);
 			}
-			//DEW
-			if(get_dew_point_pos()==0){
-				weather_info_one.setDew_Point("");
+			//DEW in F
+			if(get_dew_point_in_F_pos()==0){
+				weather_info_one.setDew_point_F("");
 			}
 			else {
-				weather_info_one.setDew_Point(words[get_dew_point_pos()]);
+				weather_info_one.setDew_point_F(words[getDew_point_in_F_pos()]);
 			}
 			//SOLAR RADIATION
 			if(get_solar_radiation_pos()==0){
@@ -944,19 +1022,19 @@ public class Read_SD_SWD_Files {
 			else {
 				weather_info_one.setWind_Dir(words[get_wind_direction_pos()]);
 			}
-			//WIND GUST
-			if(get_wind_gust_pos()==0){
-				weather_info_one.setWind_Gust("");
+			//WIND GUST mph
+			if(get_wind_gust_mph_pos()==0){
+				weather_info_one.setWind_Gust_mph("");
 			}
 			else {
-				weather_info_one.setWind_Gust(words[get_wind_gust_pos()]);
+				weather_info_one.setWind_Gust_mph(words[get_wind_gust_mph_pos()]);
 			}
-			//WIND SPEED
-			if(get_wind_speed_pos()==0){
-				weather_info_one.setWind_Speed("");
+			//WIND SPEED mph
+			if(get_wind_speed_mph_pos()==0){
+				weather_info_one.setWind_Speed_mph("");
 			}
 			else {
-				weather_info_one.setWind_Speed(words[get_wind_speed_pos()]);
+				weather_info_one.setWind_Speed_mph(words[get_wind_speed_mph_pos()]);
 			}
 			//ECBC
 			if(get_ecbc_pos()==0){
@@ -979,7 +1057,7 @@ public class Read_SD_SWD_Files {
 			else {
 						weather_info_one.setVWCB(words[get_vwcb_pos()]);
 			}
-					//VWCC
+			//VWCC
 			if(get_vwcc_pos()==0){
 						weather_info_one.setVWCC("");
 			}
@@ -1002,13 +1080,101 @@ public class Read_SD_SWD_Files {
 			}
 			///////////////////////////////////// new items from the list
 			
+			//private int temperatureInt_in_F_pos; //TEMP interval IN F
+			if(getTemperatureInt_in_F_pos()==0){
+				weather_info_one.setTemperatureInt_in_F("");
+			}
+			else {
+						weather_info_one.setUVL(words[getTemperatureInt_in_F_pos()]);
+			}
 			
+			if(get_uv_light_pos()==0){
+				weather_info_one.setUVL("");
+			}
+			else {
+						weather_info_one.setUVL(words[get_uv_light_pos()]);
+			}
+		 	
+			//Dew point C
+			if(getDew_point_in_C_pos()==0){
+				weather_info_one.setDew_point_C("");
+			}
+			else {
+				weather_info_one.setDew_point_C(words[getDew_point_in_C_pos()]);
+			}
 			
+			//Wind gust kmh
+			if(getWind_gust_kmh_pos()==0){
+				weather_info_one.setWind_gust_kmh("");
+			}
+			else {
+				weather_info_one.setWind_gust_kmh(words[getWind_gust_kmh_pos()]);
+			}
+			//Wind speed kmh
 			
+			if(getWind_speed_kmh_pos()==0){
+				weather_info_one.setWind_speed_kmh("");
+			}
+			else {
+				weather_info_one.setWind_speed_kmh(words[getWind_speed_kmh_pos()]);
+			}
 			
+			//////////////////////////////////////////////
+/*		    private int temperatureIR_in_F_pos; //TEMP IR IN F
+		    
+		    private int temperatureInt_in_C_pos;  //TEMP INTERNAL in C
+		    private int temperatureIR__in_C_pos; //TEMP IR IN C
+		    
+		    
+		    private int wsolar_rad_pos;//WSolar_rad
+		    private int barometer_pos; //BAR
+		    private int barometerXR_pos; //BARXR
+		    private int milliAmp_pos; //MAM
+		    private int wmilliAmp_pos; //WMAM
+		    private int lmilliAmp_pos; //LMAM
+		    
+		    
+		    private int rainfallIn_pos;
+		    private int rainfallMM_pos; //
+		    
+		    private int wetness_pos; //WET
+			private int par_pos; //PAR
+			private int wpar_pos; //WPAR
 			
+			private int watermark_pos; //SMS
+			private int watermarkA_pos; //SMSA
+			private int watermarkB_pos; //SMSB
+			private int watermarkC_pos; //SMSC
+			private int watermarkD_pos; //SMSD
+			private int lowTension_pos; //SMSLT
+*/			
 			
+			//private int co2_pos;//CO2
+			if(getCo2_pos()==0){
+				weather_info_one.setCo2("");
+			}
+			else {
+				weather_info_one.setCo2(words[getCo2_pos()]);
+			}
 			
+			//STATE
+/*			private int state_pos;//STA
+		    private int ec_pos; //ECB (Triple Sensor)
+		    
+		    private int echo25_pos;//soil_moist_vwc25
+		    private int echo5_pos; //soil_moist_vwc5
+		    private int echo10_pos; //soil_moist_vwc10
+		    private int sm100_pos; //soil_moist_vwc100 VWC
+		    
+		    private int none_pos;
+		    private int raw_pos; //RAW
+		    private int voltage_pos; //VLT
+		    private int battery_pos; //VLT_BAT
+		    
+		    private int batteryPct_pos;//BTL
+		    private int wvoltage_pos; //WVLT
+			
+*/			
 			///////////////////////////////////////new items from the list
 			if(!weather_info_list.contains(weather_info_one)){
 				weather_info_list.add(weather_info_one);
@@ -1021,7 +1187,7 @@ public class Read_SD_SWD_Files {
 			System.out.println("The weather_info_one contents after reading: ");
 			System.out.print("Station_id:"+ weather_info_one.getStationId()+"\tMonth:"+weather_info_one.getMonth()+"\tDay:"+weather_info_one.getDay()+"\tYear:"+weather_info_one.getYear()+"\tTime:"+weather_info_one.getTime());
 			System.out.println("Day Of Year: "+weather_info_one.getJulian_Date());
-			System.out.print("Dew Point:"+weather_info_one.getDew_Point()+"\tSolar Rad:"+weather_info_one.getSolar_Rad()+"\tRainfall:"+weather_info_one.getRainfall());
+			System.out.print("Dew Point:"+weather_info_one.getDew_point_F()+"\tSolar Rad:"+weather_info_one.getSolar_Rad()+"\tRainfall:"+weather_info_one.getRainfall());
 			System.out.print("TMP_in_C:"+ weather_info_one.getTMP_C()+"\tTMPA_in_C:"+weather_info_one.getTMPA_C()+"\tTMPB_in_C:"+weather_info_one.getTMPB_C()+"\tTMPC_in_C:"+weather_info_one.getTMPC_C()+"\tTMPD_in_C:"+weather_info_one.getTMPD_C()+"\tTMPE_in_C:"+weather_info_one.getTMPE_C()+"\tTMPF_in_C:"+weather_info_one.getTMPF_C());
 			System.out.println();
 			System.out.print("TMP_in_F:"+ weather_info_one.getTMP()+"\tTMPA_in_F:"+weather_info_one.getTMPA()+"\tTMPB_in_F:"+weather_info_one.getTMPB()+"\tTMPC_in_F:"+weather_info_one.getTMPC()+"\tTMPD_in_F:"+weather_info_one.getTMPD()+"\tTMPE_in_F:"+weather_info_one.getTMPE()+"\tTMPF_in_F:"+weather_info_one.getTMPF());
@@ -1030,7 +1196,7 @@ public class Read_SD_SWD_Files {
 			
 			System.out.print("ECBC:"+weather_info_one.getECBC()+"\tVWCA:"+weather_info_one.getVWCA()+"\tVWCB:"+weather_info_one.getVWCB()+"\tVWCC:"+weather_info_one.getVWCC()+"\tVWCD:"+weather_info_one.getVWCD());
 		    //WIND 
-			System.out.print("Wind Dir:"+weather_info_one.getWind_Dir()+"\tWind Gust:"+weather_info_one.getWind_Gust()+"\tWind Speed:"+weather_info_one.getWind_Speed());
+			System.out.print("Wind Dir:"+weather_info_one.getWind_Dir()+"\tWind Gust:"+weather_info_one.getWind_Gust_mph()+"\tWind Speed:"+weather_info_one.getWind_Speed_mph());
 			//humidity
 			System.out.print("\tHumidity:"+ weather_info_one.getRH());
 			//uv light
@@ -1204,11 +1370,11 @@ public class Read_SD_SWD_Files {
 	} 
 	
 	
-	public void set_dew_point_pos(int pos){
-		dew_point_pos=pos;
+	public void set_dew_point_in_F_pos(int pos){
+		dew_point_in_F_pos=pos;
 	}
-	public int get_dew_point_pos(){
-		return dew_point_pos;
+	public int get_dew_point_in_F_pos(){
+		return dew_point_in_F_pos;
 	} 
 	
 	public void set_solar_radiation_pos(int pos){
@@ -1230,17 +1396,17 @@ public class Read_SD_SWD_Files {
 	public int get_wind_direction_pos(){
 		return wind_direction_pos;
 	}       
-	public void set_wind_speed_pos(int pos){
-		wind_speed_pos=pos;
+	public void set_wind_speed_mph_pos(int pos){
+		wind_speed_mph_pos=pos;
 	}
-	public int get_wind_speed_pos(){
-		return wind_speed_pos;
+	public int get_wind_speed_mph_pos(){
+		return wind_speed_mph_pos;
 	}
-	public void set_wind_gust_pos(int pos){
-		wind_gust_pos=pos;
+	public void set_wind_gust_mph_pos(int pos){
+		wind_gust_mph_pos=pos;
 	}
-	public int get_wind_gust_pos(){
-		return wind_gust_pos;
+	public int get_wind_gust_mph_pos(){
+		return wind_gust_mph_pos;
 	}   
 	
 	public void set_ecbc_pos(int pos){
@@ -1349,13 +1515,13 @@ public class Read_SD_SWD_Files {
 					out.write( info.getVWCD()+"\t");
 					
 					out.write( info.getRH()+"\t");
-					out.write( info.getDew_Point()+"\t");
+					out.write( info.getDew_point_F()+"\t");
 					out.write( info.getSolar_Rad()+"\t");
 					
 					out.write( info.getRainfall()+"\t");
 					out.write( info.getWind_Dir()+"\t");
-					out.write( info.getWind_Speed()+"\t");
-					out.write( info.getWind_Gust()+"\t");
+					out.write( info.getWind_Speed_mph()+"\t");
+					out.write( info.getWind_Gust_mph()+"\t");
 					
 					out.write("\n");
 					
@@ -1406,7 +1572,7 @@ public class Read_SD_SWD_Files {
 		System.out.println("The Weather_Data_List_ToString: ");
 		for(Weather_Info info: weather_info_list){
 			System.out.print("Station_id:"+ info.getStationId()+"\tMonth:"+info.getMonth()+"\tDay:"+info.getDay()+"\tYear"+info.getYear());
-			System.out.print("Dew Point:"+info.getDew_Point()+"\tSolar Rad:"+info.getSolar_Rad()+"\tRainfull:"+info.getSolar_Rad());
+			System.out.print("Dew Point:"+info.getDew_point_F()+"\tSolar Rad:"+info.getSolar_Rad()+"\tRainfull:"+info.getSolar_Rad());
 		}
 	}
 	public ArrayList<File> getSd_swd_files() {
@@ -1541,11 +1707,8 @@ public class Read_SD_SWD_Files {
 	public void setRh_pos(int rh_pos) {
 		this.rh_pos = rh_pos;
 	}
-	public int getDew_point_pos() {
-		return dew_point_pos;
-	}
 	public void setDew_point_pos(int dew_point_pos) {
-		this.dew_point_pos = dew_point_pos;
+		this.dew_point_in_F_pos = dew_point_pos;
 	}
 	public int getSolar_radiation_pos() {
 		return solar_radiation_pos;
@@ -1566,16 +1729,16 @@ public class Read_SD_SWD_Files {
 		this.wind_direction_pos = wind_direction_pos;
 	}
 	public int getWind_speed_pos() {
-		return wind_speed_pos;
+		return wind_speed_mph_pos;
 	}
 	public void setWind_speed_pos(int wind_speed_pos) {
-		this.wind_speed_pos = wind_speed_pos;
+		this.wind_speed_mph_pos = wind_speed_pos;
 	}
 	public int getWind_gust_pos() {
-		return wind_gust_pos;
+		return wind_gust_mph_pos;
 	}
 	public void setWind_gust_pos(int wind_gust_pos) {
-		this.wind_gust_pos = wind_gust_pos;
+		this.wind_gust_mph_pos = wind_gust_pos;
 	}
 	public int getEcbc_pos() {
 		return ecbc_pos;
@@ -2021,6 +2184,90 @@ public class Read_SD_SWD_Files {
 	 */
 	public void setWvoltage_pos(int wvoltage_pos) {
 		this.wvoltage_pos = wvoltage_pos;
+	}
+	/**
+	 * @return the dew_point_in_C_pos
+	 */
+	public int getDew_point_in_C_pos() {
+		return dew_point_in_C_pos;
+	}
+	/**
+	 * @param dew_point_in_C_pos the dew_point_in_C_pos to set
+	 */
+	public void setDew_point_in_C_pos(int dew_point_in_C_pos) {
+		this.dew_point_in_C_pos = dew_point_in_C_pos;
+	}
+	/**
+	 * @return the wind_speed_in_kmh_pos
+	 */
+	public int getWind_speed_kmh_pos() {
+		return wind_speed_kmh_pos;
+	}
+	/**
+	 * @param wind_speed_in_kmh_pos the wind_speed_in_kmh_pos to set
+	 */
+	public void setWind_speed_in_kmh_pos(int wind_speed_in_kmh_pos) {
+		this.wind_speed_kmh_pos = wind_speed_in_kmh_pos;
+	}
+	/**
+	 * @return the wind_gust_in_kmh_pos
+	 */
+	public int getWind_gust_kmh_pos() {
+		return wind_gust_kmh_pos;
+	}
+	/**
+	 * @param temperatureIR__in_C_pos the temperatureIR__in_C_pos to set
+	 */
+	public void setTemperatureIR__in_C_pos(int temperatureIR__in_C_pos) {
+		this.temperatureIR__in_C_pos = temperatureIR__in_C_pos;
+	}
+	/**
+	 * @return the dew_point_in_F_pos
+	 */
+	public int getDew_point_in_F_pos() {
+		return dew_point_in_F_pos;
+	}
+	/**
+	 * @param dew_point_in_F_pos the dew_point_in_F_pos to set
+	 */
+	public void setDew_point_in_F_pos(int dew_point_in_F_pos) {
+		this.dew_point_in_F_pos = dew_point_in_F_pos;
+	}
+	/**
+	 * @return the wind_speed_mph_pos
+	 */
+	public int getWind_speed_mph_pos() {
+		return wind_speed_mph_pos;
+	}
+	/**
+	 * @param wind_speed_mph_pos the wind_speed_mph_pos to set
+	 */
+	public void setWind_speed_mph_pos(int wind_speed_mph_pos) {
+		this.wind_speed_mph_pos = wind_speed_mph_pos;
+	}
+	/**
+	 * @return the wind_gust_mph_pos
+	 */
+	public int getWind_gust_mph_pos() {
+		return wind_gust_mph_pos;
+	}
+	/**
+	 * @param wind_gust_mph_pos the wind_gust_mph_pos to set
+	 */
+	public void setWind_gust_mph_pos(int wind_gust_mph_pos) {
+		this.wind_gust_mph_pos = wind_gust_mph_pos;
+	}
+	/**
+	 * @param wind_speed_kmh_pos the wind_speed_kmh_pos to set
+	 */
+	public void setWind_speed_kmh_pos(int wind_speed_kmh_pos) {
+		this.wind_speed_kmh_pos = wind_speed_kmh_pos;
+	}
+	/**
+	 * @param wind_gust_kmh_pos the wind_gust_kmh_pos to set
+	 */
+	public void setWind_gust_kmh_pos(int wind_gust_kmh_pos) {
+		this.wind_gust_kmh_pos = wind_gust_kmh_pos;
 	}
 	
 }

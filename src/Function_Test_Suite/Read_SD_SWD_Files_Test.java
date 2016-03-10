@@ -24,9 +24,9 @@ public class Read_SD_SWD_Files_Test {
 		assertEquals(8,tester.get_temp_f_pos());
 		assertEquals(9,tester.get_rain_fall_pos());
 		assertEquals(10,tester.get_wind_direction_pos());
-		assertEquals(11, tester.get_wind_gust_pos());
-		assertEquals(12, tester.get_wind_speed_pos());
-		assertEquals(13,tester.get_dew_point_pos());
+		assertEquals(11, tester.get_wind_gust_mph_pos());
+		assertEquals(12, tester.get_wind_speed_mph_pos());
+		assertEquals(13,tester.get_dew_point_in_F_pos());
 		
 		
 		tester.Read_SD_SWD_Files_Run(file);

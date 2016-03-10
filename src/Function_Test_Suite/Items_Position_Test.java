@@ -35,9 +35,9 @@ public class Items_Position_Test {
 //	assertEquals(8,tester.get_temp_f_pos());
 	assertEquals(5,tester.get_rain_fall_pos());
 	assertEquals(6,tester.get_wind_direction_pos());
-	assertEquals(7, tester.get_wind_gust_pos());
-	assertEquals(8, tester.get_wind_speed_pos());
-	assertEquals(9,tester.get_dew_point_pos());
+	assertEquals(7, tester.get_wind_gust_mph_pos());
+	assertEquals(8, tester.get_wind_speed_mph_pos());
+	assertEquals(9,tester.get_dew_point_in_F_pos());
 	assertEquals(0,tester.get_temp_c_pos());
 	
 	}
