@@ -1,5 +1,7 @@
 package Weather_Data_Transfer;
 
+import java.util.Objects;
+
 public class Pair{
 	 String prv;
 	 String next;
@@ -22,4 +24,14 @@ public class Pair{
 	 public String get_next(){
 		 return next;
 	 }
+	 
+	 public int hashCode(){
+	        return Objects.hashCode(prv)+Objects.hashCode(next);
+	    }
+
+	 public boolean equals(Object obj) {
+	        Pair o1 = (Pair) obj;
+	        return Objects.equals(o1.prv,this.prv) && Objects.equals(o1.next,this.next);
+	    }
+	
 	}

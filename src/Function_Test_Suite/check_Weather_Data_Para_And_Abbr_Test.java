@@ -22,7 +22,7 @@ import Weather_Data_Transfer.Weather_Info;
  * @author yiweisun
  *
  */
-public class Check_Weather_Data_Para_And_Abbr_Test {
+public class check_Weather_Data_Para_And_Abbr_Test {
 	Weather_Data_Structure_Checker checker= new Weather_Data_Structure_Checker();
 	Read_SD_SWD_Files reader;
 	Set<Pair> result_pairs= new HashSet<Pair>();

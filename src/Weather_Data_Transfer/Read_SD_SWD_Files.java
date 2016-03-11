@@ -259,15 +259,30 @@ public class Read_SD_SWD_Files {
 			}
 		
 		//after reading the file, decide the position of each item...traverse the 2d ArrayList
+			boolean check_set_pair=false;
 			System.out.println("Output the two_dimention_table");
-			
-				for(int index=1;index<two_dimention_table.get(0).size();index++){
+			 for(int i=0;i<two_dimention_table.size();i=i+3){
+				for(int index=1;index<two_dimention_table.get(i).size();index++){
 					//System.out.println("Output the two_dimention_table");
-					System.out.println(two_dimention_table.get(0).get(index));
-					weather_data_pairs.add(new Pair(two_dimention_table.get(0).get(index), two_dimention_table.get(2).get(index)));
-					
+					System.out.println(two_dimention_table.get(i).get(index));
+					Pair new_pair= new Pair(two_dimention_table.get(i).get(index), two_dimention_table.get(i+2).get(index));
+					//check if the new pair is already in the Set	
+					for(Pair content_pair: weather_data_pairs){
+//							if(content_pair.get_prv().equalsIgnoreCase(new_pair.get_prv())&content_pair.get_next().equalsIgnoreCase(new_pair.get_next())){
+//								check_set_pair=true;
+//							}
+						if(content_pair.equals(new_pair)){
+							check_set_pair=true;
+					}
+						
+						}
+					if(!check_set_pair){
+						weather_data_pairs.add(new_pair);
+					}
+					check_set_pair=false;
 				}
-		
+				
+			 }
 		     System.out.println("Output the set contents: ");
 		     for(Pair pair: weather_data_pairs){
 		    	 System.out.print(pair.get_prv()+"\t");
@@ -276,6 +291,8 @@ public class Read_SD_SWD_Files {
 		     for(Pair pair: weather_data_pairs){
 		    	 System.out.print(pair.get_next()+"\t");
 		     }
+		     System.out.println();
+		     System.out.println("The end of set contents..");
 			return 	weather_data_pairs;
 	}
 	/*
