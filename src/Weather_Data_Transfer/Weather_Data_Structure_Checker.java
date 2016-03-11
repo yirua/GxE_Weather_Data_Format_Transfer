@@ -43,6 +43,7 @@ public class Weather_Data_Structure_Checker {
 		INDEX_SWD_FLAG=false;
 		SDDATE_SWD=false;
 		files_SD_DATE= new ArrayList<File>();
+		filesInList= new ArrayList<File>();
 	}
 	/*
 	 * This method will check whether the certain folder has both SDyearmm.SWD AND INDEX.SWD...
@@ -106,8 +107,8 @@ public class Weather_Data_Structure_Checker {
 	
 public boolean check_SWD_Files_In_Given_Path_List() throws NoSuchFileException{
 	try{
-		chooser.setCurrentDirectory(new java.io.File("/Users/yiweisun/Documents/2014 G X E data/"));
-	//	chooser.setCurrentDirectory(new java.io.File("."));
+	//	chooser.setCurrentDirectory(new java.io.File("/Users/yiweisun/Documents/2014 G X E data/"));
+		chooser.setCurrentDirectory(new java.io.File("/Users/yiweisun/Desktop/"));
 	//	System.setProperty("user.dir", "/tmp");
 		chooser.setDialogTitle("Please choose the File which contains the file paths");
 		chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -147,7 +148,7 @@ public boolean check_SWD_Files_In_Given_Path_List() throws NoSuchFileException{
 	                	//SDDATE_SWD=true;
 	                }
 	            }   
-
+	            System.out.println("The total in the filesInList is: "+ filesInList.size());
 	            // Always close files.
 	            bufferedReader.close();         
 	        }
@@ -167,26 +168,29 @@ public boolean check_SWD_Files_In_Given_Path_List() throws NoSuchFileException{
 	        for ( File file : filesInList ) {
 		    	  if(file.getName().equalsIgnoreCase("INDEX.SWD")){
 		    		  INDEX_SWD_FLAG=true;
-		    		 
+		    		//  System.out.print(file.getName()+"\t");
 		    	  }
 			      if((file.getName().contains("SD")|file.getName().contains("Watchdog"))&file.getName().contains(".SWD")){
-			    	  System.out.println(file.getName());
+			    	  System.out.print(file.getName()+"\t");
 			    	  files_SD_DATE.add(file);
 			    	  SDDATE_SWD=true;
 			    	
 			      } 
 	      
-	      ///////////////////
-	     // filesInDirectory = chooser.getCurrentDirectory().listFiles();
-	        System.out.println("the output of SDDATE_SWD");
-		      for ( File file_in_SD: files_SD_DATE){
-		    	  System.out.println(file_in_SD.getName());
-		      }
-      
+	   
+	   
 	     
 	        }
+	        ///////////////////
+	        // filesInDirectory = chooser.getCurrentDirectory().listFiles();
+	        System.out.println();
+	        System.out.println("the output of SDDATE_SWD");
+		      for ( File file_in_SD: files_SD_DATE){
+		    	  System.out.print(file_in_SD.getName()+"\t");
+		      }
       
-      
+	        System.out.println("");
+	        System.out.println("The SDDATE_SWD has the "+files_SD_DATE.size()+" files.");
 		}
 	    else{
 	    	System.out.println("No Selection ");
