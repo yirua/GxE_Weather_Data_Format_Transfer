@@ -1,0 +1,544 @@
+/Users/yiweisun/Documents/2014 G X E data/2014_weather_data
+/Users/yiweisun/Documents/2014 G X E data/2014_weather_data/all_data_not_qc'd.csv
+/Users/yiweisun/Documents/2014 G X E data/2014_weather_data/all_data_not_qc'd.xlsx
+/Users/yiweisun/Documents/2014 G X E data/__MACOSX
+/Users/yiweisun/Documents/2014 G X E data/__MACOSX/_
+/Users/yiweisun/Documents/2014 G X E data/Combined
+/Users/yiweisun/Documents/2014 G X E data/Combined/05INBREDS 11-13-14.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Combined/05INBREDS 11-14-14.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Combined/G2FHyb-2014-10-08.csv
+/Users/yiweisun/Documents/2014 G X E data/Combined/G2FHyb-2014-11-13.csv
+/Users/yiweisun/Documents/2014 G X E data/Combined/SNPs.csv
+/Users/yiweisun/Documents/2014 G X E data/Combined/SNPs.rda
+/Users/yiweisun/Documents/2014 G X E data/Delaware
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/G2F_DE_9079_weather station_error.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Old
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Old/G2FDE1_Hybrid_01August2014.txt
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Old/G2FDE1_Hybrid_01July2014.txt
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Old/G2FDE1_Hybrid_01June2014.txt
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Old/G2FDE1_Hybrid_01September2014.txt
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Old/G2FDE1_Hybrid_09May2014.txt
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Old/G2FDE1_Inbred_01August2014.txt
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Old/G2FDE1_Inbred_01July2014.txt
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Old/G2FDE1_Inbred_01June2014.txt
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Old/G2FDE1_Inbred_01September2014.txt
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Old/G2FDE1_Inbred_15May2014.txt
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9078
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9078/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9078/SD201403.SWD
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9078/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9078/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9078/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9078/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9078/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9078/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9079
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9079/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9079/SD201403.SWD
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9079/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9079/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9079/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9079/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Environmental data/Station 9079/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Hybrid trial
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Hybrid trial/G2FDE1_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Hybrid trial/G2FDE1_hybrid_temp.csv
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Hybrid trial/G2FDE1_metadata_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Hybrid trial/G2FDE1_metadata_hybrid_temp.csv
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Inbred trial
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Inbred trial/donotuse
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Inbred trial/donotuse/G2FDE1_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Inbred trial/donotuse/G2FDE1_inbred_temp.csv
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Inbred trial/G2FDE1_inbred_tempv2.csv
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Inbred trial/G2FDE1_inbred_v2.csv
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Inbred trial/G2FDE1_metadata_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/Delaware/Inbred trial/G2FDE1_metadata_inbred_temp.csv
+/Users/yiweisun/Documents/2014 G X E data/Final Collated Data
+/Users/yiweisun/Documents/2014 G X E data/Genomes to fields hybrid experiment data file and data collection[2].docx
+/Users/yiweisun/Documents/2014 G X E data/Georgia
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/GA1_APRIL_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/GA1_AUGUST_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/GA1_JULY_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/GA1_JUNE_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/GA1_MAY_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/GA1_SEPTEMBER_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/GA2_APRIL_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/GA2_AUGUST_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/GA2_JULY_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/GA2_JUNE_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/GA2_MAY_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/GA2_SEPTEMBER_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Knoll-Tifton
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Knoll-Tifton/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Knoll-Tifton/Monitor.log
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Knoll-Tifton/SD201403.SWD
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Knoll-Tifton/SD201404.SWD
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Knoll-Tifton/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Knoll-Tifton/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Knoll-Tifton/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Knoll-Tifton/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Knoll-Tifton/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Scully-Tifton
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Scully-Tifton/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Scully-Tifton/SD201404.SWD
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Scully-Tifton/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Scully-Tifton/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Scully-Tifton/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Scully-Tifton/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Scully-Tifton/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Environmental data/Scully-Tifton/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Hybrid trial
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Hybrid trial/G2F_metadata_GA_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Hybrid trial/G2FGA-Hyb.csv
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Hybrid trial/G2FGA.csv
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Inbred trial
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Inbred trial/3ResponseG2F_metadata_GA_inbred.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Inbred trial/FINALFORDRSCULLY AND NATALIEWisconsinData.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Inbred trial/G2F_IN_GA2.csv
+/Users/yiweisun/Documents/2014 G X E data/Georgia/Inbred trial/G2F_metadata_GA_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/GXE_Traits_2014_for distribution.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Illinois
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Environmental data
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Environmental data/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Environmental data/Old
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Environmental data/Old/VIEWDATA.TXT
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Environmental data/Old/Weather G2FIL 11_4_14.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Environmental data/Old/Weather G2FIL 9_17_14.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Environmental data/SD201311.SWD
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Environmental data/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Environmental data/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Environmental data/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Environmental data/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Environmental data/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Environmental data/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Environmental data/SD201411.SWD
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Hybrid trial
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Hybrid trial/2014 G2F Hyb Rep 1 13_37 p1.jpg
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Hybrid trial/2014 G2F Hyb Rep 1 13_37 p2.jpg
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Hybrid trial/G2F_metadata_IL_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Hybrid trial/G2FIL1 090814.csv
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Hybrid trial/G2FIL1 101214.csv
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Hybrid trial/G2FIL1.csv
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Inbred trial
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Inbred trial/2014 G2F Inb LH198 3_211 p1.jpg
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Inbred trial/2014 G2F Inb LH198 p2.jpg
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Inbred trial/2014 G2F Inb LH198 p3.jpg
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Inbred trial/G2F_IN_IL1 090914.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Inbred trial/G2F_IN_IL1.csv
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Inbred trial/G2F_metadata_IL_inbred 091214.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Illinois/Inbred trial/G2F_metadata_IL_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/Indiana
+/Users/yiweisun/Documents/2014 G X E data/Indiana/Environmental data
+/Users/yiweisun/Documents/2014 G X E data/Indiana/Hybrid trial
+/Users/yiweisun/Documents/2014 G X E data/Indiana/Hybrid trial/G2F_metadata_IN_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Indiana/Hybrid trial/G2FIN.csv
+/Users/yiweisun/Documents/2014 G X E data/Indiana/Inbred trial
+/Users/yiweisun/Documents/2014 G X E data/Indiana/Inbred trial/G2F_metadata_IN_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/Indiana/Inbred trial/GXE_IN_IN1.csv
+/Users/yiweisun/Documents/2014 G X E data/Iowa
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA1_Lauter Group (Bennett-Worle farm)
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA2_Lauter group (Agronomy farm)
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA3_Schnable group (Curtiss farm)
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA3_Schnable group (Curtiss farm)/IA3_AUGUST_2014_Watchdog.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA3_Schnable group (Curtiss farm)/IA3_JULY_2014_Watchdog.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA3_Schnable group (Curtiss farm)/IA3_JUNE_2014_Watchdog.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA3_Schnable group (Curtiss farm)/IA3_MAY_2014_Watchdog.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA3_Schnable group (Curtiss farm)/IA3_NOVEMBER_2014_Watchdog.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA3_Schnable group (Curtiss farm)/IA3_OCTOBER_2014_Watchdog.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA3_Schnable group (Curtiss farm)/IA3_SEPTEMBER_2014_Watchdog.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA3_Schnable group (Curtiss farm)/IA3_Weather_Station_Notes.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA3_Schnable group (Curtiss farm)/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA3_Schnable group (Curtiss farm)/Old
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA3_Schnable group (Curtiss farm)/Old/IA3_August_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA3_Schnable group (Curtiss farm)/Old/IA3_July_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA3_Schnable group (Curtiss farm)/Old/IA3_June_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA3_Schnable group (Curtiss farm)/Old/IA3_May_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/IA3_Schnable group (Curtiss farm)/Old/IA3_September_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09080
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09080/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09080/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09080/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09080/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09080/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09080/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09080/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09082
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09082/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09082/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09082/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09082/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09082/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09082/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09082/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09083
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09083/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09083/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09083/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09083/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09083/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09083/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09083/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09085
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09085/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09085/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09085/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09085/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09085/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09085/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Environmental data/m2700s09085/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Iowa/GXE_Traits_2014_for distribution.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Hybrid trial
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Hybrid trial/G2F_metadata_IA1_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Hybrid trial/G2F_metadata_IA2_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Hybrid trial/G2F_metadata_IA3_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Hybrid trial/G2F_metadata_IA4_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Inbred trial
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Inbred trial/G2F_IN_IA1.csv
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Inbred trial/G2F_IN_IA2.csv
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Inbred trial/G2F_IN_IA3.csv
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Inbred trial/G2F_metadata_IA1_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Inbred trial/G2F_metadata_IA2_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/Iowa/Inbred trial/G2F_metadata_IA3_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/Location-Master List_updated2.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Minnesota
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/GXEMN1_weather_Error.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN1_2014_WatchDog
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN1_2014_WatchDog/Data downloaded 9-10-14
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN1_2014_WatchDog/Data downloaded 9-10-14/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN1_2014_WatchDog/Data downloaded 9-10-14/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN1_2014_WatchDog/Data downloaded 9-10-14/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN1_2014_WatchDog/Data downloaded 9-10-14/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN1_2014_WatchDog/Data downloaded 9-10-14/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN1_2014_WatchDog/Data downloaded 9-10-14/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN1_2014_WatchDog/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN1_2014_WatchDog/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN1_2014_WatchDog/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN1_2014_WatchDog/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN1_2014_WatchDog/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN1_2014_WatchDog/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN1_2014_WatchDog/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog/Data downloaded 9-10-14
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog/Data downloaded 9-10-14/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog/Data downloaded 9-10-14/SD201311.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog/Data downloaded 9-10-14/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog/Data downloaded 9-10-14/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog/Data downloaded 9-10-14/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog/Data downloaded 9-10-14/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog/Data downloaded 9-10-14/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog/SD201311.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Environmental data/MN2_2014_WatchDog/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Hybrid trial
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Hybrid trial/G2F_metadata_MN_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Hybrid trial/G2F_metadata_MN_hybrid_9.9.14.csv
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Hybrid trial/G2F_metadata_MN_hybrid_9.9.14_v2.csv
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Hybrid trial/G2F_metadata_MN_hybrid_v2_10.17.14_FINAL.csv
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Hybrid trial/G2F_metadata_MN_hybrid_v2_9.15.14.csv
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Hybrid trial/G2FMN.csv
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Hybrid trial/G2FMN_10.17.14_FINAL.csv
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Hybrid trial/G2FMN_9.15.14.csv
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Hybrid trial/G2FMN_9.7.14.csv
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Inbred trial
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Inbred trial/G2F_IN_MN2.csv
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Inbred trial/G2F_IN_MN2_10.13.14_FINAL.csv
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Inbred trial/G2F_IN_MN2_9.7.14.csv
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Inbred trial/G2F_metadata_MN2_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Inbred trial/G2F_metadata_MN2_inbred_9.9.14.csv
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Inbred trial/G2F_metadata_MN2_inbred_9.9.14_v2.csv
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Inbred trial/G2F_metadata_MN2_inbred_v2_10.13.14_FINAL.csv
+/Users/yiweisun/Documents/2014 G X E data/Minnesota/Inbred trial/G2F_metadata_MN2_inbred_v2_9.15.14.csv
+/Users/yiweisun/Documents/2014 G X E data/Missouri
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08645
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08645/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08645/m2700s08645 - Bradford 2014 ANNOTATED.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08645/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08645/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08645/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08645/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08645/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08645/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08646
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08646/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08646/m2700s08646 - Rollins 2014 ANNOTATED.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08646/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08646/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08646/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08646/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08646/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Environmental data/m2700s08646/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Hybrid trial
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Hybrid trial/G2F_metadata_MO1_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Hybrid trial/G2F_metadata_MO2_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Hybrid trial/G2FMO1.csv
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Hybrid trial/G2FMO2.csv
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Hybrid trial/Rollins Flooded for the SECOND TIME on October 1 2014.jpg
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Inbred trial
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Inbred trial/G2F_metada_MO3HCBd_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Inbred trial/G2F_metadata_MO1BFD_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Inbred trial/G2F_metadata_MO2KSV_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Inbred trial/GXEMO1BFD.csv
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Inbred trial/GXEMO2KSV.csv
+/Users/yiweisun/Documents/2014 G X E data/Missouri/Inbred trial/GXEMO3HCB.csv
+/Users/yiweisun/Documents/2014 G X E data/Nebraska
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/NE1
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/NE1/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/NE1/SD201311.SWD
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/NE1/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/NE1/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/NE1/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/NE1/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/NE1/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/NE1/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/Old
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/Old/2014.08.25Weather_NE1.csv
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/Old/2014.08.29Weather_NE2.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/Old/2014.08.29Weather_NE3.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/SD201311.SWD
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Environmental data/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Hybrid trial
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Hybrid trial/G2F_metadata_NE1_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Hybrid trial/G2F_metadata_NE2_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Hybrid trial/G2F_metadata_NE3_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Hybrid trial/G2FNE1-HYB.csv
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Hybrid trial/G2FNE2-HYB.csv
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Hybrid trial/G2FNE3-HYB.csv
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Inbred trial
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Inbred trial/G2F_IN_NE1.csv
+/Users/yiweisun/Documents/2014 G X E data/Nebraska/Inbred trial/G2F_metadata_NE1_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/new york
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2/NY2_August_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2/NY2_July_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2/NY2_June_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2/NY2_May_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2/Old
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2/Old/NY2_August_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2/Old/NY2_July_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2/Old/NY2_June_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2/Old/NY2_May_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/new york/Environmental data/NY2/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/new york/Hybrid trial
+/Users/yiweisun/Documents/2014 G X E data/new york/Hybrid trial/G2F_metadata_NY1_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/new york/Hybrid trial/G2F_metadata_NY2_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/new york/Hybrid trial/G2FNY1.csv
+/Users/yiweisun/Documents/2014 G X E data/new york/Hybrid trial/G2FNY2.csv
+/Users/yiweisun/Documents/2014 G X E data/new york/Inbred trial
+/Users/yiweisun/Documents/2014 G X E data/new york/Inbred trial/G2F_IN_NY1.csv
+/Users/yiweisun/Documents/2014 G X E data/new york/Inbred trial/G2F_metadata_NY1_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/new york/musgrave farm field ID and acreage.JPG
+/Users/yiweisun/Documents/2014 G X E data/new york/Musgrave Farm.tiff
+/Users/yiweisun/Documents/2014 G X E data/new york/Overview Musgrave.JPG
+/Users/yiweisun/Documents/2014 G X E data/North Carolina
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Clayton Inbreds
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Clayton Inbreds/Clayton Inbreds.xlsx
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Clayton Inbreds/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Clayton Inbreds/SD201404.SWD
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Clayton Inbreds/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Clayton Inbreds/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Clayton Inbreds/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Clayton Inbreds/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Kinston Hybrids
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Kinston Hybrids/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Kinston Hybrids/Kinston Hybrids.xlsx
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Kinston Hybrids/SD201404.SWD
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Kinston Hybrids/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Kinston Hybrids/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Kinston Hybrids/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Kinston Hybrids/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Kinston Hybrids/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Environmental data/Kinston Hybrids/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Hybrid trial
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Hybrid trial/Central Crops management log field B3 2014.pdf
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Hybrid trial/G2F_metadata_NC_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Hybrid trial/G2F_metadata_NC_hybrid.csv:com.dropbox.attributes
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Hybrid trial/G2FNC.csv
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Hybrid trial/NC 2014 plot map for G2F hybrid.xlsx
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Inbred trial
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Inbred trial/G2F_IN_NC1.csv
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Inbred trial/G2F_IN_NC1.csv:com.dropbox.attributes
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Inbred trial/G2F_metadata_NC1_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Inbred trial/G2F_metadata_NC1_inbred.csv:com.dropbox.attributes
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Inbred trial/G2F_metadata_NC1_inbred_v2.csv
+/Users/yiweisun/Documents/2014 G X E data/North Carolina/Inbred trial/G2F_metadata_NC1_inbred_v2.csv:com.dropbox.attributes
+/Users/yiweisun/Documents/2014 G X E data/Ontario
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/old.zip
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Ridgetown
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Ridgetown/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Ridgetown/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Ridgetown/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Ridgetown/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Ridgetown/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Ridgetown/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Ridgetown/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Ridgetown/SD201411.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Waterloo
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Waterloo/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Waterloo/SD201311.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Waterloo/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Waterloo/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Waterloo/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Waterloo/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Waterloo/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Waterloo/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Environmental data/Waterloo/SD201411.SWD
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Hybrid trial
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Hybrid trial/G2F_metadata_ON1_hybrid.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Hybrid trial/G2F_metadata_ON2_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Hybrid trial/G2FON1 initial data.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Hybrid trial/G2FON1.csv
+/Users/yiweisun/Documents/2014 G X E data/Ontario/Hybrid trial/G2FON2.csv
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/AZ_2014_Watchdog
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/AZ_2014_Watchdog/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/AZ_2014_Watchdog/SD201404.SWD
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/AZ_2014_Watchdog/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/AZ_2014_Watchdog/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/AZ_2014_Watchdog/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/Note.txt
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/PA_2014_Watchdog
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/PA_2014_Watchdog/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/PA_2014_Watchdog/PA_Lynch_note.txt
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/PA_2014_Watchdog/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/PA_2014_Watchdog/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/PA_2014_Watchdog/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/PA_2014_Watchdog/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/PA_2014_Watchdog/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/PA_August_2014_WatchDog.txt
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/PA_July_2014_WatchDog.txt
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/PA_June_2014_WatchDog.txt
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Environmental data/PA_September_2014_WatchDog.txt
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Inbred trial
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Inbred trial/G2F_IN_PA1 in progress.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Inbred trial/G2F_IN_PA1.csv
+/Users/yiweisun/Documents/2014 G X E data/Pennsylvania/Inbred trial/G2F_metadata_PA1_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/SpecWare9_Quick_Start_Guide_-book_format2.pdf
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/CSV
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/CSV/CS1_April_2014_Watchdog.csv
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/CSV/CS1_August_2014_Watchdog.csv
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/CSV/CS1_July_2014_Watchdog.csv
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/CSV/CS1_June_2014_Watchdog.csv
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/CSV/CS1_March_2014_Watchdog.csv
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/CSV/CS1_May_2014_Watchdog.csv
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/CSV/CS1_September_2014_Watchdog.csv
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/GXETX1-2 weather_notes110714.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/SD201403.SWD
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/SD201404.SWD
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Environmental data/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Hybrid trial
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Hybrid trial/G2F_metadata_TX1_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Hybrid trial/G2FTX1_v2.csv
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Inbred trial
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Inbred trial/G2F_IN_TX1.csv
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Inbred trial/G2F_IN_TX2_v2.csv
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Inbred trial/G2F_metadata_TX1_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/Texas - Seth/Inbred trial/G2F_metadata_TX2_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/Texas - Wenwei
+/Users/yiweisun/Documents/2014 G X E data/Texas - Wenwei/2014G2F Texas-HF Data notes.pdf
+/Users/yiweisun/Documents/2014 G X E data/Texas - Wenwei/Environmental data
+/Users/yiweisun/Documents/2014 G X E data/Texas - Wenwei/Hybrid trial
+/Users/yiweisun/Documents/2014 G X E data/Texas - Wenwei/Hybrid trial/2014G2F-HYB-HF-Report.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Texas - Wenwei/Hybrid trial/G2F_metadata_TX3_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Texas - Wenwei/Hybrid trial/G2FTX3.csv
+/Users/yiweisun/Documents/2014 G X E data/Texas - Wenwei/Inbred trial
+/Users/yiweisun/Documents/2014 G X E data/Texas - Wenwei/Inbred trial/2014G2F-Inbred-HF-Report.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Texas - Wenwei/Inbred trial/G2F_IN_TX3.csv
+/Users/yiweisun/Documents/2014 G X E data/Texas - Wenwei/Inbred trial/G2F_metadata_TX3_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/Transfer WatchDog Weather Station Data - Wendy Sayre.pdf
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/Excel Files
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/Excel Files/WI1_August_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/Excel Files/WI1_July_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/Excel Files/WI1_June_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/Excel Files/WI2_August_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/Excel Files/WI2_July_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/Excel Files/WI2_June_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/Excel Files/WI2_May_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Arlington
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Arlington/GXEWI_weather_errror_Arlington.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Arlington/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Arlington/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Arlington/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Arlington/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Arlington/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Arlington/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Arlington/SD201410_2.SWD
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Arlington/SD201411.SWD
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Old
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Old/WI1_August_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Old/WI1_July_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Old/WI1_June_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Old/WI2_August_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Old/WI2_July_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Old/WI2_June_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/Old/WI2_May_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/West Madison
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/West Madison/GXEWIweather_error_WestMadison.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/West Madison/INDEX.SWD
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/West Madison/SD201405.SWD
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/West Madison/SD201406.SWD
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/West Madison/SD201407.SWD
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/West Madison/SD201408.SWD
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/West Madison/SD201409.SWD
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/West Madison/SD201410.SWD
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/WI1_August_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/WI1_July_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/WI1_June_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/WI2_August_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/WI2_July_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/WI2_June_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Environmental data/SWD Files/WI2_May_2014_WatchDog.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Hybrid trial
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Hybrid trial/G X E_WI_MAP.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Hybrid trial/G2F_metadata_WI_hybrid.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Hybrid trial/G2FWI-HYB-metadata.xls
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Hybrid trial/G2FWI.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Hybrid trial/G2FWI.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Inbred trial
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Inbred trial/G2F_IN_WI1 (2).xlsx
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Inbred trial/G2F_IN_WI1.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Inbred trial/G2F_IN_WI1.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Inbred trial/G2F_IN_WI2 (2).xlsx
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Inbred trial/G2F_IN_WI2.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Inbred trial/G2F_IN_WI2.xlsx
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Inbred trial/G2F_metadata_WI1_inbred (Natalia de Leon's conflicted copy 2014-11-26).xls
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Inbred trial/G2F_metadata_WI1_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Inbred trial/G2F_metadata_WI1_inbred.xls
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Inbred trial/G2F_metadata_WI2_inbred.csv
+/Users/yiweisun/Documents/2014 G X E data/Wisconsin/Inbred trial/G2F_metadata_WI2_inbred.xls

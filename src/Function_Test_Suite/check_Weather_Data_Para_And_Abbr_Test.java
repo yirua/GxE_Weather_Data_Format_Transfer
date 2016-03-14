@@ -31,25 +31,25 @@ public class check_Weather_Data_Para_And_Abbr_Test {
 		
 		//JFileChooser chooser= new JFileChooser();
 		
-		
+		//with given path for a folder to get one station .SWD files.
 		try {
 			ArrayList<File> files;
-			checker.check_SWD_Files();
+			checker.check_SWD_Files(); 
 			checker.Get_SD_DATES_Files();
 			checker.get_Files_SD_DATE();
 			files =checker.get_Files_SD_DATE();
 			reader = new Read_SD_SWD_Files(files);
 			int pair_ctr=0;
 			result_pairs=reader.Check_Weather_Data_Para_And_Abbr(files);
-			System.out.println("The result of the folder cominations of pairs");
+			System.out.println("The result of the folder combinations of pairs");
 			for(Pair pair: result_pairs){
 				System.out.print(pair.get_prv()+"\t");
-/////////////////////////////////////////				
-				
+/////////////////////////////////////////								
 				//test only one file
 				//break;
 			}
 			System.out.println();
+			
 			for(Pair pair: result_pairs){
 				System.out.print(pair.get_next()+"\t");
 /////////////////////////////////////////				

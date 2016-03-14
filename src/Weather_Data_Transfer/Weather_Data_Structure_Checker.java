@@ -46,7 +46,7 @@ public class Weather_Data_Structure_Checker {
 		filesInList= new ArrayList<File>();
 	}
 	/*
-	 * This method will check whether the certain folder has both SDyearmm.SWD AND INDEX.SWD...
+	 * This method will check whether the certain folder has both SDyearmm.SWD AND INDEX.SWD...with given folder
 	 */
 	public boolean check_SWD_Files() throws NoSuchFileException{
 		try{
