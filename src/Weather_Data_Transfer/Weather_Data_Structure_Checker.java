@@ -46,7 +46,7 @@ public class Weather_Data_Structure_Checker {
 		filesInList= new ArrayList<File>();
 	}
 	/*
-	 * This method will check whether the certain folder has both SDyearmm.SWD AND INDEX.SWD...with given folder
+	 * This method will check whether the certain folder has both SDyearmm.SWD AND INDEX.SWD...with given folder such as 2014 GXE data..
 	 */
 	public boolean check_SWD_Files() throws NoSuchFileException{
 		try{
@@ -186,7 +186,7 @@ public boolean check_SWD_Files_In_Given_Path_List() throws NoSuchFileException{
 	        System.out.println();
 	        System.out.println("the output of SDDATE_SWD");
 		      for ( File file_in_SD: files_SD_DATE){
-		    	  System.out.print(file_in_SD.getName()+"\t");
+		    	  System.out.print(file_in_SD.getCanonicalPath()+"\t");
 		      }
       
 	        System.out.println("");

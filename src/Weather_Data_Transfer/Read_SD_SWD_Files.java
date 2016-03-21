@@ -963,36 +963,47 @@ public class Read_SD_SWD_Files {
 		 
 		 if(!words.toString().isEmpty()){
 			 
-		 
+			Weather_Info weather_info_one= new Weather_Info();
+			weather_info_one.setStationId(get_Station_Id());
+			
 			String time_info= words[0];
 			String[] year_mm_dd_time=time_info.split(" ");
 			String time = year_mm_dd_time[1];
-			String[] year_mm_dd=year_mm_dd_time[0].split("-");
-			Weather_Info weather_info_one= new Weather_Info();
-			//////////////////////////////////checking the weather_info_one
-/*					System.out.println("The weather_info_one contents before reading: ");
-			System.out.print("Station_id:"+ weather_info_one.getStationId()+"\tMonth:"+weather_info_one.getMonth()+"\tDay:"+weather_info_one.getDay()+"\tYear:"+weather_info_one.getYear()+"\tTime:"+weather_info_one.getTime());
-			System.out.print("Dew Point:"+weather_info_one.getDew_Point()+"\tSolar Rad:"+weather_info_one.getSolar_Rad()+"\tRainfall:"+weather_info_one.getRainfall());
-			System.out.print("TMP_in_C:"+ weather_info_one.getTMP_C()+"\tTMPA_in_C:"+weather_info_one.getTMPA_C()+"\tTMPB_in_C:"+weather_info_one.getTMPB_C()+"\tTMPC_in_C:"+weather_info_one.getTMPC_C()+"\tTMPD_in_C:"+weather_info_one.getTMPD_C()+"\tTMPE_in_C:"+weather_info_one.getTMPE_C()+"\tTMPF_in_C:"+weather_info_one.getTMPF_C());
-			System.out.println();
-			System.out.print("TMP_in_F:"+ weather_info_one.getTMP()+"\tTMPA_in_F:"+weather_info_one.getTMPA()+"\tTMPB_in_F:"+weather_info_one.getTMPB()+"\tTMPC_in_F:"+weather_info_one.getTMPC()+"\tTMPD_in_F:"+weather_info_one.getTMPD()+"\tTMPE_in_F:"+weather_info_one.getTMPE()+"\tTMPF_in_F:"+weather_info_one.getTMPF());
-			System.out.println();
-			//ECBC +VWCs
-			
-			System.out.print("ECBC:"+weather_info_one.getECBC()+"\tVWCA:"+weather_info_one.getVWCA()+"\tVWCB:"+weather_info_one.getVWCB()+"\tVWCC:"+weather_info_one.getVWCC()+"\tVWCD:"+weather_info_one.getVWCD());
-		    //WIND 
-			System.out.print("Wind Dir:"+weather_info_one.getWind_Dir()+"\tWind Gust:"+weather_info_one.getWind_Gust()+"\tWind Speed:"+weather_info_one.getWind_Speed());
-			//humidity
-			System.out.print("Humidity:"+ weather_info_one.getRH());
-			System.out.println();
-/*//////////////////////////////////////////////////////////////////////////////////////////////////
-			weather_info_one.setStationId(get_Station_Id());
-			//set the year, mm, dd and time
-			
-			weather_info_one.setYear(year_mm_dd[0]);
-			weather_info_one.setMonth(year_mm_dd[1]);
-			weather_info_one.setDay(year_mm_dd[2]);
-			
+			String[] year_mm_dd;
+			if(year_mm_dd_time[0].contains("/")){
+				year_mm_dd=year_mm_dd_time[0].split("/");
+				weather_info_one.setYear(year_mm_dd[2]);
+				weather_info_one.setMonth(year_mm_dd[0]);
+				weather_info_one.setDay(year_mm_dd[1]);			
+				
+			}
+			else{
+				year_mm_dd=year_mm_dd_time[0].split("-");
+				
+				//////////////////////////////////checking the weather_info_one
+	/*					System.out.println("The weather_info_one contents before reading: ");
+				System.out.print("Station_id:"+ weather_info_one.getStationId()+"\tMonth:"+weather_info_one.getMonth()+"\tDay:"+weather_info_one.getDay()+"\tYear:"+weather_info_one.getYear()+"\tTime:"+weather_info_one.getTime());
+				System.out.print("Dew Point:"+weather_info_one.getDew_Point()+"\tSolar Rad:"+weather_info_one.getSolar_Rad()+"\tRainfall:"+weather_info_one.getRainfall());
+				System.out.print("TMP_in_C:"+ weather_info_one.getTMP_C()+"\tTMPA_in_C:"+weather_info_one.getTMPA_C()+"\tTMPB_in_C:"+weather_info_one.getTMPB_C()+"\tTMPC_in_C:"+weather_info_one.getTMPC_C()+"\tTMPD_in_C:"+weather_info_one.getTMPD_C()+"\tTMPE_in_C:"+weather_info_one.getTMPE_C()+"\tTMPF_in_C:"+weather_info_one.getTMPF_C());
+				System.out.println();
+				System.out.print("TMP_in_F:"+ weather_info_one.getTMP()+"\tTMPA_in_F:"+weather_info_one.getTMPA()+"\tTMPB_in_F:"+weather_info_one.getTMPB()+"\tTMPC_in_F:"+weather_info_one.getTMPC()+"\tTMPD_in_F:"+weather_info_one.getTMPD()+"\tTMPE_in_F:"+weather_info_one.getTMPE()+"\tTMPF_in_F:"+weather_info_one.getTMPF());
+				System.out.println();
+				//ECBC +VWCs
+				
+				System.out.print("ECBC:"+weather_info_one.getECBC()+"\tVWCA:"+weather_info_one.getVWCA()+"\tVWCB:"+weather_info_one.getVWCB()+"\tVWCC:"+weather_info_one.getVWCC()+"\tVWCD:"+weather_info_one.getVWCD());
+			    //WIND 
+				System.out.print("Wind Dir:"+weather_info_one.getWind_Dir()+"\tWind Gust:"+weather_info_one.getWind_Gust()+"\tWind Speed:"+weather_info_one.getWind_Speed());
+				//humidity
+				System.out.print("Humidity:"+ weather_info_one.getRH());
+				System.out.println();
+	/*//////////////////////////////////////////////////////////////////////////////////////////////////
+				
+				//set the year, mm, dd and time
+				
+				weather_info_one.setYear(year_mm_dd[0]);
+				weather_info_one.setMonth(year_mm_dd[1]);
+				weather_info_one.setDay(year_mm_dd[2]);
+			}
 			//day of year
 			Calendar calendar = Calendar.getInstance();
 			calendar.clear();
