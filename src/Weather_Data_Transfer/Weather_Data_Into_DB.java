@@ -94,12 +94,12 @@ public void Create_Table_Gxe_Weather(Connection connected){
 	try {
 		Statement stmt = connected.createStatement();
 		
-	    String create_table="CREATE TABLE GXE_Weather(Record_id SERIAL NOT NULL,Station_id VARCHAR(6),Day VARCHAR(2),Month VARCHAR(2),Year VARCHAR(4),Julian_Date VARCHAR(3),"+
-"Time VARCHAR(8),Temp_F VARCHAR(6),TempA_F VARCHAR(6), TempB_F VARCHAR(6),TempC_F VARCHAR(6),TempD_F VARCHAR(6),TempE_F VARCHAR(6),TempF_F VARCHAR(6),"+
-"Temp_C VARCHAR(6),TempA_C VARCHAR(6), TempB_C VARCHAR(6),TempC_C VARCHAR(6),TempD_C VARCHAR(6),TempE_C VARCHAR(6),TempF_C VARCHAR(6),"+
-"EC_SMEC300 VARCHAR(8),Soil_Moist_VWC_A VARCHAR(8),Soil_Moist_VWC_B VARCHAR(8),Soil_Moist_VWC_C VARCHAR(8),"+
-"Soil_Moist_VWC_D VARCHAR(8),Rh VARCHAR(8),Dew_Point VARCHAR(8),Solar_Radiation VARCHAR(8),Rain_Fall VARCHAR(8),"+
-"Wind_Direction VARCHAR(8),Wind_Speed VARCHAR(8),Wind_Gust VARCHAR(8),PRIMARY KEY(Record_id))";
+		String create_table="CREATE TABLE GXE_Weather(Record_id SERIAL NOT NULL,Station_id VARCHAR(6),Day VARCHAR(2),Month VARCHAR(2),Year VARCHAR(4),Julian_Date VARCHAR(3),"+
+				"Time VARCHAR(8),Temp_F VARCHAR(6),TempA_F VARCHAR(6), TempB_F VARCHAR(6),TempC_F VARCHAR(6),TempD_F VARCHAR(6),TempE_F VARCHAR(6),TempF_F VARCHAR(6),"+
+				"Temp_C VARCHAR(6),TempA_C VARCHAR(6), TempB_C VARCHAR(6),TempC_C VARCHAR(6),TempD_C VARCHAR(6),TempE_C VARCHAR(6),TempF_C VARCHAR(6),"+
+				"EC_SMEC300 VARCHAR(8),Soil_Moist_VWC_A VARCHAR(8),Soil_Moist_VWC_B VARCHAR(8),Soil_Moist_VWC_C VARCHAR(8),"+
+				"Soil_Moist_VWC_D VARCHAR(8),Rh VARCHAR(8),Dew_Point_f VARCHAR(8),Dew_Point_c VARCHAR(8),Solar_Radiation VARCHAR(8),RainFall_In VARCHAR(8),RainFall_Mm VARCHAR(8),"+
+				"Wind_Direction VARCHAR(8),Wind_Speed_Mph VARCHAR(8),Wind_Gust_Mph VARCHAR(8),Wind_Speed_Kmh VARCHAR(8),Wind_Gust_Kmh VARCHAR(8),uv_light VARCHAR(8),CO2 VARCHAR(8),PRIMARY KEY(Record_id))";
 	    stmt.executeQuery(create_table);
 	    String table_constraint="alter table gxe_weather add constraint GXE_WEATHER_STATION_DATE_TIME unique(station_id,day, month, year,time)";
 	    stmt.executeQuery(table_constraint);
@@ -123,8 +123,8 @@ public void drop_Then_Create_Table(Connection connected){
 "Time VARCHAR(8),Temp_F VARCHAR(6),TempA_F VARCHAR(6), TempB_F VARCHAR(6),TempC_F VARCHAR(6),TempD_F VARCHAR(6),TempE_F VARCHAR(6),TempF_F VARCHAR(6),"+
 "Temp_C VARCHAR(6),TempA_C VARCHAR(6), TempB_C VARCHAR(6),TempC_C VARCHAR(6),TempD_C VARCHAR(6),TempE_C VARCHAR(6),TempF_C VARCHAR(6),"+
 "EC_SMEC300 VARCHAR(8),Soil_Moist_VWC_A VARCHAR(8),Soil_Moist_VWC_B VARCHAR(8),Soil_Moist_VWC_C VARCHAR(8),"+
-"Soil_Moist_VWC_D VARCHAR(8),Rh VARCHAR(8),Dew_Point VARCHAR(8),Solar_Radiation VARCHAR(8),Rain_Fall VARCHAR(8),"+
-"Wind_Direction VARCHAR(8),Wind_Speed VARCHAR(8),Wind_Gust VARCHAR(8),PRIMARY KEY(Record_id))";
+"Soil_Moist_VWC_D VARCHAR(8),Rh VARCHAR(8),Dew_Point_f VARCHAR(8),Dew_Point_c VARCHAR(8),Solar_Radiation VARCHAR(8),RainFall_In VARCHAR(8),RainFall_Mm VARCHAR(8),"+
+"Wind_Direction VARCHAR(8),Wind_Speed_Mph VARCHAR(8),Wind_Gust_Mph VARCHAR(8),Wind_Speed_Kmh VARCHAR(8),Wind_Gust_Kmh VARCHAR(8),uv_light VARCHAR(8),CO2 VARCHAR(8),PRIMARY KEY(Record_id))";
 	    stmt.executeQuery(create_table);
 	    String table_constraint="alter table gxe_weather add constraint GXE_WEATHER_STATION_DATE_TIME unique(station_id,day, month, year,time)";
 	    stmt.executeQuery(table_constraint);
@@ -155,8 +155,8 @@ public int insert_one_object_into_db(Connection connected, ArrayList<Weather_Inf
 	
 	for (Weather_Info info: infos){
 			try {
-				String insert_into_table="INSERT INTO gxe_weather(station_id,day,month,year,julian_date,time,temp_f,tempa_f,tempb_f,tempc_f,tempd_f,tempe_f,tempf_f,temp_c,tempa_c,tempb_c,tempc_c,tempd_c,tempe_c,tempf_c,ec_smec300,soil_moist_vwc_a,soil_moist_vwc_b,soil_moist_vwc_c,soil_moist_vwc_d,rh,dew_point_f,solar_radiation,rain_fall,wind_direction,wind_speed_mph,wind_gust_mph,uv_light,dew_point_c,wind_speed_kmh,wind_gust_kmh,co2)"+
-										"VALUES"+"(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				String insert_into_table="INSERT INTO gxe_weather(station_id,day,month,year,julian_date,time,temp_f,tempa_f,tempb_f,tempc_f,tempd_f,tempe_f,tempf_f,temp_c,tempa_c,tempb_c,tempc_c,tempd_c,tempe_c,tempf_c,ec_smec300,soil_moist_vwc_a,soil_moist_vwc_b,soil_moist_vwc_c,soil_moist_vwc_d,rh,dew_point_f,dew_point_c,solar_radiation,rainfall_in,rainfall_mm,wind_direction,wind_speed_mph,wind_gust_mph,wind_speed_kmh,wind_gust_kmh,uv_light,co2)"+
+										"VALUES"+"(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 				
 				PreparedStatement pstmt = null;
 				
@@ -203,17 +203,22 @@ public int insert_one_object_into_db(Connection connected, ArrayList<Weather_Inf
 					
 					pstmt.setString(26, info.getRH());
 					pstmt.setString(27, info.getDew_point_F());
-					pstmt.setString(28, info.getSolar_Rad());
+					pstmt.setString(28, info.getDew_point_C());
+					pstmt.setString(29, info.getSolar_Rad());
+					//rainfall
+					pstmt.setString(30, info.getRainfallIn());
+					pstmt.setString(31,info.getRainfallMM());
 					
-					pstmt.setString(29, info.getRainfall());
-					pstmt.setString(30, info.getWind_Dir());
-					pstmt.setString(31, info.getWind_Speed_mph());
-					pstmt.setString(32, info.getWind_Gust_mph());
-					pstmt.setString(33, info.getUv_light());
-					pstmt.setString(34, info.getDew_point_C());
+					//Wind Dir, speed, gust
+					pstmt.setString(32, info.getWind_Dir());
+					pstmt.setString(33, info.getWind_speed_mph());
+					pstmt.setString(34, info.getWind_gust_mph());
+					
+					
 					pstmt.setString(35, info.getWind_speed_kmh());
 					pstmt.setString(36, info.getWind_gust_kmh());
-					pstmt.setString(37, info.getCo2());
+					pstmt.setString(37, info.getUv_light());
+					pstmt.setString(38, info.getCo2());
 					
 					
 					
@@ -246,7 +251,7 @@ public int Insert_Into_DB_By_Set(Connection connected, Set<Weather_Info> infos){
 	
 	for (Weather_Info info: infos){
 			try {
-				String insert_into_table="INSERT INTO gxe_weather(station_id,day,month,year,julian_date,time,temp_f,tempa_f,tempb_f,tempc_f,tempd_f,tempe_f,tempf_f,temp_c,tempa_c,tempb_c,tempc_c,tempd_c,tempe_c,tempf_c,ec_smec300,soil_moist_vwc_a,soil_moist_vwc_b,soil_moist_vwc_c,soil_moist_vwc_d,rh,dew_point,solar_radiation,rain_fall,wind_direction,wind_speed,wind_gust)"+
+				String insert_into_table="INSERT INTO gxe_weather(station_id,day,month,year,julian_date,time,temp_f,tempa_f,tempb_f,tempc_f,tempd_f,tempe_f,tempf_f,temp_c,tempa_c,tempb_c,tempc_c,tempd_c,tempe_c,tempf_c,ec_smec300,soil_moist_vwc_a,soil_moist_vwc_b,soil_moist_vwc_c,soil_moist_vwc_d,rh,dew_point_f,dew_point_c,solar_radiation,rainfall_in,rainfall_mm,wind_direction,wind_speed_mph,wind_gust_mph,wind_speed_kmh,wind_gust_kmh,co2)"+
 										"VALUES"+"(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 				
 				PreparedStatement pstmt = null;
@@ -294,12 +299,17 @@ public int Insert_Into_DB_By_Set(Connection connected, Set<Weather_Info> infos){
 					
 					pstmt.setString(26, info.getRH());
 					pstmt.setString(27, info.getDew_point_F());
-					pstmt.setString(28, info.getSolar_Rad());
+					pstmt.setString(28, info.getDew_point_C());
+					pstmt.setString(29, info.getSolar_Rad());
 					
-					pstmt.setString(29, info.getRainfall());
-					pstmt.setString(30, info.getWind_Dir());
-					pstmt.setString(31, info.getWind_Speed_mph());
-					pstmt.setString(32, info.getWind_Gust_mph());
+					pstmt.setString(30, info.getRainfall_in());
+					pstmt.setString(31, info.getRainfallMM());
+					pstmt.setString(32, info.getWind_Dir());
+					pstmt.setString(33, info.getWind_speed_mph());
+					pstmt.setString(34, info.getWind_gust_mph());
+					pstmt.setString(35, info.getWind_speed_kmh());
+					pstmt.setString(36, info.getWind_gust_kmh());
+					pstmt.setString(37, info.getCo2());
 					
 					ResultSet results=pstmt.executeQuery();
 					//pstmt.executeUpdate();

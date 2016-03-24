@@ -471,7 +471,11 @@ public class Read_SD_SWD_Files {
 				}
 			//	Rainfall
 				if(two_dimention_table.get(0).get(index).contains("Rainfall (In)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("RNF")){
-					set_rain_fall_pos(index);
+					setRainfallIn_pos(index);
+				}
+//				Rainfall
+				if(two_dimention_table.get(0).get(index).contains("Rainfall (mm)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("RNF")){
+					setRainfallMM_pos(index);
 				}
 			//Wind dir
 				if(two_dimention_table.get(0).get(index).contains("Wind Dir")&two_dimention_table.get(2).get(index).equalsIgnoreCase("WND")){
@@ -513,7 +517,7 @@ public class Read_SD_SWD_Files {
 				}
 			//UVL
 				if(two_dimention_table.get(0).get(index).contains("UV Light")&two_dimention_table.get(2).get(index).equalsIgnoreCase("UVL")){
-					set_uv_light_pos(index);
+					setUv_light_pos(index);
 				}
 			/////////////////////////////////////////////////new items
 				//TempInt in F
@@ -560,11 +564,11 @@ public class Read_SD_SWD_Files {
 					setLmilliAmp_pos(index);
 				}	
 				 // private int rainfallIn_pos;  
-				if(two_dimention_table.get(0).get(index).contains("RainfallIn")&two_dimention_table.get(2).get(index).equalsIgnoreCase("RNF")){
+				if(two_dimention_table.get(0).get(index).contains("Rainfall (In)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("RNF")){
 					setRainfallIn_pos(index);
 				}	
 				// private int rainfallMM_pos; //
-				if(two_dimention_table.get(0).get(index).contains("RainfallMM")&two_dimention_table.get(2).get(index).equalsIgnoreCase("RNF")){
+				if(two_dimention_table.get(0).get(index).contains("Rainfall (mm)")&two_dimention_table.get(2).get(index).equalsIgnoreCase("RNF")){
 					setRainfallMM_pos(index);
 				}	
 				// private int wetness_pos; //WET
@@ -720,21 +724,23 @@ public class Read_SD_SWD_Files {
 				//RH
 				System.out.println("RH (%) " + get_rh_pos());	
 //				Rainfall
-				System.out.println("Rainfall " + get_rain_fall_pos());	
-				
+				System.out.println("Rainfall_In " + getRainfallIn_pos());	
+				System.out.println("Rainfall_MM " + getRainfallMM_pos());
 				//Wind dir
 				System.out.println("Wind Dir " + get_wind_direction_pos());	
 				//Wind Gust
-				System.out.println("Wind Gust " + get_wind_gust_mph_pos());	
+				System.out.println("Wind Gust (mph) " + get_wind_gust_mph_pos());	
 				//Wind Speed	
-				System.out.println("Wind Speed " + get_wind_speed_mph_pos());	
+				System.out.println("Wind Speed (mph) " + get_wind_speed_mph_pos());	
 				//Dew Point
-				System.out.println("Dew Point " + getDew_point_in_F_pos());	
+				System.out.println("Dew Point (*F)" + getDew_point_in_F_pos());	
+				System.out.println("Dew Point (*C)" + getDew_point_in_C_pos());	
 				//UV Light
 				System.out.println("UV Light " + get_uv_light_pos());	
+				
 
 			//////new items
-				
+				System.out.println("CO2 "+ getCo2_pos());
 				
 			/////new items
 				
@@ -848,7 +854,7 @@ public class Read_SD_SWD_Files {
 		
 		try {
 					fileName = file.getCanonicalPath();
-				
+				System.out.println("the file CanonicalPath is: "+ fileName);
 		        // This will reference one line at a time
 		        String line = null;
 
@@ -867,14 +873,25 @@ public class Read_SD_SWD_Files {
 		                System.out.println(line); // show up the line input
 		                String temp_station_id;
 		                String[] words= line.split("\t");
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		                //read the first line of the first file
-		                if (line_ctr==0){
+/*		                if (line_ctr==0){
 		                	if(get_Station_Id().equals("")){
 		                		temp_station_id=words[0];
 		                	int len=temp_station_id.length();
 		                	
 		                	if(len>=5){
-		                		temp_station_id=temp_station_id.substring(len-5, len);
+		                		//normal cases 
+		                		if(temp_station_id.contains("-2015")){
+		                			temp_station_id=temp_station_id.substring(len-10, len-5);
+		                		}
+		                		else{
+		                			
+		                			temp_station_id=temp_station_id.substring(len-5, len);
+		                			if(temp_station_id.contains("s")){
+		                				temp_station_id=temp_station_id.substring(1);
+		                			}
+		                		}
 		                		//is it an integer?
 		                	//	int test_station_id=Integer.parseInt(station_id);
 		                		
@@ -890,16 +907,41 @@ public class Read_SD_SWD_Files {
 		                			
 		                		}
 		                	}
-		                	else{
-		                		//need to input the station_id by user...
-		                		
-		                		      set_Station_Id(User_Input_Station_Id());
-		                			
-		                	}
+			                
+			                		//need to read the station id from the file path..
+			                		
+			                		 //     set_Station_Id(User_Input_Station_Id());
+			                		//read from the file path to get the station id
+			                		
 		                	
 		                	}
 		                	
 		                }
+*/  
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		                
+		              if(line_ctr==0){
+		                String[] paths=file.getCanonicalPath().split("/");
+                		int path_len=paths.length;
+                		String path=paths[path_len-2]; //filename which contains the station id
+                		if(path.contains("_")){
+                			String[] more_paths=path.split("_");
+                			if(isNumeric(more_paths[more_paths.length-1])){
+                				set_Station_Id(more_paths[more_paths.length-1]);
+                			}
+                			else{
+                				 set_Station_Id(User_Input_Station_Id());
+                			}
+                		}
+                		else{
+                			if(isNumeric(path)){
+                				set_Station_Id(path);
+                			}
+                			else
+                				set_Station_Id(User_Input_Station_Id());
+                		}
+                	
+		              }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 		                //read into the abbreviations to get certain positions of them
 		               
 		                //read the data information 
@@ -1120,32 +1162,39 @@ public class Read_SD_SWD_Files {
 				weather_info_one.setTMPF(words[get_tempf_f_pos()]);
 			}
 			//RH
-			if(get_rh_pos()==0){
+			if(getRh_pos()==0){
 				weather_info_one.setRH("");
 			}
 			else {
 				weather_info_one.setRH(words[get_rh_pos()]);
 			}
 			//DEW in F
-			if(get_dew_point_in_F_pos()==0){
+			if(getDew_point_in_F_pos()==0){
 				weather_info_one.setDew_point_F("");
 			}
 			else {
 				weather_info_one.setDew_point_F(words[getDew_point_in_F_pos()]);
 			}
 			//SOLAR RADIATION
-			if(get_solar_radiation_pos()==0){
+			if(getSolar_radiation_pos()==0){
 				weather_info_one.setSolar_Rad("");
 			}
 			else {
-				weather_info_one.setSolar_Rad(words[get_solar_radiation_pos()]);
+				weather_info_one.setSolar_Rad(words[getSolar_radiation_pos()]);
 			}
-			//RAIN FALL
-			if(get_rain_fall_pos()==0){
-				weather_info_one.setRainfall("");
+			//RAIN FALL In
+			if(getRainfallIn_pos()==0){
+				weather_info_one.setRainfallIn("");
 			}
 			else {
-				weather_info_one.setRainfall(words[get_rain_fall_pos()]);
+				weather_info_one.setRainfallIn(words[getRainfallIn_pos()]);
+			}
+			//Rain Fall MM
+			if(getRainfallMM_pos()==0){
+				weather_info_one.setRainfallMM("");
+			}
+			else {
+				weather_info_one.setRainfallMM(words[getRainfallMM_pos()]);
 			}
 			//WIND DIR
 			if(get_wind_direction_pos()==0){
@@ -1155,18 +1204,18 @@ public class Read_SD_SWD_Files {
 				weather_info_one.setWind_Dir(words[get_wind_direction_pos()]);
 			}
 			//WIND GUST mph
-			if(get_wind_gust_mph_pos()==0){
+			if(getWind_gust_mph_pos()==0){
 				weather_info_one.setWind_Gust_mph("");
 			}
 			else {
-				weather_info_one.setWind_Gust_mph(words[get_wind_gust_mph_pos()]);
+				weather_info_one.setWind_Gust_mph(words[getWind_gust_mph_pos()]);
 			}
 			//WIND SPEED mph
-			if(get_wind_speed_mph_pos()==0){
+			if(getWind_speed_mph_pos()==0){
 				weather_info_one.setWind_Speed_mph("");
 			}
 			else {
-				weather_info_one.setWind_Speed_mph(words[get_wind_speed_mph_pos()]);
+				weather_info_one.setWind_Speed_mph(words[getWind_speed_mph_pos()]);
 			}
 			//ECBC
 			if(get_ecbc_pos()==0){
@@ -1196,20 +1245,14 @@ public class Read_SD_SWD_Files {
 			else {
 						weather_info_one.setVWCC(words[get_vwcc_pos()]);
 			}
-					//VWCD
+			//VWCD
 			if(get_vwcd_pos()==0){
 						weather_info_one.setVWCD("");
 			}
 			else {
 						weather_info_one.setVWCD(words[get_vwcd_pos()]);
 			}
-			//UV LIGHT
-			if(get_uv_light_pos()==0){
-				weather_info_one.setUVL("");
-			}
-			else {
-						weather_info_one.setUVL(words[get_uv_light_pos()]);
-			}
+			
 			///////////////////////////////////// new items from the list
 			
 			//private int temperatureInt_in_F_pos; //TEMP interval IN F
@@ -1219,12 +1262,12 @@ public class Read_SD_SWD_Files {
 			else {
 						weather_info_one.setUVL(words[getTemperatureInt_in_F_pos()]);
 			}
-			
-			if(get_uv_light_pos()==0){
+			//UV Light
+			if(getUv_light_pos()==0){
 				weather_info_one.setUVL("");
 			}
 			else {
-						weather_info_one.setUVL(words[get_uv_light_pos()]);
+						weather_info_one.setUVL(words[getUv_light_pos()]);
 			}
 		 	
 			//Dew point C
@@ -1319,7 +1362,7 @@ public class Read_SD_SWD_Files {
 			System.out.println("The weather_info_one contents after reading: ");
 			System.out.print("Station_id:"+ weather_info_one.getStationId()+"\tMonth:"+weather_info_one.getMonth()+"\tDay:"+weather_info_one.getDay()+"\tYear:"+weather_info_one.getYear()+"\tTime:"+weather_info_one.getTime());
 			System.out.println("Day Of Year: "+weather_info_one.getJulian_Date());
-			System.out.print("Dew Point:"+weather_info_one.getDew_point_F()+"\tSolar Rad:"+weather_info_one.getSolar_Rad()+"\tRainfall:"+weather_info_one.getRainfall());
+			System.out.print("Dew Point:"+weather_info_one.getDew_point_F()+"\tSolar Rad:"+weather_info_one.getSolar_Rad()+"\tRainfall:"+weather_info_one.getRainfall_in());
 			System.out.print("TMP_in_C:"+ weather_info_one.getTMP_C()+"\tTMPA_in_C:"+weather_info_one.getTMPA_C()+"\tTMPB_in_C:"+weather_info_one.getTMPB_C()+"\tTMPC_in_C:"+weather_info_one.getTMPC_C()+"\tTMPD_in_C:"+weather_info_one.getTMPD_C()+"\tTMPE_in_C:"+weather_info_one.getTMPE_C()+"\tTMPF_in_C:"+weather_info_one.getTMPF_C());
 			System.out.println();
 			System.out.print("TMP_in_F:"+ weather_info_one.getTMP()+"\tTMPA_in_F:"+weather_info_one.getTMPA()+"\tTMPB_in_F:"+weather_info_one.getTMPB()+"\tTMPC_in_F:"+weather_info_one.getTMPC()+"\tTMPD_in_F:"+weather_info_one.getTMPD()+"\tTMPE_in_F:"+weather_info_one.getTMPE()+"\tTMPF_in_F:"+weather_info_one.getTMPF());
@@ -1650,7 +1693,7 @@ public class Read_SD_SWD_Files {
 					out.write( info.getDew_point_F()+"\t");
 					out.write( info.getSolar_Rad()+"\t");
 					
-					out.write( info.getRainfall()+"\t");
+					out.write( info.getRainfall_in()+"\t");
 					out.write( info.getWind_Dir()+"\t");
 					out.write( info.getWind_Speed_mph()+"\t");
 					out.write( info.getWind_Gust_mph()+"\t");

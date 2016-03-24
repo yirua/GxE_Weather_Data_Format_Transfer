@@ -278,11 +278,11 @@ public class Weather_Info {
         return rh;
     }
     // RAINFALL
-    public void setRainfall(String rainfall) {
-        this.rainfall = rainfall;
+    public void setRainfall_in(String rainfall) {
+        this.rainfallIn = rainfall;
     }
-    public String getRainfall() {
-        return rainfall;
+    public String getRainfall_in() {
+        return rainfallIn;
     }
     //WIND DIR
     public void setWind_Dir(String wind_dir) {

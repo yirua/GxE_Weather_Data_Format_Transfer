@@ -52,7 +52,7 @@ public class Read_SD_SWD_Files_Ctor_Run_Check_Test {
 						Weather_Info info= reader.get_Weather_Info_List().get(index);
 						System.out.println(index+" element in the file:");
 						System.out.print("Station_id:"+ info.getStationId()+"\tMonth:"+info.getMonth()+"\tDay:"+info.getDay()+"\tYear:"+info.getYear()+"\tTime:"+info.getTime());
-						System.out.print("Dew Point F:"+info.getDew_point_F()+"\tSolar Rad:"+info.getSolar_Rad()+"\tRainfall:"+info.getRainfall());
+						System.out.print("Dew Point F:"+info.getDew_point_F()+"\tSolar Rad:"+info.getSolar_Rad()+"\tRainfall:"+info.getRainfall_in());
 						System.out.print("TMP_in_C:"+ info.getTMP_C()+"\tTMPA_in_C:"+info.getTMPA_C()+"\tTMPB_in_C:"+info.getTMPB_C()+"\tTMPC_in_C:"+info.getTMPC_C()+"\tTMPD_in_C:"+info.getTMPD_C()+"\tTMPE_in_C:"+info.getTMPE_C()+"\tTMPF_in_C:"+info.getTMPF_C());
 						System.out.println();
 						System.out.print("TMP_in_F:"+ info.getTMP()+"\tTMPA_in_F:"+info.getTMPA()+"\tTMPB_in_F:"+info.getTMPB()+"\tTMPC_in_F:"+info.getTMPC()+"\tTMPD_in_F:"+info.getTMPD()+"\tTMPE_in_F:"+info.getTMPE()+"\tTMPF_in_F:"+info.getTMPF());
