@@ -183,7 +183,7 @@ public boolean check_SWD_Files_In_Given_Path_List() throws NoSuchFileException{
 	        }
 	        ///////////////////
 	        // filesInDirectory = chooser.getCurrentDirectory().listFiles();
-	        System.out.println();
+	/*       System.out.println();
 	        System.out.println("the output of SDDATE_SWD");
 		      for ( File file_in_SD: files_SD_DATE){
 		    	  System.out.print(file_in_SD.getCanonicalPath()+"\t");
@@ -191,6 +191,7 @@ public boolean check_SWD_Files_In_Given_Path_List() throws NoSuchFileException{
       
 	        System.out.println("");
 	        System.out.println("The SDDATE_SWD has the "+files_SD_DATE.size()+" files.");
+	 */       
 		}
 	    else{
 	    	System.out.println("No Selection ");

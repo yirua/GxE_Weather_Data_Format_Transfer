@@ -778,7 +778,7 @@ public class Read_SD_SWD_Files {
 		rh_pos=0;              
 		dew_point_in_F_pos=0;       
 		solar_radiation_pos=0;  
-		 rain_fall_pos=0;   
+		
 		 //wind 3 items
 		 wind_direction_pos=0;  
 		 wind_speed_mph_pos=0;      
@@ -874,7 +874,7 @@ public class Read_SD_SWD_Files {
 		                String temp_station_id;
 		                String[] words= line.split("\t");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		                //read the first line of the first file
+		                //read the first line of the first file suitable for 2014 data sets
 /*		                if (line_ctr==0){
 		                	if(get_Station_Id().equals("")){
 		                		temp_station_id=words[0];
@@ -918,7 +918,8 @@ public class Read_SD_SWD_Files {
 		                	
 		                }
 */  
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		                
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+		                //try to read the station id from the file's CanonicalPath...
 		              if(line_ctr==0){
 		                String[] paths=file.getCanonicalPath().split("/");
                 		int path_len=paths.length;
@@ -1068,7 +1069,7 @@ public class Read_SD_SWD_Files {
 			}
 			else {
 				weather_info_one.setTMP_C(words[get_temp_c_pos()]);
-				System.out.println("The weather_info_one is setting TMP_C as: "+ weather_info_one.getTMP_C());
+			//	System.out.println("The weather_info_one is setting TMP_C as: "+ weather_info_one.getTMP_C());
 			}
 			//TMPA IN C
 			if(get_tempa_c_pos()==0){
@@ -1425,7 +1426,7 @@ public class Read_SD_SWD_Files {
 	      s = in.nextLine();
 	      System.out.println("You entered station id "+s);
 	      s=s.trim();
-	      if(isNumeric(s)&s.length()>=4){
+	      if(isNumeric(s)&s.length()>=4&s.length()<=6){
 	    	  break;
 	      }
 		 }
@@ -1641,6 +1642,7 @@ public class Read_SD_SWD_Files {
 		{
 			int total_ctr=1;
 			int ctr=1;
+			
 		    FileWriter fstream = new FileWriter("res/Weather_Info.CSV", false); //true tells to append data.
 		    out = new BufferedWriter(fstream);
 		    //titles
@@ -1722,7 +1724,9 @@ public class Read_SD_SWD_Files {
 		
 		
 	}
-	
+	/*
+	 * This will add zero if the words string input is null..
+	 */
 	public String[] add_zero_to_words(String[] words){
 		
 		int dimension=get_line_width();

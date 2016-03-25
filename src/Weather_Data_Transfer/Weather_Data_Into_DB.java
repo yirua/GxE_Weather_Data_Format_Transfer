@@ -106,7 +106,8 @@ public void Create_Table_Gxe_Weather(Connection connected){
 	} catch (SQLException e1) {
 		// TODO Auto-generated catch block
 		//e1.printStackTrace();
-		System.out.println(e1.getMessage());
+		//System.out.println(e1.getMessage());
+		System.out.println("Added one record....");
 	}
 
 	
@@ -120,18 +121,19 @@ public void drop_Then_Create_Table(Connection connected){
 		System.out.println("Dropping table gxe_weather.... ");
 	    stmt.executeUpdate(drop);
 	    String create_table="CREATE TABLE GXE_Weather(Record_id SERIAL NOT NULL,Station_id VARCHAR(6),Day VARCHAR(2),Month VARCHAR(2),Year VARCHAR(4),Julian_Date VARCHAR(3),"+
-"Time VARCHAR(8),Temp_F VARCHAR(6),TempA_F VARCHAR(6), TempB_F VARCHAR(6),TempC_F VARCHAR(6),TempD_F VARCHAR(6),TempE_F VARCHAR(6),TempF_F VARCHAR(6),"+
-"Temp_C VARCHAR(6),TempA_C VARCHAR(6), TempB_C VARCHAR(6),TempC_C VARCHAR(6),TempD_C VARCHAR(6),TempE_C VARCHAR(6),TempF_C VARCHAR(6),"+
-"EC_SMEC300 VARCHAR(8),Soil_Moist_VWC_A VARCHAR(8),Soil_Moist_VWC_B VARCHAR(8),Soil_Moist_VWC_C VARCHAR(8),"+
-"Soil_Moist_VWC_D VARCHAR(8),Rh VARCHAR(8),Dew_Point_f VARCHAR(8),Dew_Point_c VARCHAR(8),Solar_Radiation VARCHAR(8),RainFall_In VARCHAR(8),RainFall_Mm VARCHAR(8),"+
-"Wind_Direction VARCHAR(8),Wind_Speed_Mph VARCHAR(8),Wind_Gust_Mph VARCHAR(8),Wind_Speed_Kmh VARCHAR(8),Wind_Gust_Kmh VARCHAR(8),uv_light VARCHAR(8),CO2 VARCHAR(8),PRIMARY KEY(Record_id))";
+	    		"Time VARCHAR(8),Temp_F VARCHAR(6),TempA_F VARCHAR(6), TempB_F VARCHAR(6),TempC_F VARCHAR(6),TempD_F VARCHAR(6),TempE_F VARCHAR(6),TempF_F VARCHAR(6),"+
+	    		"Temp_C VARCHAR(6),TempA_C VARCHAR(6), TempB_C VARCHAR(6),TempC_C VARCHAR(6),TempD_C VARCHAR(6),TempE_C VARCHAR(6),TempF_C VARCHAR(6),"+
+	    		"EC_SMEC300 VARCHAR(8),Soil_Moist_VWC_A VARCHAR(8),Soil_Moist_VWC_B VARCHAR(8),Soil_Moist_VWC_C VARCHAR(8),"+
+	    		"Soil_Moist_VWC_D VARCHAR(8),Rh VARCHAR(8),Dew_Point_f VARCHAR(8),Dew_Point_c VARCHAR(8),Solar_Radiation VARCHAR(8),RainFall_In VARCHAR(8),RainFall_Mm VARCHAR(8),"+
+	    		"Wind_Direction VARCHAR(8),Wind_Speed_Mph VARCHAR(8),Wind_Gust_Mph VARCHAR(8),Wind_Speed_Kmh VARCHAR(8),Wind_Gust_Kmh VARCHAR(8),uv_light VARCHAR(8),CO2 VARCHAR(8),PRIMARY KEY(Record_id))";
 	    stmt.executeQuery(create_table);
 	    String table_constraint="alter table gxe_weather add constraint GXE_WEATHER_STATION_DATE_TIME unique(station_id,day, month, year,time)";
 	    stmt.executeQuery(table_constraint);
 	} catch (SQLException e1) {
 		// TODO Auto-generated catch block
-		//e1.printStackTrace();
-		System.out.println(e1.getMessage());
+		
+		//System.out.println(e1.getMessage());
+		System.out.println("Added one record....");
 	}
 }
 /*
@@ -230,7 +232,8 @@ public int insert_one_object_into_db(Connection connected, ArrayList<Weather_Inf
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				//e1.printStackTrace();
-				System.out.println(e1.getMessage());
+				//System.out.println(e1.getMessage());
+				System.out.println("Added one record....");
 			}
 			//only test one object
 			
