@@ -133,7 +133,7 @@ public void drop_Then_Create_Table(Connection connected){
 		// TODO Auto-generated catch block
 		
 		//System.out.println(e1.getMessage());
-		System.out.println("Added one record....");
+		System.out.println("Created one table gxe_weather....");
 	}
 }
 /*

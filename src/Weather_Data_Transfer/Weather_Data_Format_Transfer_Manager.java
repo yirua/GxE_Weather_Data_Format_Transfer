@@ -43,12 +43,12 @@ public class Weather_Data_Format_Transfer_Manager {
 		assertEquals(189,files.size());
 		
 		//db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote());
-		//db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote());
+	
 		//truncate the table to delete all records
-		db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Remote());
+		//db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Remote());
 		
 		//drop then create to make the serial number starting with 1
-		//db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote());
+		db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote());
 		int file_ctr=0;
 		int total_records=0;
 		BufferedWriter out = null;	
