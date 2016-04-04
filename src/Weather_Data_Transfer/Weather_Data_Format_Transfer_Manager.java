@@ -71,8 +71,7 @@ public class Weather_Data_Format_Transfer_Manager {
 						
 						file_ctr++;
 						
-						reader.Set_Positions_To_Zero();//make the reader all positions back to zero for new reading..
-						
+						reader.Set_Positions_To_Zero();//make the reader all positions back to zero for new reading..				
 			
 			    
 			    

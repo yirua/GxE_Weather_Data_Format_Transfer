@@ -1,6 +1,6 @@
 package Weather_Data_Transfer;
 import Weather_Data_Transfer.Weather_Info;
-import components.DialogDemo;
+//import components.DialogDemo;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -325,6 +325,42 @@ public class Read_SD_SWD_Files {
 			            while((line = bufferedReader.readLine()) != null&line_ctr<=2) {
 			              //  System.out.println(line); // show up the line input
 			                
+			            	
+							///////////////////////////////////////////////////////////////////////station id
+							if(line_ctr==0){
+								String[] paths=file.getCanonicalPath().split("/");
+								int path_len=paths.length;
+								String path=paths[path_len-2]; //filename which contains the station id
+							if(path.contains("_")){
+								String[] more_paths=path.split("_");
+							if(isNumeric(more_paths[more_paths.length-1])){
+								set_Station_Id(more_paths[more_paths.length-1]);
+							}
+							else{
+								set_Station_Id(User_Input_Station_Id());
+							}
+							}
+							else{
+							if(isNumeric(path)){
+								set_Station_Id(path);
+							}
+							else
+								set_Station_Id(User_Input_Station_Id());
+							}
+							
+							}
+							
+							
+							///////////////////////////////////////////////////////////////////////
+			            	
+			            	
+			            	
+			            	
+			            	
+			            	
+			            	
+			            	
+			            	
 			                String[] words= line.split("\t");
 			                //read the first line
 			               for(String word: words){
@@ -383,6 +419,9 @@ public class Read_SD_SWD_Files {
 				}
 		}	
 */		
+		
+			
+			
 			for(int index=1;index<two_dimention_table.get(0).size();index++){
 				
 				////////////TMP IN F
