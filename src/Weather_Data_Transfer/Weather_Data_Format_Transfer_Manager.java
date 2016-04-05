@@ -55,7 +55,7 @@ public class Weather_Data_Format_Transfer_Manager {
 //step 3: put data into DB and write out the Pipeline Report.		
 		try{
 		//	FileWriter fstream = new FileWriter("res/Weather_Data_PipeLine_Report.txt", false); //true tells to append data.
-			FileWriter fstream = new FileWriter("src/Output/Weather_Data_PipeLine_Report.txt", false); //true tells to append data.for .jar file
+			FileWriter fstream = new FileWriter("Output/Weather_Data_PipeLine_Report.txt", false); //true tells to append data.for .jar file
 		    out = new BufferedWriter(fstream);
 		    
 		    
