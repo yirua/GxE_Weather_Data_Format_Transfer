@@ -7,6 +7,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Writer;
 import java.nio.file.NoSuchFileException;
 import java.util.ArrayList;
 
@@ -54,9 +57,12 @@ public class Weather_Data_Format_Transfer_Manager {
 		BufferedWriter out = null;	
 //step 3: put data into DB and write out the Pipeline Report.		
 		try{
-		//	FileWriter fstream = new FileWriter("res/Weather_Data_PipeLine_Report.txt", false); //true tells to append data.
-			FileWriter fstream = new FileWriter("Output/Weather_Data_PipeLine_Report.txt", false); //true tells to append data.for .jar file
-		    out = new BufferedWriter(fstream);
+			FileWriter fstream = new FileWriter("Output/Weather_Data_PipeLine_Report.txt", false); //true tells to append data.
+		//	FileWriter fstream = new FileWriter(System.getProperty("user.home") + "/.Desktop/Weather_Data_PipeLine_Report.txt", false); //true tells to append data.for .jar file
+			
+			
+		
+			out = new BufferedWriter((fstream));
 		    
 		    
 		    out.write("Weather_Data_PipeLine_Report"+"\n\n");	
