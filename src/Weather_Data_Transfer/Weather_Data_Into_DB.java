@@ -94,7 +94,7 @@ public void Create_Table_Gxe_Weather(Connection connected){
 	try {
 		Statement stmt = connected.createStatement();
 		
-		String create_table="CREATE TABLE GXE_Weather(Record_id SERIAL NOT NULL,Station_id VARCHAR(6),Day VARCHAR(2),Month VARCHAR(2),Year VARCHAR(4),Julian_Date VARCHAR(3),"+
+		String create_table="CREATE TABLE GXE_Weather(Record_id SERIAL NOT NULL,Station_id INT,Day INT,Month INT,Year INT,Julian_Date INT,"+
 				"Time VARCHAR(8),Temp_F VARCHAR(6),TempA_F VARCHAR(6), TempB_F VARCHAR(6),TempC_F VARCHAR(6),TempD_F VARCHAR(6),TempE_F VARCHAR(6),TempF_F VARCHAR(6),"+
 				"Temp_C VARCHAR(6),TempA_C VARCHAR(6), TempB_C VARCHAR(6),TempC_C VARCHAR(6),TempD_C VARCHAR(6),TempE_C VARCHAR(6),TempF_C VARCHAR(6),"+
 				"EC_SMEC300 VARCHAR(8),Soil_Moist_VWC_A VARCHAR(8),Soil_Moist_VWC_B VARCHAR(8),Soil_Moist_VWC_C VARCHAR(8),"+
@@ -120,7 +120,7 @@ public void drop_Then_Create_Table(Connection connected){
 		//String delete_table="TRUNCATE table gxe_weather";
 		System.out.println("Dropping table gxe_weather.... ");
 	    stmt.executeUpdate(drop);
-	    String create_table="CREATE TABLE GXE_Weather(Record_id SERIAL NOT NULL,Station_id VARCHAR(6),Day VARCHAR(2),Month VARCHAR(2),Year VARCHAR(4),Julian_Date VARCHAR(3),"+
+	    String create_table="CREATE TABLE GXE_Weather(Record_id SERIAL NOT NULL,Station_id INT,Day INT,Month INT,Year INT,Julian_Date INT,"+
 	    		"Time VARCHAR(8),Temp_F VARCHAR(6),TempA_F VARCHAR(6), TempB_F VARCHAR(6),TempC_F VARCHAR(6),TempD_F VARCHAR(6),TempE_F VARCHAR(6),TempF_F VARCHAR(6),"+
 	    		"Temp_C VARCHAR(6),TempA_C VARCHAR(6), TempB_C VARCHAR(6),TempC_C VARCHAR(6),TempD_C VARCHAR(6),TempE_C VARCHAR(6),TempF_C VARCHAR(6),"+
 	    		"EC_SMEC300 VARCHAR(8),Soil_Moist_VWC_A VARCHAR(8),Soil_Moist_VWC_B VARCHAR(8),Soil_Moist_VWC_C VARCHAR(8),"+
@@ -169,12 +169,12 @@ public int insert_one_object_into_db(Connection connected, ArrayList<Weather_Inf
 			//                   "VALUES" +"(?, ?, ?, ?)";
 		
 					pstmt=connected.prepareStatement(insert_into_table);
-					pstmt.setString(1, info.getStationId());
+					pstmt.setInt(1, info.getStationId());
 					
-					pstmt.setString(2, info.getDay());
-					pstmt.setString(3, info.getMonth());
-					pstmt.setString(4, info.getYear());
-					pstmt.setString(5, info.getJulian_Date());
+					pstmt.setInt(2, info.getDay());
+					pstmt.setInt(3, info.getMonth());
+					pstmt.setInt(4, info.getYear());
+					pstmt.setInt(5, info.getJulian_Date());
 					
 					pstmt.setString(6, info.getTime());
 					//tmp in F
@@ -266,12 +266,12 @@ public int Insert_Into_DB_By_Set(Connection connected, Set<Weather_Info> infos){
 			//                   "VALUES" +"(?, ?, ?, ?)";
 		
 					pstmt=connected.prepareStatement(insert_into_table);
-					pstmt.setString(1, info.getStationId());
+					pstmt.setInt(1, info.getStationId());
 					
-					pstmt.setString(2, info.getDay());
-					pstmt.setString(3, info.getMonth());
-					pstmt.setString(4, info.getYear());
-					pstmt.setString(5, info.getJulian_Date());
+					pstmt.setInt(2, info.getDay());
+					pstmt.setInt(3, info.getMonth());
+					pstmt.setInt(4, info.getYear());
+					pstmt.setInt(5, info.getJulian_Date());
 					
 					pstmt.setString(6, info.getTime());
 					//tmp in F

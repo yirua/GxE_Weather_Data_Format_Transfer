@@ -25,6 +25,7 @@ public class Weather_Data_Format_Transfer_Manager {
 	static Read_SD_SWD_Files reader;
 	static Weather_Data_Into_DB db_tester = new Weather_Data_Into_DB();
 	public static void main(String[] args) {
+		long startTime = System.currentTimeMillis();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //step 1: get the file names from the list
 		try {
@@ -43,11 +44,11 @@ public class Weather_Data_Format_Transfer_Manager {
 		//checker.Get_SD_DATES_Files();
 		//checker.get_Files_SD_DATE();
 		files =checker.get_Files_SD_DATE();
-		assertEquals(189,files.size());
+		//assertEquals(189,files.size());
 		
 		//db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote());
 	
-		//truncate the table to delete all records
+////////////////truncate the table to delete all records
 		//db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Remote());
 		
 		//drop then create to make the serial number starting with 1
@@ -108,6 +109,9 @@ public class Weather_Data_Format_Transfer_Manager {
 		}
 
 		System.out.println("We have put into the gxe_weather db in the total of : "+file_ctr+" files.");
+		long endTime   = System.currentTimeMillis();
+		long totalTime = endTime - startTime;
+		System.out.println("The program running time is: "+totalTime+" milleseconds");
 
 	}
 }

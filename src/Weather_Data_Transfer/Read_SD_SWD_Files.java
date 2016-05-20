@@ -44,7 +44,7 @@ public class Read_SD_SWD_Files {
 	Set<Weather_Info> weather_info_set;
 	
 	int line_width;
-	private String station_id; //default station_id is empty string
+	private int station_id; //default station_id is empty string
 	File file;
 	         
 	int temp_c_pos;       
@@ -149,7 +149,7 @@ public class Read_SD_SWD_Files {
 		weather_info_list = new ArrayList<Weather_Info>();
 		weather_info_set= new HashSet<Weather_Info>();
 		Set_Positions_To_Zero();
-		station_id="";
+		station_id=0;
 		
 	}
 	//constructor for testing one file
@@ -160,7 +160,7 @@ public class Read_SD_SWD_Files {
 		weather_info_set= new HashSet<Weather_Info>();
 		//default the positions are all zero.. 
 		Set_Positions_To_Zero();
-		station_id="";
+		station_id=0;
 	}
 
 	/*
@@ -334,7 +334,7 @@ public class Read_SD_SWD_Files {
 							if(path.contains("_")){
 								String[] more_paths=path.split("_");
 							if(isNumeric(more_paths[more_paths.length-1])){
-								set_Station_Id(more_paths[more_paths.length-1]);
+								set_Station_Id(Integer.parseInt(more_paths[more_paths.length-1].trim()));
 							}
 							else{
 								set_Station_Id(User_Input_Station_Id());
@@ -342,7 +342,7 @@ public class Read_SD_SWD_Files {
 							}
 							else{
 							if(isNumeric(path)){
-								set_Station_Id(path);
+								set_Station_Id(Integer.parseInt(path.trim()));
 							}
 							else
 								set_Station_Id(User_Input_Station_Id());
@@ -966,7 +966,7 @@ public class Read_SD_SWD_Files {
                 		if(path.contains("_")){
                 			String[] more_paths=path.split("_");
                 			if(isNumeric(more_paths[more_paths.length-1])){
-                				set_Station_Id(more_paths[more_paths.length-1]);
+                				set_Station_Id(Integer.parseInt(more_paths[more_paths.length-1].trim()));
                 			}
                 			else{
                 				 set_Station_Id(User_Input_Station_Id());
@@ -974,7 +974,7 @@ public class Read_SD_SWD_Files {
                 		}
                 		else{
                 			if(isNumeric(path)){
-                				set_Station_Id(path);
+                				set_Station_Id(Integer.parseInt(path));
                 			}
                 			else
                 				set_Station_Id(User_Input_Station_Id());
@@ -1054,9 +1054,9 @@ public class Read_SD_SWD_Files {
 			String[] year_mm_dd;
 			if(year_mm_dd_time[0].contains("/")){
 				year_mm_dd=year_mm_dd_time[0].split("/");
-				weather_info_one.setYear(year_mm_dd[2]);
-				weather_info_one.setMonth(year_mm_dd[0]);
-				weather_info_one.setDay(year_mm_dd[1]);			
+				weather_info_one.setYear(Integer.parseInt(year_mm_dd[2].trim()));
+				weather_info_one.setMonth(Integer.parseInt(year_mm_dd[0].trim()));
+				weather_info_one.setDay(Integer.parseInt(year_mm_dd[1].trim()));			
 				
 			}
 			else{
@@ -1082,9 +1082,9 @@ public class Read_SD_SWD_Files {
 				
 				//set the year, mm, dd and time
 				
-				weather_info_one.setYear(year_mm_dd[0]);
-				weather_info_one.setMonth(year_mm_dd[1]);
-				weather_info_one.setDay(year_mm_dd[2]);
+				weather_info_one.setYear(Integer.parseInt(year_mm_dd[0].trim()));
+				weather_info_one.setMonth(Integer.parseInt(year_mm_dd[1].trim()));
+				weather_info_one.setDay(Integer.parseInt(year_mm_dd[2].trim()));
 			}
 			//day of year
 			Calendar calendar = Calendar.getInstance();
@@ -1092,7 +1092,7 @@ public class Read_SD_SWD_Files {
 			calendar.set(Integer.parseInt(year_mm_dd[0]),Integer.parseInt(year_mm_dd[1])-1,Integer.parseInt(year_mm_dd[2]));
 			int dayOfYear = calendar.get(Calendar.DAY_OF_YEAR); 
 			//System.out.println("int value of year, mm, dd: "+ Integer.parseInt(year_mm_dd[0])+", "+(Integer.parseInt(year_mm_dd[1])-1)+", "+Integer.parseInt(year_mm_dd[2]));
-			weather_info_one.setJulian_Date(Integer.toString(dayOfYear));
+			weather_info_one.setJulian_Date(dayOfYear);
 			
 			
 			//System.out.println("The weather_info_one is setting dayOfYear as:"+ weather_info_one.getJulian_Date());
@@ -1428,11 +1428,11 @@ public class Read_SD_SWD_Files {
 	/*
 	 * the get and set Station_Id methods
 	 */
-	public String get_Station_Id(){
+	public int get_Station_Id(){
 		return station_id;
 	}
 	
-	public void set_Station_Id(String station_id){
+	public void set_Station_Id(int station_id){
 		this.station_id=station_id;
 	}
 	/*
@@ -1453,11 +1453,12 @@ public class Read_SD_SWD_Files {
 	/*
 	 * Let the user input the station id 
 	 */
-	public String User_Input_Station_Id(){
+	public int User_Input_Station_Id(){
 		
 	
 		//Create and set up the window.
 		String s;
+		
 		 while(true){
 	      Scanner in = new Scanner(System.in);
 	 
@@ -1469,7 +1470,7 @@ public class Read_SD_SWD_Files {
 	    	  break;
 	      }
 		 }
-	      return s;
+	      return Integer.parseInt(s);
 	}
 	/*
 	 * set and get temp_c_pos
@@ -1823,10 +1824,10 @@ public class Read_SD_SWD_Files {
 	public void setLine_width(int line_width) {
 		this.line_width = line_width;
 	}
-	public String getStation_id() {
+	public int getStation_id() {
 		return station_id;
 	}
-	public void setStation_id(String station_id) {
+	public void setStation_id(int station_id) {
 		this.station_id = station_id;
 	}
 	public File getFile() {
