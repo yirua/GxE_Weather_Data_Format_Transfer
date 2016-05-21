@@ -21,7 +21,7 @@ import Weather_Data_Transfer.Weather_Data_Into_DB;
  *
  */
 public class Weather_Info_Into_Remote_DB_Test {
-	Weather_Data_Structure_Checker checker= new Weather_Data_Structure_Checker();
+	Weather_Data_Structure_Checker checker= new Weather_Data_Structure_Checker();;
 	Read_SD_SWD_Files reader;
 	Weather_Data_Into_DB db_tester = new Weather_Data_Into_DB();
 	@Test
@@ -34,7 +34,7 @@ public class Weather_Info_Into_Remote_DB_Test {
 				checker.Get_SD_DATES_Files();
 				//checker.get_Files_SD_DATE();
 				files =checker.get_Files_SD_DATE();
-				assertEquals(7,files.size());
+				assertEquals(11,files.size());
 			
 				db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote());
 				//truncate the table to delete all records

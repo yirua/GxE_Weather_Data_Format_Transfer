@@ -50,7 +50,7 @@ public class Weather_Data_Structure_Checker {
 	 */
 	public boolean check_SWD_Files() throws NoSuchFileException{
 		try{
-		chooser.setCurrentDirectory(new java.io.File("/Users/yiweisun/Documents/2014 G X E data/"));
+		chooser.setCurrentDirectory(new java.io.File("/Users/yiweisun/Public/Drop Box/"));
 	//	chooser.setCurrentDirectory(new java.io.File("."));
 	//	System.setProperty("user.dir", "/tmp");
 		chooser.setDialogTitle("Please choose the INDEX.SWD and other SWD folder");

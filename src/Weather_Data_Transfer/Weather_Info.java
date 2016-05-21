@@ -39,7 +39,7 @@ alter table raw_file add constraint RAW_FILE_CH_INDX_UQ unique (chromosome,_inde
  */
 public class Weather_Info {
 	//private String station_state; //the state name of station, such as Illinois
-	private String station_id;//integers to illustrate the weather station
+	private int station_id;//integers to illustrate the weather station
     private String temperatureA_in_F; //TEMP A IN F
     private String temperatureB_in_F;//TEMP B IN F
     private String temperatureC_in_F; //TEMP C IN F
@@ -89,10 +89,10 @@ public class Weather_Info {
    // private String smec300; //soil_moist_vwc_triple_sensor
     
     private String time;//the clock time
-    private String year;
-    private String month;
-    private String day;
-    private String julian_date; //
+    private int year;
+    private int month;
+    private int day;
+    private int julian_date; //
 	
    //////////////////////new strings 
     
@@ -148,10 +148,10 @@ public class Weather_Info {
  //////////////////////////new strings  
 	
     
-    public String getStationId() {
+    public int getStationId() {
         return station_id;
     }
-    public void setStationId(String station_id) {
+    public void setStationId(int station_id) {
         this.station_id= station_id;
     }
     //stationState_
@@ -363,13 +363,13 @@ public class Weather_Info {
 	/**
 	 * @return the year
 	 */
-	public String getYear() {
+	public int getYear() {
 		return year;
 	}
 	/**
 	 * @param year the year to set
 	 */
-	public void setYear(String year) {
+	public void setYear(int year) {
 		this.year = year;
 	}
 	//toString()
@@ -381,37 +381,37 @@ public class Weather_Info {
 	/**
 	 * @return the day
 	 */
-	public String getDay() {
+	public int getDay() {
 		return day;
 	}
 	/**
 	 * @param day the day to set
 	 */
-	public void setDay(String day) {
+	public void setDay(int day) {
 		this.day = day;
 	}
 	/**
 	 * @return the julian_date
 	 */
-	public String getJulian_Date() {
+	public int getJulian_Date() {
 		return julian_date;
 	}
 	/**
 	 * @param julian_date the julian_date to set
 	 */
-	public void setJulian_Date(String julian_date) {
+	public void setJulian_Date(int julian_date) {
 		this.julian_date = julian_date;
 	}
 	/**
 	 * @return the month
 	 */
-	public String getMonth() {
+	public int getMonth() {
 		return month;
 	}
 	/**
 	 * @param month the month to set
 	 */
-	public void setMonth(String month) {
+	public void setMonth(int month) {
 		this.month = month;
 	}
 	public void setUVL(String uv_light) {
@@ -625,10 +625,10 @@ public class Weather_Info {
 	public void setEcho10(String echo10) {
 		this.echo10 = echo10;
 	}
-	public String getJulian_date() {
+	public int getJulian_date() {
 		return julian_date;
 	}
-	public void setJulian_date(String julian_date) {
+	public void setJulian_date(int julian_date) {
 		this.julian_date = julian_date;
 	}
 	public String getBattery() {
@@ -667,10 +667,10 @@ public class Weather_Info {
 	public void setSm100(String sm100) {
 		this.sm100 = sm100;
 	}
-	public String getStation_id() {
+	public int getStation_id() {
 		return station_id;
 	}
-	public void setStation_id(String station_id) {
+	public void setStation_id(int station_id) {
 		this.station_id = station_id;
 	}
 	public String getTemperatureA_in_F() {
