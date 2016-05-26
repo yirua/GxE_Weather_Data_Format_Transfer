@@ -25,18 +25,25 @@ SD201511.SWD File has records: 1440
 SD201512.SWD File has records: 1488
 SD201601.SWD File has records: 1488
 SD201602.SWD File has records: 855
-SD201505.SWD File has records: 164
-SD201506.SWD File has records: 1440
+SD201505.SWD File has records: 1
+SD201506.SWD File has records: 1090
 SD201507.SWD File has records: 1488
 SD201508.SWD File has records: 1488
-SD201509.SWD File has records: 1440
-SD201510.SWD File has records: 807
+SD201509.SWD File has records: 1488
+SD201510.SWD File has records: 1488
+SD201511.SWD File has records: 1088
 SD201506.SWD File has records: 1024
 SD201507.SWD File has records: 1488
 SD201508.SWD File has records: 1488
 SD201509.SWD File has records: 1440
 SD201510.SWD File has records: 311
 SD201511.SWD File has records: 565
+SD201505.SWD File has records: 164
+SD201506.SWD File has records: 1440
+SD201507.SWD File has records: 1488
+SD201508.SWD File has records: 1488
+SD201509.SWD File has records: 1440
+SD201510.SWD File has records: 807
 SD201503.SWD File has records: 28
 SD201504.SWD File has records: 1440
 SD201505.SWD File has records: 1488
@@ -117,6 +124,17 @@ SD201506.SWD File has records: 2879
 SD201507.SWD File has records: 2976
 SD201508.SWD File has records: 2976
 SD201509.SWD File has records: 2840
+SD201509.SWD File has records: 1347
+SD201510.SWD File has records: 2976
+SD201511.SWD File has records: 2880
+SD201512.SWD File has records: 1593
+SD201506.SWD File has records: 4727
+SD201507.SWD File has records: 744
+SD201508.SWD File has records: 744
+SD201509.SWD File has records: 720
+SD201510.SWD File has records: 743
+SD201511.SWD File has records: 720
+SD201512.SWD File has records: 399
 SD201505.SWD File has records: 1345
 SD201506.SWD File has records: 1440
 SD201507.SWD File has records: 1488
@@ -190,4 +208,4 @@ Deficit_Irrigation_Arizona_PSU_2015_SD201508.SWD File has records: 1488
 Deficit_Irrigation_Arizona_PSU_2015_SD201509.SWD File has records: 1440
 Deficit_Irrigation_Arizona_PSU_2015_SD201510.SWD File has records: 1323
 
-There are total of 189 SWD files contained 252733 records in total are read and dumped into DB GXE_Weather.
+There are total of 207 SWD files contained 278457 records in total are read and dumped into DB GXE_Weather.

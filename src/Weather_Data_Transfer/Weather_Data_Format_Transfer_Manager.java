@@ -44,7 +44,7 @@ public class Weather_Data_Format_Transfer_Manager {
 		//checker.Get_SD_DATES_Files();
 		//checker.get_Files_SD_DATE();
 		files =checker.get_Files_SD_DATE();
-		//assertEquals(189,files.size());
+		//assertEquals(207,files.size());
 		
 		//db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote());
 	
