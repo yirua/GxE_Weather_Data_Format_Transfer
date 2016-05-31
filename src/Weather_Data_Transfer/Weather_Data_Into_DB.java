@@ -109,8 +109,6 @@ public void Create_Table_Gxe_Weather(Connection connected){
 		//System.out.println(e1.getMessage());
 		System.out.println("Added one record....");
 	}
-
-	
 	
 }
 public void drop_Then_Create_Table(Connection connected){
@@ -153,11 +151,11 @@ public static Connection getConnection_Remote() {
 /*
  * This one will input the ArrayList of Weather_Info into a connected DB.
  */
-public int insert_one_object_into_db(Connection connected, ArrayList<Weather_Info> infos){
+public int insert_one_object_into_table(Connection connected, ArrayList<Weather_Info> infos, String table_name){
 	
 	for (Weather_Info info: infos){
 			try {
-				String insert_into_table="INSERT INTO gxe_weather(station_id,day,month,year,julian_date,time,temp_f,tempa_f,tempb_f,tempc_f,tempd_f,tempe_f,tempf_f,temp_c,tempa_c,tempb_c,tempc_c,tempd_c,tempe_c,tempf_c,ec_smec300,soil_moist_vwc_a,soil_moist_vwc_b,soil_moist_vwc_c,soil_moist_vwc_d,rh,dew_point_f,dew_point_c,solar_radiation,rainfall_in,rainfall_mm,wind_direction,wind_speed_mph,wind_gust_mph,wind_speed_kmh,wind_gust_kmh,uv_light,co2)"+
+				String insert_into_table="INSERT INTO "+table_name+"(station_id,day,month,year,julian_date,time,temp_f,tempa_f,tempb_f,tempc_f,tempd_f,tempe_f,tempf_f,temp_c,tempa_c,tempb_c,tempc_c,tempd_c,tempe_c,tempf_c,ec_smec300,soil_moist_vwc_a,soil_moist_vwc_b,soil_moist_vwc_c,soil_moist_vwc_d,rh,dew_point_f,dew_point_c,solar_radiation,rainfall_in,rainfall_mm,wind_direction,wind_speed_mph,wind_gust_mph,wind_speed_kmh,wind_gust_kmh,uv_light,co2)"+
 										"VALUES"+"(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 				
 				PreparedStatement pstmt = null;

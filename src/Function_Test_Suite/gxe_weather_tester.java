@@ -60,14 +60,14 @@ public class gxe_weather_tester {
 				
 					out = new BufferedWriter((fstream));
 				    
-				    
+				    String table_name="gxe_weather";
 				    out.write("Weather_Data_PipeLine_Report"+"\n\n");	
 						for(File file: files){
 								reader =new Read_SD_SWD_Files(file); //constructor 
 								reader.Read_SD_Date_SWD_File_For_Abbr_Position(file); //get the positions of certain items
 								reader.Read_SD_SWD_Files_Run(file); 
 								int file_records_length=0;
-								file_records_length=db_tester.insert_one_object_into_db(Weather_Data_Into_DB.getConnection_Remote(), reader.get_Weather_Info_List());
+								file_records_length=db_tester.insert_one_object_into_table(Weather_Data_Into_DB.getConnection_Remote(), reader.get_Weather_Info_List(),table_name);
 								//file_records_length=db_tester.Insert_Into_DB_By_Set(Weather_Data_Into_DB.getConnection(), reader.get_Weather_Info_Set());
 				
 								System.out.println(file.getName()+" File has records with the number: "+file_records_length);
