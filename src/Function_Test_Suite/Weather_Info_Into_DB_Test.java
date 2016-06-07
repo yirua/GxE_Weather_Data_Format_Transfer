@@ -36,10 +36,10 @@ public class Weather_Info_Into_DB_Test {
 			
 				
 				//truncate the table to delete all records
-				db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Local());
+				db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Local(),table_name);
 				
 				//drop then create to make the serial number starting with 1
-				db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Local());
+				db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Local(),table_name);
 				
 				int file_ctr=0;
 				for(File file: files){

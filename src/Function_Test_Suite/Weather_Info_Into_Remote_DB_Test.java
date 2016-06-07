@@ -35,15 +35,15 @@ public class Weather_Info_Into_Remote_DB_Test {
 				//checker.get_Files_SD_DATE();
 				files =checker.get_Files_SD_DATE();
 				assertEquals(11,files.size());
-			
-				db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote());
+				String table_name="gxe_weather";
+				db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote(),table_name);
 				//truncate the table to delete all records
 //				db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Remote());
 				
 				//drop then create to make the serial number starting with 1
 //				db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote());
 				int file_ctr=0;
-				String table_name="gxe_weather";
+				
 			for(File file: files){
 					reader =new Read_SD_SWD_Files(file);
 					reader.Read_SD_Date_SWD_File_For_Abbr_Position(file);

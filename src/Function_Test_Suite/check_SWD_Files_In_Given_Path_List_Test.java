@@ -39,12 +39,13 @@ public class check_SWD_Files_In_Given_Path_List_Test {
 			//checker.Get_SD_DATES_Files();
 			//checker.get_Files_SD_DATE();
 			files =checker.get_Files_SD_DATE();
+			String table_name="gxe_weather";
 			assertEquals(189,files.size());
 			
 //			db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote()); //if it is first run
 //			db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote());   //if like to drop then create the table
 			//truncate the table to delete all records
-				db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Remote());
+				db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Remote(),table_name);
 			
 			//drop then create to make the serial number starting with 1
 //				db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote());
@@ -55,7 +56,7 @@ public class check_SWD_Files_In_Given_Path_List_Test {
 				FileWriter fstream = new FileWriter("res/Weather_Data_PipeLine_Report.txt", false); //true tells to append data.
 			    out = new BufferedWriter(fstream);
 			    
-			    String table_name="gxe_weather";
+			    
 			    out.write("Weather_Data_PipeLine_Report"+"\n\n");	
 					for(File file: files){
 							reader =new Read_SD_SWD_Files(file); //constructor 

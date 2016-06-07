@@ -1,5 +1,12 @@
 Weather_Data_PipeLine_Report
 
+SD201505.SWD File has records: 1488
+SD201506.SWD File has records: 1440
+SD201507.SWD File has records: 1488
+SD201508.SWD File has records: 1488
+SD201509.SWD File has records: 1440
+SD201510.SWD File has records: 1488
+SD201511.SWD File has records: 839
 SD201505.SWD File has records: 256
 SD201506.SWD File has records: 1440
 SD201507.SWD File has records: 1488
@@ -208,4 +215,4 @@ Deficit_Irrigation_Arizona_PSU_2015_SD201508.SWD File has records: 1488
 Deficit_Irrigation_Arizona_PSU_2015_SD201509.SWD File has records: 1440
 Deficit_Irrigation_Arizona_PSU_2015_SD201510.SWD File has records: 1323
 
-There are total of 207 SWD files contained 278457 records in total are read and dumped into DB GXE_Weather.
+There are total of 214 SWD files contained 288128 records in total are read and dumped into DB GXE_Weather.

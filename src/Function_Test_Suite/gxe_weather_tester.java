@@ -39,15 +39,16 @@ public class gxe_weather_tester {
 				//checker.Get_SD_DATES_Files();
 				//checker.get_Files_SD_DATE();
 				files =checker.get_Files_SD_DATE();
-				assertEquals(207,files.size());
-				
+				assertEquals(214,files.size());
+				String table_name="gxe_weather";
 				//db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote());
 			
 				//truncate the table to delete all records
 				//db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Remote());
 				
 				//drop then create to make the serial number starting with 1
-				db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote());
+				db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote(),table_name);
+				//db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Local(),table_name);
 				int file_ctr=0;
 				int total_records=0;
 				BufferedWriter out = null;	
@@ -60,7 +61,7 @@ public class gxe_weather_tester {
 				
 					out = new BufferedWriter((fstream));
 				    
-				    String table_name="gxe_weather";
+				    
 				    out.write("Weather_Data_PipeLine_Report"+"\n\n");	
 						for(File file: files){
 								reader =new Read_SD_SWD_Files(file); //constructor 
@@ -68,6 +69,7 @@ public class gxe_weather_tester {
 								reader.Read_SD_SWD_Files_Run(file); 
 								int file_records_length=0;
 								file_records_length=db_tester.insert_one_object_into_table(Weather_Data_Into_DB.getConnection_Remote(), reader.get_Weather_Info_List(),table_name);
+							//	file_records_length=db_tester.insert_one_object_into_table(Weather_Data_Into_DB.getConnection_Local(), reader.get_Weather_Info_List(),table_name);
 								//file_records_length=db_tester.Insert_Into_DB_By_Set(Weather_Data_Into_DB.getConnection(), reader.get_Weather_Info_Set());
 				
 								System.out.println(file.getName()+" File has records with the number: "+file_records_length);
@@ -103,7 +105,7 @@ public class gxe_weather_tester {
 				    }
 				}
 
-				System.out.println("We have put into the gxe_weather db in the total of : "+file_ctr+" files.");
+				System.out.println("We have put into the gxe_weather db and table: "+table_name+" in the total of : "+file_ctr+" files.");
 				long endTime   = System.currentTimeMillis();
 				long totalTime = endTime - startTime;
 				System.out.println("The total running time is:"+totalTime+" milleseconds");

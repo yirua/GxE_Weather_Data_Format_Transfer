@@ -75,13 +75,13 @@ return connection;
 /*
  * try to delete all records
  */
-public void delete_All_Records(Connection connected){
+public void delete_All_Records(Connection connected, String table_name){
  
  try {
 		Statement stmt = connected.createStatement();
-		String delete_table="TRUNCATE TABLE gxe_weather";
+		String delete_table="TRUNCATE TABLE "+table_name;
 		//String delete_table="TRUNCATE table raw_file";
-		System.out.println("Deleting all records from table gxe_weather.... ");
+		System.out.println("Deleting all records from table "+table_name+".... ");
 	    stmt.executeUpdate(delete_table);
 	} catch (SQLException e1) {
 		// TODO Auto-generated catch block
@@ -89,20 +89,20 @@ public void delete_All_Records(Connection connected){
 	}
 }
 
-public void Create_Table_Gxe_Weather(Connection connected){
+public void Create_Table_Gxe_Weather(Connection connected, String table_name){
 
 	try {
 		Statement stmt = connected.createStatement();
 		
-		String create_table="CREATE TABLE GXE_Weather(Record_id SERIAL NOT NULL,Station_id INT,Day INT,Month INT,Year INT,Julian_Date INT,"+
+		String create_table="CREATE TABLE "+ table_name+"(Record_id SERIAL NOT NULL,Station_id INT,Day INT,Month INT,Year INT,Julian_Date INT,"+
 				"Time VARCHAR(8),Temp_F VARCHAR(6),TempA_F VARCHAR(6), TempB_F VARCHAR(6),TempC_F VARCHAR(6),TempD_F VARCHAR(6),TempE_F VARCHAR(6),TempF_F VARCHAR(6),"+
 				"Temp_C VARCHAR(6),TempA_C VARCHAR(6), TempB_C VARCHAR(6),TempC_C VARCHAR(6),TempD_C VARCHAR(6),TempE_C VARCHAR(6),TempF_C VARCHAR(6),"+
 				"EC_SMEC300 VARCHAR(8),Soil_Moist_VWC_A VARCHAR(8),Soil_Moist_VWC_B VARCHAR(8),Soil_Moist_VWC_C VARCHAR(8),"+
 				"Soil_Moist_VWC_D VARCHAR(8),Rh VARCHAR(8),Dew_Point_f VARCHAR(8),Dew_Point_c VARCHAR(8),Solar_Radiation VARCHAR(8),RainFall_In VARCHAR(8),RainFall_Mm VARCHAR(8),"+
 				"Wind_Direction VARCHAR(8),Wind_Speed_Mph VARCHAR(8),Wind_Gust_Mph VARCHAR(8),Wind_Speed_Kmh VARCHAR(8),Wind_Gust_Kmh VARCHAR(8),uv_light VARCHAR(8),CO2 VARCHAR(8),PRIMARY KEY(Record_id))";
 	    stmt.executeQuery(create_table);
-	    String table_constraint="alter table gxe_weather add constraint GXE_WEATHER_STATION_DATE_TIME unique(station_id,day, month, year,time)";
-	    stmt.executeQuery(table_constraint);
+	 //   String table_constraint="alter table gxe_weather add constraint GXE_WEATHER_STATION_DATE_TIME unique(station_id,day, month, year,time)";
+	 //   stmt.executeQuery(table_constraint);
 	} catch (SQLException e1) {
 		// TODO Auto-generated catch block
 		//e1.printStackTrace();
@@ -111,28 +111,68 @@ public void Create_Table_Gxe_Weather(Connection connected){
 	}
 	
 }
-public void drop_Then_Create_Table(Connection connected){
+public void drop_Then_Create_Table(Connection connected, String table_name){
 	try {
 		Statement stmt = connected.createStatement();
-		String drop="drop TABLE gxe_weather";
+		String drop="drop TABLE "+table_name;
 		//String delete_table="TRUNCATE table gxe_weather";
-		System.out.println("Dropping table gxe_weather.... ");
+		System.out.println("Dropping table "+ table_name+".... ");
 	    stmt.executeUpdate(drop);
-	    String create_table="CREATE TABLE GXE_Weather(Record_id SERIAL NOT NULL,Station_id INT,Day INT,Month INT,Year INT,Julian_Date INT,"+
+	    String create_table="CREATE TABLE "+table_name+"(Record_id SERIAL NOT NULL,Station_id INT,Day INT,Month INT,Year INT,Julian_Date INT,"+
 	    		"Time VARCHAR(8),Temp_F VARCHAR(6),TempA_F VARCHAR(6), TempB_F VARCHAR(6),TempC_F VARCHAR(6),TempD_F VARCHAR(6),TempE_F VARCHAR(6),TempF_F VARCHAR(6),"+
 	    		"Temp_C VARCHAR(6),TempA_C VARCHAR(6), TempB_C VARCHAR(6),TempC_C VARCHAR(6),TempD_C VARCHAR(6),TempE_C VARCHAR(6),TempF_C VARCHAR(6),"+
 	    		"EC_SMEC300 VARCHAR(8),Soil_Moist_VWC_A VARCHAR(8),Soil_Moist_VWC_B VARCHAR(8),Soil_Moist_VWC_C VARCHAR(8),"+
 	    		"Soil_Moist_VWC_D VARCHAR(8),Rh VARCHAR(8),Dew_Point_f VARCHAR(8),Dew_Point_c VARCHAR(8),Solar_Radiation VARCHAR(8),RainFall_In VARCHAR(8),RainFall_Mm VARCHAR(8),"+
 	    		"Wind_Direction VARCHAR(8),Wind_Speed_Mph VARCHAR(8),Wind_Gust_Mph VARCHAR(8),Wind_Speed_Kmh VARCHAR(8),Wind_Gust_Kmh VARCHAR(8),uv_light VARCHAR(8),CO2 VARCHAR(8),PRIMARY KEY(Record_id))";
 	    stmt.executeQuery(create_table);
-	    String table_constraint="alter table gxe_weather add constraint GXE_WEATHER_STATION_DATE_TIME unique(station_id,day, month, year,time)";
-	    stmt.executeQuery(table_constraint);
+	    //The constraints to make the station_id and time stamp unique. 
+	   // String table_constraint="alter table gxe_weather add constraint GXE_WEATHER_STATION_DATE_TIME unique(station_id,day, month, year,time)";
+	   // stmt.executeQuery(table_constraint);
 	} catch (SQLException e1) {
 		// TODO Auto-generated catch block
 		
 		//System.out.println(e1.getMessage());
 		System.out.println("Created one table gxe_weather....");
 	}
+}
+
+
+public ArrayList<String> get_all_table_names(Connection connected, String name_string){
+	Statement stmt=null;
+	String name_results="";
+	String schema_results="";
+	ArrayList<String> table_names= new ArrayList<String>();
+	try {
+		stmt = connected.createStatement();
+		String get_all_table_names="SELECT table_schema,table_name FROM information_schema.tables ORDER BY table_schema,table_name; ";
+		//String delete_table="TRUNCATE table raw_file";
+		
+	    ResultSet rs=stmt.executeQuery(get_all_table_names);
+	    while(rs.next()){
+	    	name_results=rs.getString("table_name");
+	    	schema_results=rs.getString("table_schema");
+	    	if(name_results.contains(name_string)){
+	    		table_names.add(name_results);
+	    	}
+	    	
+	    }
+	} catch (SQLException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+		
+	} finally{
+		if (stmt != null ){
+			try {
+				stmt.close();				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	return table_names;
+	
 }
 /*
  * get localhost connection

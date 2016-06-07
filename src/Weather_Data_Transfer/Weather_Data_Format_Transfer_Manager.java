@@ -25,10 +25,12 @@ public class Weather_Data_Format_Transfer_Manager {
 	static Read_SD_SWD_Files reader;
 	static Weather_Data_Into_DB db_tester = new Weather_Data_Into_DB();
 	public static void main(String[] args) {
+		//The whole program running time.
 		long startTime = System.currentTimeMillis();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //step 1: get the file names from the list
 		try {
+			//How to get the given path list.
 			checker.check_SWD_Files_In_Given_Path_List();//files_SD_DATE file list
 		
 		//feed the program and into the db
@@ -45,15 +47,17 @@ public class Weather_Data_Format_Transfer_Manager {
 		//checker.get_Files_SD_DATE();
 		files =checker.get_Files_SD_DATE();
 		///////To check the total number of SWD files 
-		//assertEquals(207,files.size());
-		
+		assertEquals(214,files.size());
+		String table_name="gxe_weather"; //try to have the table name input as parameters.
+		/////////
 		//db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote());
 	
 ////////////////truncate the table to delete all records
 		//db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Remote());
 		
 /////////drop then create to make the serial number starting with 1
-		db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote());
+		
+		db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote(),table_name);
 		int file_ctr=0;
 		int total_records=0;
 		BufferedWriter out = null;	
@@ -64,11 +68,10 @@ public class Weather_Data_Format_Transfer_Manager {
 			
 			
 		
-			out = new BufferedWriter((fstream));
-		    
-		    String table_name="gxe_weather";
+			out = new BufferedWriter((fstream));		    
+		 
 		    out.write("Weather_Data_PipeLine_Report"+"\n\n");	
-				for(File file: files){
+			for(File file: files){
 						reader =new Read_SD_SWD_Files(file); //constructor 
 						reader.Read_SD_Date_SWD_File_For_Abbr_Position(file); //get the positions of certain items
 						reader.Read_SD_SWD_Files_Run(file); 
@@ -76,13 +79,9 @@ public class Weather_Data_Format_Transfer_Manager {
 						file_records_length=db_tester.insert_one_object_into_table(Weather_Data_Into_DB.getConnection_Remote(), reader.get_Weather_Info_List(),table_name);
 						//file_records_length=db_tester.Insert_Into_DB_By_Set(Weather_Data_Into_DB.getConnection(), reader.get_Weather_Info_Set());
 		
-						System.out.println(file.getName()+" File has records with the number: "+file_records_length);
-						
-						file_ctr++;
-						
-						reader.Set_Positions_To_Zero();//make the reader all positions back to zero for new reading..				
-			
-			    
+						System.out.println(file.getName()+" File has records with the number: "+file_records_length);						
+						file_ctr++;						
+						reader.Set_Positions_To_Zero();//make the reader all positions back to zero for new reading..			    
 			    
 						out.write(file.getName()+" File has records: "+file_records_length+"\n");
 						total_records+=file_records_length;
