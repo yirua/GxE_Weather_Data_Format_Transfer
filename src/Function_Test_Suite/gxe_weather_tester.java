@@ -41,13 +41,15 @@ public class gxe_weather_tester {
 				files =checker.get_Files_SD_DATE();
 				assertEquals(214,files.size());
 				String table_name="gxe_weather";
-				//db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote());
+				//start to call the Frame_of_choice class to do action selections
+				
+				//db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote(),table_name);
 			
 				//truncate the table to delete all records
-				//db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Remote());
+				//db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Remote(),table_name);
 				
 				//drop then create to make the serial number starting with 1
-				db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote(),table_name);
+				//db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote(),table_name);
 				//db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Local(),table_name);
 				int file_ctr=0;
 				int total_records=0;

@@ -50,7 +50,7 @@ private Connection createConnection_Local() {
             System.err.println(e.getClass().getName()+": "+e.getMessage());
             System.exit(0);
          }
-         System.out.println("Opened database successfully");
+         System.out.println("Opened local database //localhost:5432/gxe_weather successfully");
       	
     return connection;
 }  
@@ -68,7 +68,7 @@ private Connection createConnection_Remote() {
         System.err.println(e.getClass().getName()+": "+e.getMessage());
         System.exit(0);
      }
-     System.out.println("Opened database successfully");
+     System.out.println("Opened remote database //129.186.85.29:5432/gxe_weather successfully");
   	
 return connection;
 }  
@@ -107,7 +107,7 @@ public void Create_Table_Gxe_Weather(Connection connected, String table_name){
 		// TODO Auto-generated catch block
 		//e1.printStackTrace();
 		//System.out.println(e1.getMessage());
-		System.out.println("Added one record....");
+		System.out.println("Created one table"+table_name+"....");
 	}
 	
 }
@@ -132,7 +132,7 @@ public void drop_Then_Create_Table(Connection connected, String table_name){
 		// TODO Auto-generated catch block
 		
 		//System.out.println(e1.getMessage());
-		System.out.println("Created one table gxe_weather....");
+		System.out.println("Created one table "+table_name+"....");
 	}
 }
 
