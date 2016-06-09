@@ -107,7 +107,7 @@ public void Create_Table_Gxe_Weather(Connection connected, String table_name){
 		// TODO Auto-generated catch block
 		//e1.printStackTrace();
 		//System.out.println(e1.getMessage());
-		System.out.println("Created one table"+table_name+"....");
+		System.out.println("Created one table: "+table_name+"....");
 	}
 	
 }

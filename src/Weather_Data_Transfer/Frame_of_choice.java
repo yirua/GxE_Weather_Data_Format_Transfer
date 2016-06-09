@@ -28,11 +28,18 @@ public class Frame_of_choice {
 	JFrame frame;
 	JTextField textbox;
 	JComboBox combo_box;
-	JButton select_table;
+	
 	int count;
 	ArrayList<String> table_names;
 	Weather_Data_Into_DB db_tester;
 	String table_name="";
+	String new_table_name;
+	boolean delete_flag;
+	/**
+	 * The constr of Frame_of_choice
+	 * @param db_tester
+	 * @param table_names
+	 */
 	public Frame_of_choice(Weather_Data_Into_DB db_tester, ArrayList<String> table_names){
 	
 	//1. Create the frame.
@@ -42,10 +49,11 @@ public class Frame_of_choice {
 
    	  	combo_box = new JComboBox();
 
-   	  	select_table = new JButton("Select table");
+   	  	
 
    	  	count = 0;
    	    this.db_tester=db_tester;
+   	    setDelete_flag(false);
 	}
 	
 	public void set_contents(){
@@ -62,16 +70,20 @@ public class Frame_of_choice {
 		
 			frame.setLayout(new FlowLayout());
 		    JRadioButton append,drop_reimport,delete;
+		    JRadioButton input_table_name = new JRadioButton("Create new table");
 		    contentPanel = new JPanel();
-		    //combo box with the init() method..
+		    //combo box with the init() method..and set_table_name with the return value from it.
 		    			    	 
-		     table_name=init();
+		     set_table_name(init());
 		     contentPanel.add(textbox);
 		     contentPanel.add(combo_box);
-		     contentPanel.add(select_table);
+		     
 		    	  
 		    //buttons append, truncate_reimport, delete and yes, no
 		      ButtonGroup buttonGroup = new ButtonGroup();
+		      
+		      
+		      
 		      append = new JRadioButton("Append");
 		      buttonGroup.add(append);
 		      contentPanel.add(append);
@@ -86,27 +98,44 @@ public class Frame_of_choice {
 		      contentPanel.add(delete);
 		      append.setSelected(true);
 		      
+		      buttonGroup.add(input_table_name);
+		      contentPanel.add(input_table_name);
+
 		      
-//		      JButton b1=new JButton();
-//		      b1.setBounds(300,100,2,2);
-//
-//		      b1.setText("Yes");
-//		    
-//		      JButton b2=new JButton();
-//		      b2.setBounds(100,10,2,2);
-//		      b2.setText("No");
-//
-//		      contentPanel.add(b1);
-//		      contentPanel.add(b2);
-		      
-		    
-		      boolean isAppendSelected = append.isSelected();
-		      
-		      if (isAppendSelected) {
-		       
-		          // the append option is selected, do nothing
+////////////different radio button selection will lead to differnt action..		    
+		      input_table_name.addItemListener(new ItemListener() {
 		    	  
-		      } 
+		    	    @Override
+		    	    public void itemStateChanged(ItemEvent event) {
+		    	        int state = event.getStateChange();
+		    	        if (state == ItemEvent.SELECTED) {
+		    	 
+		    	            // do something when the button is selected
+		    	        	//alert to do it or not
+		    	        	//JOptionPane.showMessageDialog(null, "My Goodness, are you sure to drop and reimport the data?");
+		    	        	JDialog.setDefaultLookAndFeelDecorated(true);
+		    	            int response = JOptionPane.showConfirmDialog(null, "Do you want to continue to input new table name?", "Confirm",
+		    	                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+		    	            if (response == JOptionPane.NO_OPTION) {
+		    	              System.out.println("No button clicked");
+		    	            } else if (response == JOptionPane.YES_OPTION) {
+		    	              
+		    	              Object result = JOptionPane.showInputDialog(frame, "Enter new table name followed gxe_weather:");
+		    			      System.out.println(result);
+		    			      if (result!=null)
+		    			    	  set_table_name("gxe_weather_"+(String)result);
+		    			    	  db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Local(),get_table_name());
+		    			      response=JOptionPane.CLOSED_OPTION;
+		    	            } else if (response == JOptionPane.CLOSED_OPTION) {
+		    	              System.out.println("JOptionPane closed");
+		    	            }
+		    	          
+		    	        }
+		    	        	
+		    	 
+		    	        } 
+		    	    
+		    	});
 		      
 		      append.addItemListener(new ItemListener() {
 		    	  
@@ -141,7 +170,7 @@ public class Frame_of_choice {
 		    	              System.out.println("No button clicked");
 		    	            } else if (response == JOptionPane.YES_OPTION) {
 		    	              System.out.println("Yes button clicked");
-		    	              db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Local(),table_name);
+		    	              db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Local(),get_table_name());
 		    	            } else if (response == JOptionPane.CLOSED_OPTION) {
 		    	              System.out.println("JOptionPane closed");
 		    	            }
@@ -168,7 +197,9 @@ public class Frame_of_choice {
 		    	              System.out.println("No button clicked");
 		    	            } else if (response == JOptionPane.YES_OPTION) {
 		    	              System.out.println("Yes button clicked");
-		    	              db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Local(), table_name);
+		    	              //set the delete flag to true;
+		    	              setDelete_flag(true);
+		    	              db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Local(), get_table_name());
 		    	            } else if (response == JOptionPane.CLOSED_OPTION) {
 		    	              System.out.println("JOptionPane closed");
 		    	            }
@@ -177,21 +208,6 @@ public class Frame_of_choice {
 		    	        } 
 		    	    }
 		    	});
-//		      boolean isDropReimportSelected = drop_reimport.isSelected();
-//		      
-//		      if (isDropReimportSelected) {
-//		       
-//		          // the drop_Reimport option is selected
-//		    	  db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Local(),table_name);
-//		      } 
-//		      boolean isDeleteSelected = delete.isSelected();
-//		      
-//		      if (isDeleteSelected) {
-//		       
-//		          // the delete option is selected
-//		    	  db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Local(), table_name);
-//		      } 
-
 		      
 		      frame.add(contentPanel);
 		      frame.setSize(182,150);
@@ -227,25 +243,51 @@ public class Frame_of_choice {
 	    for (int i = 0; i < table_names.size(); i++)
 	      combo_box.addItem(table_names.get(count++));
 	    textbox.setEditable(false);
-	    select_table.addActionListener(new ActionListener() {
-	      public void actionPerformed(ActionEvent e) {
-	        if (count < table_names.size())
-	          combo_box.addItem(table_names.get(count++));
-	      }
-	    });
+//	    select_table.addActionListener(new ActionListener() {
+//	      public void actionPerformed(ActionEvent e) {
+//	        if (count < table_names.size())
+//	          combo_box.addItem(table_names.get(count++));
+//	      }
+//	    });
 	    combo_box.addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent e) {
-	        textbox.setText("index: " + combo_box.getSelectedIndex() + "   "
-	            + ((JComboBox) e.getSource()).getSelectedItem());
+	        textbox.setText(""+ ((JComboBox) e.getSource()).getSelectedItem());
 	        table_name=(String) ((JComboBox) e.getSource()).getSelectedItem();
 	      }
 	    });
 	    if (table_name!=""){
+	    	set_table_name(table_name);
 	    	return  table_name;
 	    }
 	    else
 	    	return "";
 	  }
+	
+	public void set_table_name(String table_name){
+		this.table_name=table_name;
+	}
+	public String get_table_name(){
+		
+		return table_name;
+	}
+
+	/**
+	 * @return the delete_flag
+	 */
+	public boolean isDelete_flag() {
+		return delete_flag;
+	}
+
+	/**
+	 * @param delete_flag the delete_flag to set
+	 */
+	public void setDelete_flag(boolean delete_flag) {
+		this.delete_flag = delete_flag;
+	}
+	
+	public void close_frame(){
+		frame.dispose();
+	}
 }	
 	
 
