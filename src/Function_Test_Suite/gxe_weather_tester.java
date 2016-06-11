@@ -66,6 +66,8 @@ public class gxe_weather_tester {
 				//drop then create to make the serial number starting with 1
 				//db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote(),table_name);
 				//db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Local(),table_name);
+				
+				//if it is not delete, then do the record insert action, else, close the frame to get out
 				if (!Frame_of_choice_tester.isDelete_flag()){
 				int file_ctr=0;
 				int total_records=0;

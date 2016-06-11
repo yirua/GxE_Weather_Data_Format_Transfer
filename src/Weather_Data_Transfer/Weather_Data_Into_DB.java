@@ -136,7 +136,24 @@ public void drop_Then_Create_Table(Connection connected, String table_name){
 	}
 }
 
-
+public void drop_Table(Connection connected, String table_name){
+	try {
+		Statement stmt = connected.createStatement();
+		String drop="drop TABLE "+table_name;
+		//String delete_table="TRUNCATE table gxe_weather";
+		System.out.println("Dropping table "+ table_name+".... ");
+	    stmt.executeUpdate(drop);
+	    
+	    //The constraints to make the station_id and time stamp unique. 
+	   // String table_constraint="alter table gxe_weather add constraint GXE_WEATHER_STATION_DATE_TIME unique(station_id,day, month, year,time)";
+	   // stmt.executeQuery(table_constraint);
+	} catch (SQLException e1) {
+		// TODO Auto-generated catch block
+		
+		//System.out.println(e1.getMessage());
+		System.out.println("Dropped one table "+table_name+"....");
+	}
+}
 public ArrayList<String> get_all_table_names(Connection connected, String name_string){
 	Statement stmt=null;
 	String name_results="";
