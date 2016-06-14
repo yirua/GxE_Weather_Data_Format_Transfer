@@ -29,7 +29,8 @@ import javax.swing.JDialog;
 public class Frame_of_choice {
 	JFrame frame;
 //	JApplet frame;
-	JTextField textbox;
+	JTextField text_box;
+	JTextField table_name_box;
 	JComboBox combo_box;
 	
 	int count;
@@ -49,8 +50,8 @@ public class Frame_of_choice {
 		frame = new JFrame("Choices of action");
 	//	frame = new JApplet();
 		this.table_names= table_names; 
-		textbox = new JTextField(15);
-
+		text_box = new JTextField(20);
+		table_name_box= new JTextField(20);
    	  	combo_box = new JComboBox();
 
    	  	
@@ -80,7 +81,7 @@ public class Frame_of_choice {
 		    //combo box with the init() method..and set_table_name with the return value from it.
 		    			    	 
 		     set_table_name(init());
-		     contentPanel.add(textbox);
+		     contentPanel.add(text_box);
 		     contentPanel.add(combo_box,BorderLayout.EAST);
 		     
 		    	  
@@ -102,18 +103,18 @@ public class Frame_of_choice {
 		      delete = new JRadioButton("Delete");
 		      buttonGroup.add(delete);
 		      contentPanel.add(delete, BorderLayout.WEST);
-		    
-		      drop_table = new JRadioButton("Drop");
-		      buttonGroup.add(drop_table);
-		      contentPanel.add(drop_table, BorderLayout.EAST);
+		    ///////////drop to omit because it does not help with the data input.
+//		      drop_table = new JRadioButton("Drop");
+//		      buttonGroup.add(drop_table);
+//		      contentPanel.add(drop_table, BorderLayout.EAST);
 		      //put the input_table_name at the end of row
 		      buttonGroup.add(create_new_table);
 		      contentPanel.add(create_new_table, BorderLayout.SOUTH);
-
+		      contentPanel.add(table_name_box, BorderLayout.PAGE_END);
 		      
 ////////////different radio button selection will lead to differnt action..		    
 		      create_new_table.addItemListener(new ItemListener() {
-		    	  
+		    	  JFrame aframe;
 		    	    @Override
 		    	    public void itemStateChanged(ItemEvent event) {
 		    	        int state = event.getStateChange();
@@ -125,17 +126,36 @@ public class Frame_of_choice {
 		    	        	JDialog.setDefaultLookAndFeelDecorated(true);
 		    	            int response = JOptionPane.showConfirmDialog(null, "Do you want to continue to input new table name?", "Confirm",
 		    	                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-		    	            if (response == JOptionPane.NO_OPTION) {
+		    	            NullPointerException ne= null;
+							if (response == JOptionPane.NO_OPTION) {
 		    	              System.out.println("No button clicked");
 		    	            } else if (response == JOptionPane.YES_OPTION) {
 		    	              
-		    	              Object result = JOptionPane.showInputDialog(frame, "Enter new table name followed gxe_weather:");
-		    			      System.out.println(result);
-		    			      if (result!=null)
-		    			    	  set_table_name("gxe_weather_"+(String)result);
-		    			    	  db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Local(),get_table_name());
-		    			    	  setDelete_flag(false);
-		    			    	//  db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote(),get_table_name());
+//		    	              Object result = JOptionPane.showInputDialog(frame, "Enter new table name followed gxe_weather:");
+//		    			      System.out.println(result);
+		    	            	
+		    	            	try{
+		    	            		while (true){
+		    	            			String result = table_name_box.getText();
+				    			      if (!result.isEmpty()){
+				    			    	  set_table_name("gxe_weather_"+result);
+				    			    	  db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Local(),get_table_name());
+				    			    	  setDelete_flag(false);
+				    			    	//  db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote(),get_table_name());
+				    			    	  break;
+				    			      }
+				    			      else
+				    			    	  //give alert to input a table 
+				    			    	   aframe = new JFrame();
+				    			      		Object message_result = JOptionPane.showInputDialog(aframe, "Enter table name:");
+				    			      		//result= (String)message_result;
+				    			      		table_name_box.setText((String)message_result);
+			    	            	}
+			    			      
+		    	            	}catch(NullPointerException e ){
+		    	            		e.printStackTrace();
+		    	            		response=JOptionPane.CLOSED_OPTION;
+		    	            	}
 		    			      response=JOptionPane.CLOSED_OPTION;
 		    	            } else if (response == JOptionPane.CLOSED_OPTION) {
 		    	              System.out.println("JOptionPane closed");
@@ -222,7 +242,8 @@ public class Frame_of_choice {
 		    	        } 
 		    	    }
 		    	});
-		      drop_table.addItemListener(new ItemListener() {
+		      
+/*		      drop_table.addItemListener(new ItemListener() {
 		    	  
 		    	    @Override
 		    	    public void itemStateChanged(ItemEvent event) {
@@ -249,7 +270,7 @@ public class Frame_of_choice {
 		    	 
 		    	        } 
 		    	    }
-		    	});
+		    	});*/
 		      frame.add(contentPanel);
 		      frame.setSize(182,150);
 		
@@ -283,7 +304,7 @@ public class Frame_of_choice {
 		
 	    for (int i = 0; i < table_names.size(); i++)
 	      combo_box.addItem(table_names.get(count++));
-	    textbox.setEditable(false);
+	    text_box.setEditable(false);
 //	    select_table.addActionListener(new ActionListener() {
 //	      public void actionPerformed(ActionEvent e) {
 //	        if (count < table_names.size())
@@ -292,7 +313,7 @@ public class Frame_of_choice {
 //	    });
 	    combo_box.addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent e) {
-	        textbox.setText(""+ ((JComboBox) e.getSource()).getSelectedItem());
+	        text_box.setText(""+ ((JComboBox) e.getSource()).getSelectedItem());
 	        table_name=(String) ((JComboBox) e.getSource()).getSelectedItem();
 	      }
 	    });
