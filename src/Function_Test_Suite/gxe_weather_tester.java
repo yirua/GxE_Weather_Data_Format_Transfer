@@ -69,68 +69,68 @@ public class gxe_weather_tester {
 				
 				//if it is not delete, then do the record insert action, else, close the frame to get out
 				if (!Frame_of_choice_tester.isDelete_flag()){
-				int file_ctr=0;
-				int total_records=0;
-				BufferedWriter out = null;	
-		//step 3: put data into DB and write out the Pipeline Report.		
-				try{
-					FileWriter fstream = new FileWriter("Output/Weather_Data_PipeLine_Report.txt", false); //true tells to append data.
-				//	FileWriter fstream = new FileWriter(System.getProperty("user.home") + "/.Desktop/Weather_Data_PipeLine_Report.txt", false); //true tells to append data.for .jar file
-					
-					
-				
-					out = new BufferedWriter((fstream));
-				    
-				    
-				    out.write("Weather_Data_PipeLine_Report"+"\n\n");	
-						for(File file: files){
-								reader =new Read_SD_SWD_Files(file); //constructor 
-								reader.Read_SD_Date_SWD_File_For_Abbr_Position(file); //get the positions of certain items
-								reader.Read_SD_SWD_Files_Run(file); 
-								int file_records_length=0;
-							//	file_records_length=db_tester.insert_one_object_into_table(Weather_Data_Into_DB.getConnection_Remote(), reader.get_Weather_Info_List(),Frame_of_choice_tester.get_new_table_name());
-								file_records_length=db_tester.insert_one_object_into_table(Weather_Data_Into_DB.getConnection_Local(), reader.get_Weather_Info_List(),table_name);
-								//file_records_length=db_tester.Insert_Into_DB_By_Set(Weather_Data_Into_DB.getConnection(), reader.get_Weather_Info_Set());
-				
-								System.out.println(file.getName()+" File has records with the number: "+file_records_length);
-								
-								file_ctr++;
-								
-								reader.Set_Positions_To_Zero();//make the reader all positions back to zero for new reading..				
-					
-					    
-					    
-								out.write(file.getName()+" File has records: "+file_records_length+"\n");
-								total_records+=file_records_length;
-					
-						}
-						out.write("\n");
+						int file_ctr=0;
+						int total_records=0;
+						BufferedWriter out = null;	
+				//step 3: put data into DB and write out the Pipeline Report.		
+						try{
+							FileWriter fstream = new FileWriter("Output/Weather_Data_PipeLine_Report.txt", false); //true tells to append data.
+						//	FileWriter fstream = new FileWriter(System.getProperty("user.home") + "/.Desktop/Weather_Data_PipeLine_Report.txt", false); //true tells to append data.for .jar file
+							
+							
 						
-						out.write("There are total of "+files.size()+" SWD files contained "+ total_records+ " records in total are read and dumped into DB GXE_Weather.\n");
+							out = new BufferedWriter((fstream));
+						    
+						    
+						    out.write("Weather_Data_PipeLine_Report"+"\n\n");	
+								for(File file: files){
+										reader =new Read_SD_SWD_Files(file); //constructor 
+										reader.Read_SD_Date_SWD_File_For_Abbr_Position(file); //get the positions of certain items
+										reader.Read_SD_SWD_Files_Run(file); 
+										int file_records_length=0;
+									//	file_records_length=db_tester.insert_one_object_into_table(Weather_Data_Into_DB.getConnection_Remote(), reader.get_Weather_Info_List(),Frame_of_choice_tester.get_new_table_name());
+										file_records_length=db_tester.insert_one_object_into_table(Weather_Data_Into_DB.getConnection_Local(), reader.get_Weather_Info_List(),table_name);
+										//file_records_length=db_tester.Insert_Into_DB_By_Set(Weather_Data_Into_DB.getConnection(), reader.get_Weather_Info_Set());
 						
-				}
-				catch (IOException e)
-				{
-				    System.err.println("Error: " + e.getMessage());
-				}
-				finally
-				{
-				    if(out != null) {
-				        try {
-							out.close();
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
+										System.out.println(file.getName()+" File has records with the number: "+file_records_length);
+										
+										file_ctr++;
+										
+										reader.Set_Positions_To_Zero();//make the reader all positions back to zero for new reading..				
+							
+							    
+							    
+										out.write(file.getName()+" File has records: "+file_records_length+"\n");
+										total_records+=file_records_length;
+							
+								}
+								out.write("\n");
+								
+								out.write("There are total of "+files.size()+" SWD files contained "+ total_records+ " records in total are read and dumped into DB GXE_Weather.\n");
+								
 						}
-				    }
-				}
-				
-				System.out.println("We have put into the gxe_weather db and table: "+Frame_of_choice_tester.get_table_name()+" in the total of : "+file_ctr+" files.");
-				long endTime   = System.currentTimeMillis();
-				long totalTime = endTime - startTime;
-				System.out.println("The total running time is:"+totalTime+" milleseconds");
-				Frame_of_choice_tester.close_frame();
-			}
+						catch (IOException e)
+						{
+						    System.err.println("Error: " + e.getMessage());
+						}
+						finally
+						{
+						    if(out != null) {
+						        try {
+									out.close();
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+						    }
+						}
+						
+						System.out.println("We have put into the gxe_weather db and table: "+Frame_of_choice_tester.get_table_name()+" in the total of : "+file_ctr+" files.");
+						long endTime   = System.currentTimeMillis();
+						long totalTime = endTime - startTime;
+						System.out.println("The total running time is:"+totalTime+" milleseconds");
+						Frame_of_choice_tester.close_frame();
+					}
 		
 	////////the delete_flag is true
 				else {

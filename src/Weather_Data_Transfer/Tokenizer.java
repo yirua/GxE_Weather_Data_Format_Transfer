@@ -1,6 +1,10 @@
 package Weather_Data_Transfer;
 
-
+/**
+ * this class will split string into an array of string
+ * @author yiweisun
+ *
+ */
 public class Tokenizer {
     public String[] result;
     public Tokenizer(String a)

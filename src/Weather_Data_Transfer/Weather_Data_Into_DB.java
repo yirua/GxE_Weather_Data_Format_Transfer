@@ -19,7 +19,7 @@ import java.util.Set;
 
 import Weather_Data_Transfer.Weather_Data_Into_DB;
 /**
- * this will try to connect the postgresql database for dumping data into it.
+ * this will try to connect the Postgresql local or remote database for dumping data into it, it also includes create, truncate, drop/reimport and delete methods to choose.
  * @author yiweisun
  *
  */

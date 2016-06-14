@@ -15,7 +15,7 @@ import java.util.Collections;
 import javax.swing.JFileChooser;
 
 /**
- * Check the given folder for certain files, if all exist, give out check_marker to continue
+ * Check the given folder for certain files such as index.SWD and other SWD files, if all exist, give out check_marker to continue
  * and put them into a file Arraylist 
  * @author yiweisun
  *

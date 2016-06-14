@@ -26,6 +26,14 @@ import javax.swing.JTextField;
 import javax.swing.JOptionPane;
 
 import javax.swing.JDialog;
+
+
+/**
+ * This class will show a Jframe of action choices for user to choose, including append, drop/reimport, create_new_table, the delete function is developed
+ * but not included in the Jframe since the user can do that easily through PostAdmin and the first target of design is to import data into a table
+ * @author yiweisun
+ *
+ */
 public class Frame_of_choice {
 	JFrame frame;
 //	JApplet frame;

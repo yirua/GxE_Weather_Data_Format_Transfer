@@ -8,7 +8,11 @@ import org.junit.Test;
 
 import Weather_Data_Transfer.Frame_of_choice;
 import Weather_Data_Transfer.Weather_Data_Into_DB;
-
+/**
+ * This will test the frame_of_choice class functions.
+ * @author yiweisun
+ *
+ */
 public class frame_of_choice_tester {
 	static Weather_Data_Into_DB db_tester = new Weather_Data_Into_DB();
 	String table_name= "gxe_weather_test";

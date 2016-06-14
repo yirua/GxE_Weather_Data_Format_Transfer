@@ -14,8 +14,9 @@ import java.nio.file.NoSuchFileException;
 import java.util.ArrayList;
 
 /**
- * This program will check the file structures and transfer them into one table of MYSQL table through 
+ * This program will get the path of all weather station SWD files and transfer them into one table of Postgresql table through 
  * one Arraylist of weather station info objects..
+ * To use objects to store the weather station info of each row is convenient and easy to moderate.
  * @author yiweisun
  *
  */
