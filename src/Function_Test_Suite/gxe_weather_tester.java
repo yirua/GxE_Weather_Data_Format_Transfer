@@ -45,16 +45,18 @@ public class gxe_weather_tester {
 				//checker.Get_SD_DATES_Files();
 				//checker.get_Files_SD_DATE();
 				files =checker.get_Files_SD_DATE();
-				assertEquals(7,files.size());
+				assertEquals(214,files.size());
 				//String table_name="gxe_weather";
+				
 				//start to call the Frame_of_choice class to do action selections
-				table_names= db_tester.get_all_table_names(Weather_Data_Into_DB.getConnection_Local(),name_string);
+			//	table_names= db_tester.get_all_table_names(Weather_Data_Into_DB.getConnection_Local(),name_string);
+				table_names= db_tester.get_all_table_names(Weather_Data_Into_DB.getConnection_Remote(),name_string);
 				Frame_of_choice Frame_of_choice_tester= new Frame_of_choice(db_tester,table_names);
 				Frame_of_choice_tester.set_contents();
-				 System.out.println("Press Any Key To Continue...");
+				 System.out.println("Press Enter To Continue...");
 		         new java.util.Scanner(System.in).nextLine();
 				
-				
+				//From the Frame_of_choice object to get the table_name for the next input step.
 				String table_name=Frame_of_choice_tester.get_table_name();
 				
 				
@@ -88,8 +90,8 @@ public class gxe_weather_tester {
 										reader.Read_SD_Date_SWD_File_For_Abbr_Position(file); //get the positions of certain items
 										reader.Read_SD_SWD_Files_Run(file); 
 										int file_records_length=0;
-									//	file_records_length=db_tester.insert_one_object_into_table(Weather_Data_Into_DB.getConnection_Remote(), reader.get_Weather_Info_List(),Frame_of_choice_tester.get_new_table_name());
-										file_records_length=db_tester.insert_one_object_into_table(Weather_Data_Into_DB.getConnection_Local(), reader.get_Weather_Info_List(),table_name);
+										file_records_length=db_tester.insert_one_object_into_table(Weather_Data_Into_DB.getConnection_Remote(), reader.get_Weather_Info_List(),Frame_of_choice_tester.get_table_name());
+									//	file_records_length=db_tester.insert_one_object_into_table(Weather_Data_Into_DB.getConnection_Local(), reader.get_Weather_Info_List(),table_name);
 										//file_records_length=db_tester.Insert_Into_DB_By_Set(Weather_Data_Into_DB.getConnection(), reader.get_Weather_Info_Set());
 						
 										System.out.println(file.getName()+" File has records with the number: "+file_records_length);
