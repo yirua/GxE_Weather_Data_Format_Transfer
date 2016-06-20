@@ -28,7 +28,7 @@ public class Weather_Info_Into_DB_Test {
 			ArrayList<File> files;
 			//checker.check_SWD_Files should return true, else user should check the file folder
 			if(checker.check_SWD_Files()){
-				
+				String table_name="gxe_weather";
 				checker.Get_SD_DATES_Files();
 				//checker.get_Files_SD_DATE();
 				files =checker.get_Files_SD_DATE();
@@ -36,17 +36,18 @@ public class Weather_Info_Into_DB_Test {
 			
 				
 				//truncate the table to delete all records
-				db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Local());
+				db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Local(),table_name);
 				
 				//drop then create to make the serial number starting with 1
-				db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Local());
+				db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Local(),table_name);
+				
 				int file_ctr=0;
 				for(File file: files){
 					reader =new Read_SD_SWD_Files(file);
 					reader.Read_SD_Date_SWD_File_For_Abbr_Position(file);
 					reader.Read_SD_SWD_Files_Run(file);
 					int file_records_length=0;
-					file_records_length=db_tester.insert_one_object_into_db(Weather_Data_Into_DB.getConnection_Local(), reader.get_Weather_Info_List());
+					file_records_length=db_tester.insert_one_object_into_table(Weather_Data_Into_DB.getConnection_Local(), reader.get_Weather_Info_List(),table_name);
 					//file_records_length=db_tester.Insert_Into_DB_By_Set(Weather_Data_Into_DB.getConnection(), reader.get_Weather_Info_Set());
 
 					System.out.println(file.getName()+" File has records with the number: "+file_records_length);

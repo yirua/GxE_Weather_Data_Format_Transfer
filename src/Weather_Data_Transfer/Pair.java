@@ -1,7 +1,9 @@
 package Weather_Data_Transfer;
 
 import java.util.Objects;
-
+/*
+ * This class is build to make sure the string pairs are unique so that later we can detect which string combinations(descriptions + abbr.) are not in our list then add them into our table.
+ */
 public class Pair{
 	 String prv;
 	 String next;

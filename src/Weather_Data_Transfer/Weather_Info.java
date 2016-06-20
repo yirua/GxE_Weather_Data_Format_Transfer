@@ -37,6 +37,12 @@ Wind_Gust VARCHAR(255)
 alter table raw_file add constraint RAW_FILE_RSID_UQ unique (rs_id);
 alter table raw_file add constraint RAW_FILE_CH_INDX_UQ unique (chromosome,_index);
  */
+/**
+ * this class with hold the information from each SWD file, one object for one row so that it is easy to read from sources and easy to dump into a table.
+ * This will read one SWD file into an ArrayList of Weather_Info objects.
+ * @author yiweisun
+ *
+ */
 public class Weather_Info {
 	//private String station_state; //the state name of station, such as Illinois
 	private int station_id;//integers to illustrate the weather station
