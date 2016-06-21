@@ -54,7 +54,7 @@ public class Weather_Data_Format_Transfer_Manager {
 		//checker.get_Files_SD_DATE();
 				files =checker.get_Files_SD_DATE();
 				///////To check the total number of SWD files 
-				assertEquals(7,files.size());
+		//		assertEquals(7,files.size());
 				//start to call the Frame_of_choice class to do action selections
 		//		table_names= db_tester.get_all_table_names(Weather_Data_Into_DB.getConnection_Local(),name_string);
 				table_names= db_tester.get_all_table_names(Weather_Data_Into_DB.getConnection_Remote(),name_string);
@@ -77,7 +77,7 @@ public class Weather_Data_Format_Transfer_Manager {
 				//db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Local(),table_name);
 		
 		//if it is not delete, then do the record insert action, else, close the frame to get out
-		if (!Frame_of_choice_tester.isDelete_flag()){
+		
 				int file_ctr=0;
 				int total_records=0;
 				BufferedWriter out = null;	
@@ -139,16 +139,9 @@ public class Weather_Data_Format_Transfer_Manager {
 				long totalTime = endTime - startTime;
 				System.out.println("The total running time is:"+totalTime+" milleseconds");
 				Frame_of_choice_tester.close_frame();
-			}
+			
 
-////////the delete_flag is true
-		else {
-			System.out.println("We have delete a table in the gxe_weather database: "+Frame_of_choice_tester.get_table_name());
-			long endTime   = System.currentTimeMillis();
-			long totalTime = endTime - startTime;
-			System.out.println("The total running time is:"+totalTime+" milleseconds");
-			Frame_of_choice_tester.close_frame();
-		}
+
 	
 		}//try
 		catch(Exception e){

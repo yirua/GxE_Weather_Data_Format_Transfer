@@ -19,6 +19,7 @@ import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -87,6 +88,8 @@ public class Frame_of_choice {
 		    //combo box with the init() method..and set_table_name with the return value from it.
 		    			    	 
 		     set_table_name(init());
+		     JLabel selected_table_name= new JLabel("Table to select");
+		     contentPanel.add(selected_table_name);
 		     contentPanel.add(text_box);
 		     contentPanel.add(combo_box,BorderLayout.EAST);
 		     
@@ -146,6 +149,9 @@ public class Frame_of_choice {
 //		    			      System.out.println(result);
 		    	            	
 		    	            	try{
+		    	            		/*
+		    	            		 * the while loop will test the table_name_box string input to guarantee that the input is numeric and has 4 digits.
+		    	            		 */
 		    	            		while (true){
 		    	            			String result = table_name_box.getText();
 				    			      if (!result.isEmpty()&result.matches("[0-9]+")&result.length()==4 ){
@@ -190,7 +196,12 @@ public class Frame_of_choice {
 		    	        if (state == ItemEvent.SELECTED) {
 		    	 
 		    	            // do something when the button is selected
-		    	        	setDelete_flag(false);	
+		    	        	setDelete_flag(false);
+		    	        	//if the table 
+		    	        	if(get_table_name().equals("")){
+		    	        		set_table_name("gxe_weather_2015");
+		    	        		db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote(),get_table_name());
+		    	        	}
 		    	        } else if (state == ItemEvent.DESELECTED) {
 		    	 
 		    	            // do something else when the button is deselected
@@ -219,12 +230,14 @@ public class Frame_of_choice {
 		    	            } else if (response == JOptionPane.YES_OPTION) {
 		    	              System.out.println("Yes button clicked");
 		    	              //get_table_name can not be ""
-		    	              setDelete_flag(false);
-		    	        //      db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Local(),get_table_name());
-		    	              db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote(),get_table_name());
+		    	              if(get_table_name().equals("")|get_table_name().isEmpty()){
 		    	              
+		    	            	  set_table_name("gxe_weather_2015");
+		    	              }
+		    	              //		    	            db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Local(),get_table_name());
+	    	            	  	db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote(),get_table_name());
 		    	              //if the get_table_name is "" close the JOptionPane
-		    	              
+		    	             
 		    	              
 		    	            } else if (response == JOptionPane.CLOSED_OPTION) {
 		    	              System.out.println("JOptionPane closed");
