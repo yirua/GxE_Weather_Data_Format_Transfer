@@ -45,7 +45,7 @@ public class gxe_weather_tester {
 				//checker.Get_SD_DATES_Files();
 				//checker.get_Files_SD_DATE();
 				files =checker.get_Files_SD_DATE();
-				assertEquals(214,files.size());
+				assertEquals(7,files.size());
 				//String table_name="gxe_weather";
 				
 				//start to call the Frame_of_choice class to do action selections

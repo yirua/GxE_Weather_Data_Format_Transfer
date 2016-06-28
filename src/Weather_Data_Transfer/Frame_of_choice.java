@@ -48,6 +48,8 @@ public class Frame_of_choice {
 	String table_name="";
 	String new_table_name;
 	boolean delete_flag;
+	int width;
+	int height;
 	/**
 	 * The constr of Frame_of_choice
 	 * @param db_tester
@@ -62,7 +64,8 @@ public class Frame_of_choice {
 		text_box = new JTextField(20);
 		table_name_box= new JTextField(20);
    	  	combo_box = new JComboBox();
-
+   	  	 width=200;
+   	  	 height=100;
    	  	
 
    	  	count = 0;
@@ -74,7 +77,9 @@ public class Frame_of_choice {
 		//2. Optional: What happens when the frame closes?
 		try{
 			//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.setAlwaysOnTop (true);
 			frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+			frame.setSize(width, height);
 			//3. Create components and put them in the frame.
 			//...create emptyLabel...
 			//frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
