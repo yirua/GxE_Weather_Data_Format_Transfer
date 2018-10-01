@@ -19,6 +19,7 @@ import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -47,6 +48,8 @@ public class Frame_of_choice {
 	String table_name="";
 	String new_table_name;
 	boolean delete_flag;
+	int width;
+	int height;
 	/**
 	 * The constr of Frame_of_choice
 	 * @param db_tester
@@ -61,7 +64,8 @@ public class Frame_of_choice {
 		text_box = new JTextField(20);
 		table_name_box= new JTextField(20);
    	  	combo_box = new JComboBox();
-
+   	  	 width=200;
+   	  	 height=100;
    	  	
 
    	  	count = 0;
@@ -73,22 +77,24 @@ public class Frame_of_choice {
 		//2. Optional: What happens when the frame closes?
 		try{
 			//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+			frame.setAlwaysOnTop (true);
+			frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+			frame.setSize(width, height);
 			//3. Create components and put them in the frame.
 			//...create emptyLabel...
 			//frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
 			
 			//Create a panel and add components to it.
 			JPanel contentPanel = new JPanel(new BorderLayout());
-			//Container contentPanel = frame.getContentPane();
-			//frame.setLayout(new FlowLayout());
-			//frame.setLayout(new BorderLayout());
+			
 		    JRadioButton append,drop_reimport,delete,drop_table;
 		    JRadioButton create_new_table = new JRadioButton("Create new table");
 		    contentPanel = new JPanel();
 		    //combo box with the init() method..and set_table_name with the return value from it.
 		    			    	 
 		     set_table_name(init());
+		     JLabel selected_table_name= new JLabel("Table to select");
+		     contentPanel.add(selected_table_name);
 		     contentPanel.add(text_box);
 		     contentPanel.add(combo_box,BorderLayout.EAST);
 		     
@@ -107,10 +113,12 @@ public class Frame_of_choice {
 		      buttonGroup.add(drop_reimport);
 		      contentPanel.add(drop_reimport,BorderLayout.CENTER);
 		     // drop_reimport.setActionCommand("db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote(),table_name)");
-		      
-		      delete = new JRadioButton("Delete");
+		      /*
+		       * As discussed with Darwin, the delete function is not necessary here
+		       */
+		    /*  delete = new JRadioButton("Delete");
 		      buttonGroup.add(delete);
-		      contentPanel.add(delete, BorderLayout.WEST);
+		      contentPanel.add(delete, BorderLayout.WEST);*/
 		    ///////////drop to omit because it does not help with the data input.
 //		      drop_table = new JRadioButton("Drop");
 //		      buttonGroup.add(drop_table);
@@ -120,7 +128,10 @@ public class Frame_of_choice {
 		      contentPanel.add(create_new_table, BorderLayout.SOUTH);
 		      contentPanel.add(table_name_box, BorderLayout.PAGE_END);
 		      
-////////////different radio button selection will lead to differnt action..		    
+////////////different radio button selection will lead to differnt action..		
+		      /*
+		       * If the user choose to create a new table, then he has to input the new table name.
+		       */
 		      create_new_table.addItemListener(new ItemListener() {
 		    	  JFrame aframe;
 		    	    @Override
@@ -143,19 +154,23 @@ public class Frame_of_choice {
 //		    			      System.out.println(result);
 		    	            	
 		    	            	try{
+		    	            		/*
+		    	            		 * the while loop will test the table_name_box string input to guarantee that the input is numeric and has 4 digits.
+		    	            		 */
 		    	            		while (true){
 		    	            			String result = table_name_box.getText();
-				    			      if (!result.isEmpty()){
+				    			      if (!result.isEmpty()&result.matches("[0-9]+")&result.length()==4 ){
 				    			    	  set_table_name("gxe_weather_"+result);
-				    			    	  db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Local(),get_table_name());
+				    			    	//  db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Local(),get_table_name());
+				    			    	  db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote(),get_table_name());
 				    			    	  setDelete_flag(false);
-				    			    	//  db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote(),get_table_name());
+				    			    	  
 				    			    	  break;
 				    			      }
 				    			      else
 				    			    	  //give alert to input a table 
 				    			    	   aframe = new JFrame();
-				    			      		Object message_result = JOptionPane.showInputDialog(aframe, "Enter table name:");
+				    			      		Object message_result = JOptionPane.showInputDialog(aframe, "Enter valid table year which is four digits:");
 				    			      		//result= (String)message_result;
 				    			      		table_name_box.setText((String)message_result);
 			    	            	}
@@ -175,7 +190,9 @@ public class Frame_of_choice {
 		    	        } 
 		    	    
 		    	});
-		      
+		      /*
+		       * If the user choose the append action.
+		       */
 		      append.addItemListener(new ItemListener() {
 		    	  
 		    	    @Override
@@ -184,7 +201,12 @@ public class Frame_of_choice {
 		    	        if (state == ItemEvent.SELECTED) {
 		    	 
 		    	            // do something when the button is selected
-		    	        	setDelete_flag(false);	
+		    	        	setDelete_flag(false);
+		    	        	//if the table 
+		    	        	if(get_table_name().equals("")){
+		    	        		set_table_name("gxe_weather_2015");
+		    	        		db_tester.Create_Table_Gxe_Weather(Weather_Data_Into_DB.getConnection_Remote(),get_table_name());
+		    	        	}
 		    	        } else if (state == ItemEvent.DESELECTED) {
 		    	 
 		    	            // do something else when the button is deselected
@@ -192,6 +214,9 @@ public class Frame_of_choice {
 		    	        }
 		    	    }
 		    	});
+		      /*
+		       * If the user choose the drop_reimport action.
+		       */
 		      drop_reimport.addItemListener(new ItemListener() {
 		    	  
 		    	    @Override
@@ -209,9 +234,16 @@ public class Frame_of_choice {
 		    	              System.out.println("No button clicked");
 		    	            } else if (response == JOptionPane.YES_OPTION) {
 		    	              System.out.println("Yes button clicked");
-		    	              setDelete_flag(false);
-		    	              db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Local(),get_table_name());
-		    	       //       db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote(),get_table_name());
+		    	              //get_table_name can not be ""
+		    	              if(get_table_name().equals("")|get_table_name().isEmpty()){
+		    	              
+		    	            	  set_table_name("gxe_weather_2015");
+		    	              }
+		    	              //		    	            db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Local(),get_table_name());
+	    	            	  	db_tester.drop_Then_Create_Table(Weather_Data_Into_DB.getConnection_Remote(),get_table_name());
+		    	              //if the get_table_name is "" close the JOptionPane
+		    	             
+		    	              
 		    	            } else if (response == JOptionPane.CLOSED_OPTION) {
 		    	              System.out.println("JOptionPane closed");
 		    	            }
@@ -222,7 +254,10 @@ public class Frame_of_choice {
 		    	        } 
 		    	    
 		    	});
-		      delete.addItemListener(new ItemListener() {
+		      /*
+		       * If the user choose the delete radio button.
+		       */
+/*		      delete.addItemListener(new ItemListener() {
 		    	  
 		    	    @Override
 		    	    public void itemStateChanged(ItemEvent event) {
@@ -239,9 +274,11 @@ public class Frame_of_choice {
 		    	            } else if (response == JOptionPane.YES_OPTION) {
 		    	              System.out.println("Yes button clicked");
 		    	              //set the delete flag to true to mark the two way out delete or other actions
+		    	              //the get_table_name() can not be ""
 		    	              setDelete_flag(true);
 		    	              db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Local(), get_table_name());
 		    	             // db_tester.delete_All_Records(Weather_Data_Into_DB.getConnection_Remote(), get_table_name());
+		    	              //if the get_table_name is ""
 		    	            } else if (response == JOptionPane.CLOSED_OPTION) {
 		    	              System.out.println("JOptionPane closed");
 		    	            }
@@ -249,8 +286,8 @@ public class Frame_of_choice {
 		    	 
 		    	        } 
 		    	    }
-		    	});
-		      
+		    	});*/
+//////////////only drop_table function can get from PosgreAdmin application		      
 /*		      drop_table.addItemListener(new ItemListener() {
 		    	  
 		    	    @Override
@@ -279,6 +316,7 @@ public class Frame_of_choice {
 		    	        } 
 		    	    }
 		    	});*/
+/////////////////////////////////////////////////////////////////////////////////////////////////End of action choices.		      
 		      frame.add(contentPanel);
 		      frame.setSize(182,150);
 		
@@ -309,28 +347,36 @@ public class Frame_of_choice {
 	 * This will init the combobox.
 	 */
 	public String init() {
-		
-	    for (int i = 0; i < table_names.size(); i++)
-	      combo_box.addItem(table_names.get(count++));
-	    text_box.setEditable(false);
-//	    select_table.addActionListener(new ActionListener() {
-//	      public void actionPerformed(ActionEvent e) {
-//	        if (count < table_names.size())
-//	          combo_box.addItem(table_names.get(count++));
-//	      }
-//	    });
-	    combo_box.addActionListener(new ActionListener() {
-	      public void actionPerformed(ActionEvent e) {
-	        text_box.setText(""+ ((JComboBox) e.getSource()).getSelectedItem());
-	        table_name=(String) ((JComboBox) e.getSource()).getSelectedItem();
-	      }
-	    });
-	    if (table_name!=""){
-	    	set_table_name(table_name);
-	    	return  table_name;
+		try{
+		    for (int i = 0; i < table_names.size(); i++)
+		      combo_box.addItem(table_names.get(count++));
 	    }
-	    else
-	    	return "";
+		//if the ArrayList of table_names is empty, then it will throw a NullPointerException
+		catch (NullPointerException nullpointer){
+			nullpointer.printStackTrace();
+		}
+		finally{
+		    text_box.setEditable(false);
+	//	    select_table.addActionListener(new ActionListener() {
+	//	      public void actionPerformed(ActionEvent e) {
+	//	        if (count < table_names.size())
+	//	          combo_box.addItem(table_names.get(count++));
+	//	      }
+	//	    });
+		    combo_box.addActionListener(new ActionListener() {
+		      public void actionPerformed(ActionEvent e) {
+		        text_box.setText(""+ ((JComboBox) e.getSource()).getSelectedItem());
+		        table_name=(String) ((JComboBox) e.getSource()).getSelectedItem();
+		      }
+		    });
+		    if (table_name!=""){
+		    	set_table_name(table_name);
+		    	return  table_name;
+		    }
+		    else
+		    	return "";
+		}
+	    
 	  }
 	
 	public void set_table_name(String table_name){
@@ -356,6 +402,7 @@ public class Frame_of_choice {
 	}
 	
 	public void close_frame(){
+		frame.setVisible(false);
 	//if it is a JFrame
 	 	frame.dispose();
 	// if JApplet

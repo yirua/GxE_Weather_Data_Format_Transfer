@@ -1,3 +1,11 @@
+/Users/yiweisun/Public/Drop Box/ny_9106
+/Users/yiweisun/Public/Drop Box/ny_9106/SD201505.SWD
+/Users/yiweisun/Public/Drop Box/ny_9106/SD201506.SWD
+/Users/yiweisun/Public/Drop Box/ny_9106/SD201507.SWD
+/Users/yiweisun/Public/Drop Box/ny_9106/SD201508.SWD
+/Users/yiweisun/Public/Drop Box/ny_9106/SD201509.SWD
+/Users/yiweisun/Public/Drop Box/ny_9106/SD201510.SWD
+/Users/yiweisun/Public/Drop Box/ny_9106/SD201511.SWD
 /Users/yiweisun/Public/Drop Box/weather_stn_0001
 /Users/yiweisun/Public/Drop Box/weather_stn_0001/9086
 /Users/yiweisun/Public/Drop Box/weather_stn_0001/9086/INDEX.SWD
